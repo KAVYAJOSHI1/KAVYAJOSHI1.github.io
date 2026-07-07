@@ -7,7 +7,7 @@
     <title>Kavya Joshi — AI Developer & National Hackathon Champion</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
         rel="stylesheet">
     <style>
         *,
@@ -19,6 +19,7 @@
         }
 
         :root {
+            /* palette (unchanged) */
             --bg: #060910;
             --bg2: #0b1120;
             --surface: rgba(255, 255, 255, 0.03);
@@ -35,8 +36,31 @@
             --text: #f1f5f9;
             --text-secondary: #94a3b8;
             --text-muted: #475569;
+
+            /* typography */
+            --font-display: 'Sora', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            --fs-hero: clamp(2.75rem, 7.5vw, 4.75rem);
+            --fs-h2: clamp(1.875rem, 3.5vw, 2.5rem);
+            --fs-h3: 1.125rem;
+            --fs-h4: 1rem;
+            --fs-stat-num: 2.25rem;
+            --fs-body-lg: 1.125rem;
+            --fs-body: 1rem;
+            --fs-small: 0.9375rem;
+            --fs-label: 0.875rem;
+            --fs-caption: 0.8125rem;
+            --fs-micro: 0.75rem;
+
+            /* layout */
             --radius: 16px;
             --radius-sm: 10px;
+            --radius-pill: 100px;
+            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+            --transition: 0.25s ease;
+            --gap-lg: 22px;
+            --gap-sm: 14px;
         }
 
         html {
@@ -44,11 +68,12 @@
         }
 
         body {
-            font-family: 'DM Sans', sans-serif;
+            font-family: var(--font-body);
             background: var(--bg);
             color: var(--text);
             overflow-x: hidden;
             line-height: 1.65;
+            font-size: var(--fs-body);
         }
 
         /* ─── LOADING ─── */
@@ -164,7 +189,7 @@
             background: rgba(6, 9, 16, 0.75);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
-            transition: box-shadow 0.3s;
+            transition: box-shadow var(--transition);
         }
 
         .navbar.scrolled {
@@ -182,13 +207,13 @@
         .navbar ul li a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.87rem;
+            font-family: var(--font-body);
+            font-size: var(--fs-label);
             font-weight: 500;
             padding: 7px 14px;
             border-radius: 8px;
             border: 1px solid transparent;
-            transition: all 0.2s;
+            transition: all var(--transition);
             display: flex;
             align-items: center;
             gap: 6px;
@@ -221,8 +246,8 @@
         }
 
         .section-title {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-family: var(--font-display);
+            font-size: var(--fs-h2);
             font-weight: 800;
             letter-spacing: -0.03em;
             margin-bottom: 12px;
@@ -233,7 +258,7 @@
 
         .section-subtitle {
             color: var(--text-secondary);
-            font-size: 1.05rem;
+            font-size: var(--fs-body-lg);
             font-weight: 300;
         }
 
@@ -246,12 +271,12 @@
         }
 
         .glass-hover {
-            transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+            transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
         }
 
         .glass-hover:hover {
             border-color: var(--border2);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+            box-shadow: var(--shadow-hover);
             transform: translateY(-3px);
         }
 
@@ -279,8 +304,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 28px;
-            font-family: 'Syne', sans-serif;
+            margin: 0 auto 32px;
+            font-family: var(--font-display);
             font-size: 2rem;
             font-weight: 800;
             color: #fff;
@@ -301,23 +326,24 @@
         }
 
         .hero-content h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(2.8rem, 7vw, 5rem);
+            font-family: var(--font-display);
+            font-size: var(--fs-hero);
             font-weight: 800;
-            letter-spacing: -0.04em;
-            margin-bottom: 16px;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            margin-bottom: 20px;
             background: linear-gradient(135deg, #fff 40%, var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .tagline {
-            font-size: 0.95rem;
+            font-size: var(--fs-caption);
             color: var(--text-secondary);
             font-weight: 400;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -327,19 +353,19 @@
         .tagline-pill {
             background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(6, 182, 212, 0.1));
             border: 1px solid rgba(59, 130, 246, 0.25);
-            border-radius: 100px;
+            border-radius: var(--radius-pill);
             padding: 4px 14px;
-            font-size: 0.82rem;
+            font-size: var(--fs-caption);
             letter-spacing: 0.05em;
             color: var(--accent);
         }
 
         .description {
             color: var(--text-secondary);
-            font-size: 1.1rem;
+            font-size: var(--fs-body-lg);
             font-weight: 300;
             max-width: 600px;
-            margin: 0 auto 36px;
+            margin: 0 auto 40px;
         }
 
         .hero-buttons {
@@ -347,22 +373,27 @@
             gap: 14px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 52px;
+            margin-bottom: 48px;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 13px 28px;
-            border-radius: 10px;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.95rem;
+            padding: 13px 30px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: var(--fs-label);
             font-weight: 500;
             text-decoration: none;
             border: none;
             cursor: pointer;
-            transition: all 0.25s;
+            transition: all var(--transition);
+        }
+
+        .btn-sm {
+            padding: 9px 18px;
+            font-size: var(--fs-caption);
         }
 
         .btn-primary {
@@ -389,8 +420,8 @@
 
         /* Hero Stats */
         .hero-stats {
-            display: flex;
-            gap: 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             justify-content: center;
             background: var(--surface);
             border: 1px solid var(--border);
@@ -401,11 +432,10 @@
         }
 
         .stat {
-            flex: 1;
             padding: 22px 16px;
             text-align: center;
             border-right: 1px solid var(--border);
-            transition: background 0.2s;
+            transition: background var(--transition);
         }
 
         .stat:last-child {
@@ -418,8 +448,8 @@
 
         .stat-number {
             display: block;
-            font-family: 'Syne', sans-serif;
-            font-size: 2rem;
+            font-family: var(--font-display);
+            font-size: var(--fs-stat-num);
             font-weight: 800;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
@@ -427,7 +457,7 @@
         }
 
         .stat-label {
-            font-size: 0.78rem;
+            font-size: var(--fs-caption);
             color: var(--text-muted);
             margin-top: 4px;
             letter-spacing: 0.04em;
@@ -440,7 +470,7 @@
         }
 
         .about-lead {
-            font-size: 1.12rem;
+            font-size: var(--fs-body-lg);
             margin-bottom: 28px;
             line-height: 1.75;
         }
@@ -454,10 +484,10 @@
         }
 
         .about-col h4 {
-            font-family: 'Syne', sans-serif;
+            font-family: var(--font-display);
             font-weight: 700;
-            font-size: 0.95rem;
-            letter-spacing: 0.04em;
+            font-size: var(--fs-h4);
+            letter-spacing: 0.02em;
             margin-bottom: 14px;
             display: flex;
             align-items: center;
@@ -478,7 +508,7 @@
 
         .about-col li {
             color: var(--text-secondary);
-            font-size: 0.92rem;
+            font-size: var(--fs-small);
             margin-bottom: 10px;
             padding-left: 16px;
             position: relative;
@@ -498,7 +528,7 @@
             background: rgba(59, 130, 246, 0.05);
             border-radius: 0 8px 8px 0;
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: var(--fs-body);
             font-style: italic;
         }
 
@@ -506,7 +536,7 @@
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-            gap: 14px;
+            gap: var(--gap-sm);
             margin-top: 16px;
         }
 
@@ -522,18 +552,18 @@
         }
 
         .skill-name {
-            font-size: 0.88rem;
+            font-size: var(--fs-label);
             font-weight: 500;
             margin-bottom: 5px;
         }
 
         .skill-level {
-            font-size: 0.72rem;
+            font-size: var(--fs-micro);
             font-weight: 600;
             letter-spacing: 0.06em;
             text-transform: uppercase;
             padding: 3px 8px;
-            border-radius: 100px;
+            border-radius: var(--radius-pill);
         }
 
         .skill-level.expert {
@@ -556,32 +586,39 @@
             color: var(--text-muted);
         }
 
-        /* Auto-assign levels */
-        .skill-item:nth-child(1) .skill-level::before {
-            content: none;
-        }
-
         /* ─── ACADEMICS ─── */
         .academics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
+            gap: var(--gap-lg);
         }
 
         .academic-card {
             padding: 36px 28px;
             text-align: center;
             border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .academic-icon {
-            font-size: 2rem;
-            margin-bottom: 14px;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 1.5rem;
+            margin: 0 auto 16px;
             color: var(--primary);
         }
 
         .academic-year {
-            font-size: 0.8rem;
+            font-size: var(--fs-caption);
             letter-spacing: 0.08em;
             text-transform: uppercase;
             color: var(--text-muted);
@@ -589,8 +626,8 @@
         }
 
         .academic-score {
-            font-family: 'Syne', sans-serif;
-            font-size: 2.4rem;
+            font-family: var(--font-display);
+            font-size: var(--fs-stat-num);
             font-weight: 800;
             background: linear-gradient(135deg, var(--gold), var(--gold-light));
             -webkit-background-clip: text;
@@ -600,13 +637,7 @@
 
         .academic-school {
             color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .academic-note {
-            font-size: 0.78rem;
-            color: var(--success);
-            margin-top: 4px;
+            font-size: var(--fs-small);
         }
 
         .academic-badge {
@@ -615,16 +646,16 @@
             background: rgba(245, 158, 11, 0.1);
             border: 1px solid rgba(245, 158, 11, 0.2);
             color: var(--gold);
-            border-radius: 100px;
+            border-radius: var(--radius-pill);
             padding: 3px 10px;
-            font-size: 0.75rem;
+            font-size: var(--fs-micro);
         }
 
         /* ─── PROJECTS ─── */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 22px;
+            gap: var(--gap-lg);
         }
 
         .project-card {
@@ -632,6 +663,8 @@
             border-radius: var(--radius);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card::before {
@@ -643,7 +676,7 @@
             height: 3px;
             background: linear-gradient(90deg, var(--primary), var(--accent));
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: opacity var(--transition);
         }
 
         .project-card:hover::before {
@@ -654,7 +687,7 @@
             position: absolute;
             top: 16px;
             right: 16px;
-            font-size: 0.7rem;
+            font-size: var(--fs-micro);
             font-weight: 700;
             letter-spacing: 0.06em;
             text-transform: uppercase;
@@ -666,20 +699,28 @@
         }
 
         .project-icon {
-            font-size: 1.6rem;
-            margin-bottom: 14px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 1.15rem;
+            margin-bottom: 16px;
             color: var(--primary);
         }
 
         .project-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.1rem;
+            font-family: var(--font-display);
+            font-size: var(--fs-h3);
             font-weight: 700;
             margin-bottom: 10px;
         }
 
         .project-description {
-            font-size: 0.9rem;
+            font-size: var(--fs-small);
             color: var(--text-secondary);
             margin-bottom: 18px;
             line-height: 1.65;
@@ -693,7 +734,7 @@
         }
 
         .tech-tag {
-            font-size: 0.73rem;
+            font-size: var(--fs-micro);
             font-weight: 500;
             padding: 3px 9px;
             border-radius: 6px;
@@ -705,10 +746,11 @@
         .project-links {
             display: flex;
             gap: 12px;
+            margin-top: auto;
         }
 
         .project-links a {
-            font-size: 0.83rem;
+            font-size: var(--fs-caption);
             color: var(--text-secondary);
             text-decoration: none;
             display: flex;
@@ -717,7 +759,7 @@
             padding: 6px 12px;
             border-radius: 8px;
             border: 1px solid var(--border);
-            transition: all 0.2s;
+            transition: all var(--transition);
         }
 
         .project-links a:hover {
@@ -729,20 +771,22 @@
         .achievements-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 22px;
+            gap: var(--gap-lg);
         }
 
         .achievement-card {
             padding: 28px;
             border-radius: var(--radius);
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .achievement-badge {
             position: absolute;
             top: -1px;
             right: 20px;
-            font-size: 0.7rem;
+            font-size: var(--fs-micro);
             font-weight: 800;
             letter-spacing: 0.08em;
             text-transform: uppercase;
@@ -784,23 +828,34 @@
 
         .achievement-content {
             padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
 
         .achievement-icon {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 1.15rem;
+            margin-bottom: 16px;
             color: var(--gold);
         }
 
         .achievement-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.1rem;
+            font-family: var(--font-display);
+            font-size: var(--fs-h3);
             font-weight: 700;
             margin-bottom: 8px;
         }
 
         .achievement-description {
-            font-size: 0.9rem;
+            font-size: var(--fs-small);
             color: var(--text-secondary);
             line-height: 1.65;
         }
@@ -809,7 +864,13 @@
         .profiles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 18px;
+            gap: var(--gap-lg);
+        }
+
+        .profiles-grid.compact {
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            max-width: 420px;
+            margin: 0 auto;
         }
 
         .profile-card {
@@ -817,24 +878,132 @@
             text-align: center;
             border-radius: var(--radius);
             cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .profile-icon {
-            font-size: 2.2rem;
-            margin-bottom: 14px;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 1.5rem;
+            margin: 0 auto 16px;
             color: var(--primary);
         }
 
         .profile-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 1rem;
+            font-family: var(--font-display);
+            font-size: var(--fs-h4);
             font-weight: 700;
             margin-bottom: 6px;
         }
 
         .profile-description {
-            font-size: 0.85rem;
+            font-size: var(--fs-small);
             color: var(--text-secondary);
+        }
+
+        /* ─── LEETCODE ─── */
+        .leetcode-card {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .leetcode-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .leetcode-identity {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .leetcode-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid var(--border2);
+            flex-shrink: 0;
+        }
+
+        .leetcode-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .leetcode-name {
+            font-family: var(--font-display);
+            font-size: var(--fs-h4);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .leetcode-meta {
+            font-size: var(--fs-small);
+            color: var(--text-secondary);
+        }
+
+        /* ─── LEETCODE STATS (shared) ─── */
+        .lc-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: var(--gap-sm);
+        }
+
+        .lc-card {
+            padding: 18px 14px;
+            text-align: center;
+            border-radius: var(--radius-sm);
+        }
+
+        .lc-num {
+            font-family: var(--font-display);
+            font-size: 1.9rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .lc-label {
+            font-size: var(--fs-caption);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .lc-easy .lc-num {
+            color: var(--success);
+        }
+
+        .lc-med .lc-num {
+            color: var(--gold);
+        }
+
+        .lc-hard .lc-num {
+            color: #ef4444;
+        }
+
+        .lc-total .lc-num {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* ─── CONTACT ─── */
@@ -850,7 +1019,7 @@
 
         .form-group label {
             display: block;
-            font-size: 0.87rem;
+            font-size: var(--fs-label);
             font-weight: 500;
             color: var(--text-secondary);
             margin-bottom: 8px;
@@ -867,11 +1036,11 @@
             padding: 13px 16px;
             background: var(--surface2);
             border: 1px solid var(--border);
-            border-radius: 10px;
+            border-radius: var(--radius-sm);
             color: var(--text);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.95rem;
-            transition: border-color 0.2s;
+            font-family: var(--font-body);
+            font-size: var(--fs-body);
+            transition: border-color var(--transition);
             outline: none;
         }
 
@@ -908,7 +1077,7 @@
         .footer-social a {
             width: 42px;
             height: 42px;
-            border-radius: 10px;
+            border-radius: var(--radius-sm);
             background: var(--surface2);
             border: 1px solid var(--border);
             display: flex;
@@ -917,7 +1086,7 @@
             color: var(--text-secondary);
             font-size: 1rem;
             text-decoration: none;
-            transition: all 0.2s;
+            transition: all var(--transition);
         }
 
         .footer-social a:hover {
@@ -929,7 +1098,7 @@
 
         .footer p {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: var(--fs-small);
             margin-bottom: 6px;
         }
 
@@ -979,53 +1148,6 @@
             transition-delay: 0.32s;
         }
 
-        /* ─── LEETCODE STATS ─── */
-        .lc-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 14px;
-            margin-top: 24px;
-        }
-
-        .lc-card {
-            padding: 22px 16px;
-            text-align: center;
-            border-radius: var(--radius-sm);
-        }
-
-        .lc-num {
-            font-family: 'Syne', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 800;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .lc-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-
-        .lc-easy .lc-num {
-            color: var(--success);
-        }
-
-        .lc-med .lc-num {
-            color: var(--gold);
-        }
-
-        .lc-hard .lc-num {
-            color: #ef4444;
-        }
-
-        .lc-total .lc-num {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
         /* ─── SECTION DIVIDER ─── */
         .divider {
             width: 60px;
@@ -1058,16 +1180,46 @@
                 grid-template-columns: 1fr;
             }
 
-            .hero-stats .stat {
-                padding: 16px 10px;
-            }
-
             .about-content {
                 padding: 24px;
             }
 
             .contact-form {
                 padding: 24px;
+            }
+
+            .leetcode-card {
+                padding: 24px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat {
+                border-right: 1px solid var(--border);
+                border-bottom: 1px solid var(--border);
+            }
+
+            .stat:nth-child(2n) {
+                border-right: none;
+            }
+
+            .stat:nth-child(3),
+            .stat:nth-child(4) {
+                border-bottom: none;
+            }
+
+            .leetcode-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .leetcode-top .btn {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -1092,6 +1244,7 @@
             <li><a href="#academics"><i class="fas fa-graduation-cap"></i> Academics</a></li>
             <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
             <li><a href="#achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
+            <li><a href="#leetcode"><i class="fas fa-square-root-variable"></i> LeetCode</a></li>
             <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
         </ul>
     </nav>
@@ -1287,7 +1440,7 @@
 
         <div class="projects-grid">
 
-            <!-- VeriCred – NEW -->
+            <!-- VeriCred -->
             <div class="project-card glass glass-hover animate-on-scroll">
                 <div class="project-badge">🔐 ZKML</div>
                 <div class="project-icon"><i class="fas fa-lock"></i></div>
@@ -1334,7 +1487,7 @@
                 </div>
             </div>
 
-            <!-- LocalMinds – NEW -->
+            <!-- LocalMinds -->
             <div class="project-card glass glass-hover animate-on-scroll">
                 <div class="project-badge">🤖 On-Device AI</div>
                 <div class="project-icon"><i class="fas fa-brain"></i></div>
@@ -1356,7 +1509,7 @@
                 </div>
             </div>
 
-            <!-- GeoAnushasan – NEW -->
+            <!-- GeoAnushasan -->
             <div class="project-card glass glass-hover animate-on-scroll">
                 <div class="project-badge">🌆 Digital Twin</div>
                 <div class="project-icon"><i class="fas fa-city"></i></div>
@@ -1593,14 +1746,6 @@
             </div>
 
         </div>
-
-        <!-- GitHub section placeholder -->
-        <div class="section-header animate-on-scroll" style="margin-top: 80px; margin-bottom: 40px;">
-            <p class="section-subtitle">Latest from GitHub</p>
-        </div>
-        <div class="projects-grid more-projects-grid">
-            <!-- Dynamic Projects will be injected here -->
-        </div>
     </section>
 
     <!-- ──────────────── ACHIEVEMENTS ──────────────── -->
@@ -1614,7 +1759,7 @@
 
         <div class="achievements-grid">
 
-            <!-- PIERC Grant – NEW -->
+            <!-- PIERC Grant -->
             <div class="achievement-card glass glass-hover animate-on-scroll">
                 <div class="achievement-badge badge-winner">Grant Winner</div>
                 <div class="achievement-content">
@@ -1641,7 +1786,7 @@
                 </div>
             </div>
 
-            <!-- Ingenium 2026 – NEW -->
+            <!-- Ingenium 2026 -->
             <div class="achievement-card glass glass-hover animate-on-scroll">
                 <div class="achievement-badge badge-finalist">Finalist</div>
                 <div class="achievement-content">
@@ -1737,7 +1882,7 @@
                 </div>
             </div>
 
-            <!-- Parul Ideathon – NEW -->
+            <!-- Parul Ideathon -->
             <div class="achievement-card glass glass-hover animate-on-scroll">
                 <div class="achievement-badge badge-finalist">Finalist</div>
                 <div class="achievement-content">
@@ -1763,28 +1908,6 @@
                         Selected as a <strong>State-level Finalist</strong> for designing high-impact software utility
                         systems (UrjaSetu). Competed at the state government's premier startup and innovation platform.
                     </p>
-                </div>
-            </div>
-
-            <!-- LeetCode -->
-            <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-prof">Expert</div>
-                <div class="achievement-content">
-                    <div class="achievement-icon"><i class="fas fa-code"></i></div>
-                    <h3 class="achievement-title">LeetCode Expert — Top 2.5% Global Rank</h3>
-                    <p class="achievement-description">
-                        Solved <strong>601 problems</strong>. Performance beats <strong>98.8% on Hard</strong>, <strong>96.5% on Medium</strong>, and <strong>96.29% on Easy</strong>. Elite proficiency in Dynamic Programming and algorithmic optimization.
-                    </p>
-                    <div class="lc-stats">
-                        <div class="lc-card glass lc-hard"><span class="lc-num">148</span><span
-                                class="lc-label">Hard</span></div>
-                        <div class="lc-card glass lc-med"><span class="lc-num">282</span><span
-                                class="lc-label">Medium</span></div>
-                        <div class="lc-card glass lc-easy"><span class="lc-num">171</span><span
-                                class="lc-label">Easy</span></div>
-                        <div class="lc-card glass lc-total"><span class="lc-num">601</span><span
-                                class="lc-label">Total</span></div>
-                    </div>
                 </div>
             </div>
 
@@ -1815,8 +1938,38 @@
                 </div>
             </div>
 
+        </div>
+    </section>
 
+    <!-- ──────────────── LEETCODE ──────────────── -->
+    <section id="leetcode" class="section">
+        <div class="section-header animate-on-scroll">
+            <h2 class="section-title">LeetCode</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle" style="margin-top:16px;">Competitive programming track record</p>
+        </div>
 
+        <div class="leetcode-card glass glass-hover animate-on-scroll">
+            <div class="leetcode-top">
+                <div class="leetcode-identity">
+                    <div class="leetcode-avatar">
+                        <img src="Certificates/LEETCODE.png" alt="LeetCode">
+                    </div>
+                    <div>
+                        <h3 class="leetcode-name">Top 2.5% Global Rank</h3>
+                        <p class="leetcode-meta">601 problems solved · beats 98.8% on Hard</p>
+                    </div>
+                </div>
+                <a href="https://leetcode.com/u/JoshiKavya/" target="_blank" class="btn btn-secondary btn-sm">
+                    <i class="fas fa-arrow-up-right-from-square"></i> View Profile
+                </a>
+            </div>
+            <div class="lc-stats">
+                <div class="lc-card glass lc-easy"><span class="lc-num">171</span><span class="lc-label">Easy</span></div>
+                <div class="lc-card glass lc-med"><span class="lc-num">282</span><span class="lc-label">Medium</span></div>
+                <div class="lc-card glass lc-hard"><span class="lc-num">148</span><span class="lc-label">Hard</span></div>
+                <div class="lc-card glass lc-total"><span class="lc-num">601</span><span class="lc-label">Total</span></div>
+            </div>
         </div>
     </section>
 
@@ -1827,7 +1980,7 @@
             <div class="divider"></div>
             <p class="section-subtitle" style="margin-top:16px;">Find me across different platforms</p>
         </div>
-        <div class="profiles-grid">
+        <div class="profiles-grid compact">
             <div class="profile-card glass glass-hover animate-on-scroll"
                 onclick="window.open('https://www.linkedin.com/in/kavya-joshi-3765742b0', '_blank')">
                 <div class="profile-icon"><i class="fab fa-linkedin" style="color:#0a66c2"></i></div>
@@ -1840,23 +1993,6 @@
                 <div class="profile-icon"><i class="fab fa-github"></i></div>
                 <h3 class="profile-title">GitHub</h3>
                 <p class="profile-description">Code repositories and open source projects</p>
-            </div>
-
-            <div class="profile-card glass glass-hover animate-on-scroll"
-                onclick="window.open('https://leetcode.com/u/JoshiKavya/', '_blank')">
-                <div class="profile-icon">
-                    <img src="Certificates/LEETCODE.png" style="width:50px;height:50px;border-radius:50%;"
-                        alt="LeetCode">
-                </div>
-                <h3 class="profile-title">LeetCode</h3>
-                <p class="profile-description">Competitive programming and problem solving</p>
-            </div>
-
-            <div class="profile-card glass glass-hover animate-on-scroll"
-                onclick="alert('Codeforces profile coming soon!')">
-                <div class="profile-icon"><i class="fas fa-terminal" style="color:var(--accent2)"></i></div>
-                <h3 class="profile-title">Codeforces</h3>
-                <p class="profile-description">Algorithm contests and competitive coding</p>
             </div>
         </div>
     </section>
