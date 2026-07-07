@@ -5,10 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kavya Joshi — AI Developer & National Hackathon Champion</title>
+    <meta name="description"
+        content="Kavya Joshi — B.Tech CSE student, AI/ML &amp; blockchain developer, and multi-time national hackathon champion (SIH 2025, DRDO Sampada, Breach FinTech). LeetCode Expert, Top 2.5% globally.">
+    <meta name="theme-color" content="#060910">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%233b82f6'/%3E%3Cstop%20offset='0.55'%20stop-color='%23a78bfa'/%3E%3Cstop%20offset='1'%20stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='100'%20height='100'%20rx='26'%20fill='url(%23g)'/%3E%3Ctext%20x='50'%20y='66'%20font-family='Arial,sans-serif'%20font-size='42'%20font-weight='800'%20fill='white'%20text-anchor='middle'%3EKJ%3C/text%3E%3C/svg%3E">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kavya Joshi — AI Developer & National Hackathon Champion">
+    <meta property="og:description"
+        content="B.Tech CSE student specializing in Scalable AI Pipelines and Decentralized Infrastructure. Multi-time national hackathon champion and LeetCode Expert, Top 2.5% globally.">
+    <meta property="og:url" content="https://kavyajoshi1.github.io/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Kavya Joshi — AI Developer & National Hackathon Champion">
+    <meta name="twitter:description"
+        content="B.Tech CSE student specializing in Scalable AI Pipelines and Decentralized Infrastructure. Multi-time national hackathon champion and LeetCode Expert, Top 2.5% globally.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Kavya Joshi",
+        "jobTitle": "AI/ML & Blockchain Developer",
+        "url": "https://kavyajoshi1.github.io/",
+        "sameAs": [
+            "https://www.linkedin.com/in/kavya-joshi-3765742b0",
+            "https://github.com/KAVYAJOSHI1",
+            "https://leetcode.com/u/JoshiKavya/"
+        ],
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "GLS University"
+        }
+    }
+    </script>
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
         rel="stylesheet">
+    <noscript>
+        <style>
+            .animate-on-scroll {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
+    </noscript>
     <style>
         *,
         *::before,
@@ -245,6 +288,27 @@
             margin-bottom: 60px;
         }
 
+        .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: var(--fs-caption);
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        .section-eyebrow::before,
+        .section-eyebrow::after {
+            content: '';
+            width: 22px;
+            height: 1px;
+            background: var(--accent);
+            opacity: 0.5;
+        }
+
         .section-title {
             font-family: var(--font-display);
             font-size: var(--fs-h2);
@@ -296,32 +360,65 @@
             max-width: 780px;
         }
 
-        .hero-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+        .hero-logo {
+            position: relative;
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-logo-mark {
+            width: 100%;
+            height: 100%;
+            border-radius: 26px;
+            background: linear-gradient(135deg, var(--primary), var(--accent2) 55%, var(--accent));
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 32px;
             font-family: var(--font-display);
-            font-size: 2rem;
+            font-size: 2.1rem;
             font-weight: 800;
+            letter-spacing: -0.02em;
             color: #fff;
-            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2), 0 0 0 8px rgba(59, 130, 246, 0.08);
+            position: relative;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.16), 0 0 0 8px rgba(59, 130, 246, 0.06), 0 20px 40px -14px rgba(59, 130, 246, 0.6);
             animation: pulse-ring 3s ease-in-out infinite;
+        }
+
+        .hero-logo-mark::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .hero-logo-tag {
+            position: absolute;
+            bottom: -8px;
+            right: -8px;
+            width: 34px;
+            height: 34px;
+            border-radius: 11px;
+            background: var(--bg2);
+            border: 1px solid var(--border2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 0.85rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
         }
 
         @keyframes pulse-ring {
 
             0%,
             100% {
-                box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2), 0 0 0 8px rgba(59, 130, 246, 0.08);
+                box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.16), 0 0 0 8px rgba(59, 130, 246, 0.06), 0 20px 40px -14px rgba(59, 130, 246, 0.6);
             }
 
             50% {
-                box-shadow: 0 0 0 8px rgba(59, 130, 246, 0.15), 0 0 0 16px rgba(59, 130, 246, 0.05);
+                box-shadow: 0 0 0 8px rgba(59, 130, 246, 0.12), 0 0 0 16px rgba(59, 130, 246, 0.04), 0 20px 40px -14px rgba(59, 130, 246, 0.6);
             }
         }
 
@@ -331,10 +428,20 @@
             font-weight: 800;
             letter-spacing: -0.03em;
             line-height: 1.05;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #fff 40%, var(--accent));
+        }
+
+        .hero-content h1 .name-light {
+            color: #f8fafc;
+        }
+
+        .hero-content h1 .name-accent {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content .divider {
+            margin: 22px auto 24px;
         }
 
         .tagline {
@@ -400,6 +507,24 @@
             background: linear-gradient(135deg, var(--primary), var(--accent));
             color: #fff;
             box-shadow: 0 4px 24px rgba(59, 130, 246, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.6s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 125%;
         }
 
         .btn-primary:hover {
@@ -436,6 +561,10 @@
             text-align: center;
             border-right: 1px solid var(--border);
             transition: background var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .stat:last-child {
@@ -447,19 +576,28 @@
         }
 
         .stat-number {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 2.1rem;
             font-family: var(--font-display);
-            font-size: var(--fs-stat-num);
+            font-size: clamp(1.4rem, 2.4vw, 2rem);
             font-weight: 800;
+            line-height: 1.1;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .stat-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 2.5em;
             font-size: var(--fs-caption);
             color: var(--text-muted);
-            margin-top: 4px;
+            margin-top: 6px;
+            line-height: 1.3;
             letter-spacing: 0.04em;
         }
 
@@ -534,21 +672,44 @@
 
         /* ─── SKILLS ─── */
         .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: var(--gap-sm);
             margin-top: 16px;
         }
 
+        .skills-grid .skill-item {
+            flex: 1 1 130px;
+            max-width: 160px;
+        }
+
         .skill-item {
-            padding: 22px 14px;
+            padding: 24px 14px;
             text-align: center;
             border-radius: var(--radius-sm);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .skill-icon {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            transition: transform var(--transition), border-color var(--transition);
+        }
+
+        .skill-item:hover .skill-icon {
+            transform: translateY(-2px);
+            border-color: var(--border2);
         }
 
         .skill-name {
@@ -588,12 +749,15 @@
 
         /* ─── ACADEMICS ─── */
         .academics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: var(--gap-lg);
         }
 
         .academic-card {
+            flex: 1 1 240px;
+            max-width: 340px;
             padding: 36px 28px;
             text-align: center;
             border-radius: var(--radius);
@@ -653,12 +817,15 @@
 
         /* ─── PROJECTS ─── */
         .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: var(--gap-lg);
         }
 
         .project-card {
+            flex: 1 1 340px;
+            max-width: 400px;
             padding: 28px;
             border-radius: var(--radius);
             position: relative;
@@ -716,7 +883,13 @@
             font-family: var(--font-display);
             font-size: var(--fs-h3);
             font-weight: 700;
+            line-height: 1.35;
+            min-height: 2.7em;
             margin-bottom: 10px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
         }
 
         .project-description {
@@ -724,6 +897,11 @@
             color: var(--text-secondary);
             margin-bottom: 18px;
             line-height: 1.65;
+            min-height: 8.25em;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 5;
+            overflow: hidden;
         }
 
         .tech-stack {
@@ -749,16 +927,20 @@
             margin-top: auto;
         }
 
-        .project-links a {
+        .project-links a,
+        .project-links .badge-tag {
             font-size: var(--fs-caption);
-            color: var(--text-secondary);
-            text-decoration: none;
             display: flex;
             align-items: center;
             gap: 5px;
             padding: 6px 12px;
             border-radius: 8px;
             border: 1px solid var(--border);
+        }
+
+        .project-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
             transition: all var(--transition);
         }
 
@@ -767,19 +949,43 @@
             color: var(--primary);
         }
 
+        .project-links .badge-tag {
+            cursor: default;
+        }
+
         /* ─── ACHIEVEMENTS ─── */
         .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: var(--gap-lg);
         }
 
         .achievement-card {
+            flex: 1 1 320px;
+            max-width: 380px;
             padding: 28px;
             border-radius: var(--radius);
+            border-left: 3px solid transparent;
             position: relative;
             display: flex;
             flex-direction: column;
+        }
+
+        .achievement-card:has(.badge-winner) {
+            border-left-color: var(--gold);
+        }
+
+        .achievement-card:has(.badge-finalist) {
+            border-left-color: var(--primary);
+        }
+
+        .achievement-card:has(.badge-prof) {
+            border-left-color: var(--success);
+        }
+
+        .achievement-card:has(.badge-2x) {
+            border-left-color: var(--accent2);
         }
 
         .achievement-badge {
@@ -814,18 +1020,6 @@
             color: #fff;
         }
 
-        .achievement-image-container {
-            margin: 0 -28px;
-        }
-
-        .achievement-image {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-            display: block;
-            border-radius: 0;
-        }
-
         .achievement-content {
             padding-top: 20px;
             display: flex;
@@ -851,13 +1045,24 @@
             font-family: var(--font-display);
             font-size: var(--fs-h3);
             font-weight: 700;
+            line-height: 1.35;
+            min-height: 2.7em;
             margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
         }
 
         .achievement-description {
             font-size: var(--fs-small);
             color: var(--text-secondary);
             line-height: 1.65;
+            min-height: 8.25em;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 5;
+            overflow: hidden;
         }
 
         /* ─── PROFILES ─── */
@@ -882,6 +1087,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            text-decoration: none;
+            color: inherit;
         }
 
         .profile-icon {
@@ -932,20 +1139,18 @@
             gap: 16px;
         }
 
-        .leetcode-avatar {
+        .leetcode-icon {
             width: 52px;
             height: 52px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 1px solid var(--border2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 1.5rem;
+            color: var(--primary);
             flex-shrink: 0;
-        }
-
-        .leetcode-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
         }
 
         .leetcode-name {
@@ -1056,6 +1261,40 @@
 
         .form-submit {
             text-align: center;
+        }
+
+        /* ─── BACK TO TOP ─── */
+        .back-to-top {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+            z-index: 900;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
         }
 
         /* ─── FOOTER ─── */
@@ -1172,12 +1411,11 @@
                 grid-template-columns: 1fr;
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .achievements-grid {
-                grid-template-columns: 1fr;
+            .project-card,
+            .achievement-card,
+            .academic-card {
+                flex-basis: 100%;
+                max-width: 100%;
             }
 
             .about-content {
@@ -1222,6 +1460,19 @@
                 justify-content: center;
             }
         }
+
+        /* ─── REDUCED MOTION ─── */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
     </style>
 </head>
 
@@ -1252,14 +1503,18 @@
     <!-- ──────────────── HERO ──────────────── -->
     <section id="home">
         <div class="hero-content">
-            <div class="hero-avatar">KJ</div>
-            <h1>Kavya Joshi</h1>
+            <div class="hero-logo">
+                <span class="hero-logo-mark">KJ</span>
+                <span class="hero-logo-tag"><i class="fas fa-code"></i></span>
+            </div>
+            <h1><span class="name-light">Kavya</span> <span class="name-accent">Joshi</span></h1>
+            <div class="divider"></div>
 
             <div class="tagline">
                 <span class="tagline-pill">🏆 SIH '25 National Winner</span>
-                <span class="tagline-pill">🚀 Ingenium 2026 Finalist</span>
+                <span class="tagline-pill">🥇 DRDO Sampada 2025 Winner</span>
+                <span class="tagline-pill">🚀 Founder — CarbonVerse</span>
                 <span class="tagline-pill">⚡ LeetCode Expert — Top 2.5%</span>
-                <span class="tagline-pill">🔗 AI & Blockchain Dev</span>
             </div>
 
             <p class="description">
@@ -1272,7 +1527,7 @@
                 <a href="#projects" class="btn btn-primary">
                     <i class="fas fa-code"></i> Explore Projects
                 </a>
-                <a href="Kavya_Joshi_Resume.pdf" target="_blank" class="btn btn-secondary">
+                <a href="Kavya_Joshi_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                     <i class="fas fa-file-alt"></i> View CV
                 </a>
             </div>
@@ -1301,6 +1556,7 @@
     <!-- ──────────────── ABOUT ──────────────── -->
     <section id="about" class="section">
         <div class="section-header animate-on-scroll">
+            <span class="section-eyebrow">01</span>
             <h2 class="section-title">About Me</h2>
             <div class="divider"></div>
             <p class="section-subtitle" style="margin-top: 16px;">Passionate developer with a mission to innovate and
@@ -1401,6 +1657,7 @@
     <!-- ──────────────── ACADEMICS ──────────────── -->
     <section id="academics" class="section">
         <div class="section-header animate-on-scroll">
+            <span class="section-eyebrow">02</span>
             <h2 class="section-title">Academic Excellence</h2>
             <div class="divider"></div>
             <p class="section-subtitle" style="margin-top:16px;">A journey of continuous learning and achievement</p>
@@ -1432,6 +1689,7 @@
     <!-- ──────────────── PROJECTS ──────────────── -->
     <section id="projects" class="section">
         <div class="section-header animate-on-scroll">
+            <span class="section-eyebrow">03</span>
             <h2 class="section-title">Featured Projects</h2>
             <div class="divider"></div>
             <p class="section-subtitle" style="margin-top:16px;">Innovative solutions that showcase my technical
@@ -1458,9 +1716,8 @@
                     <span class="tech-tag">Web3.js</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    <a href="#" onclick="return false;" style="cursor:default;color:var(--accent2);"><i
-                            class="fas fa-shield-alt"></i> Ingenium Finalist</a>
+                    <span class="badge-tag" style="color:var(--text-muted);"><i
+                            class="fas fa-lock"></i> Private Repo</span>
                 </div>
             </div>
 
@@ -1483,7 +1740,7 @@
                     <span class="tech-tag">MCP</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <a href="https://github.com/KAVYAJOSHI1/L3M" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
                 </div>
             </div>
 
@@ -1505,7 +1762,7 @@
                     <span class="tech-tag">Python</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <a href="https://github.com/KAVYAJOSHI1/LOCALMINDS" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
                 </div>
             </div>
 
@@ -1527,7 +1784,9 @@
                     <span class="tech-tag">Firebase</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <a href="https://github.com/KAVYAJOSHI1/GeoAnushasan" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                    <span class="badge-tag" style="color:var(--accent2);"><i
+                            class="fas fa-shield-alt"></i> Ingenium Finalist</span>
                 </div>
             </div>
 
@@ -1548,9 +1807,9 @@
                     <span class="tech-tag">Cloud Integration</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    <a href="#" onclick="return false;" style="cursor:default;color:var(--gold);"><i
-                            class="fas fa-trophy"></i> SIH Winner</a>
+                    <a href="https://github.com/KAVYAJOSHI1/CoastScan" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                    <span class="badge-tag" style="color:var(--gold);"><i
+                            class="fas fa-trophy"></i> SIH Winner</span>
                 </div>
             </div>
 
@@ -1570,7 +1829,7 @@
                     <span class="tech-tag">Hugging Face</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <a href="https://github.com/KAVYAJOSHI1/Greenwashing-Detector" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
                 </div>
             </div>
 
@@ -1593,9 +1852,9 @@
                     <span class="tech-tag">TensorFlow</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    <a href="#" onclick="return false;" style="cursor:default;color:var(--gold);"><i
-                            class="fas fa-trophy"></i> 1st Place (Winner)</a>
+                    <a href="https://github.com/KAVYAJOSHI1/AI-Powered-Fraud-Detection-System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                    <span class="badge-tag" style="color:var(--gold);"><i
+                            class="fas fa-trophy"></i> 1st Place (Winner)</span>
                 </div>
             </div>
 
@@ -1616,7 +1875,7 @@
                     <span class="tech-tag">SQLAlchemy</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <a href="https://github.com/KAVYAJOSHI1/flash-mentor" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
                 </div>
             </div>
 
@@ -1637,7 +1896,7 @@
                     <span class="tech-tag">Firebase Auth</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <a href="https://github.com/KAVYAJOSHI1/TRIBEKART" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
                 </div>
             </div>
 
@@ -1657,7 +1916,7 @@
                     <span class="tech-tag">SMTP</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <a href="https://github.com/KAVYAJOSHI1/ANANTAM_WEBSITE" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
                 </div>
             </div>
 
@@ -1678,9 +1937,34 @@
                     <span class="tech-tag">MQTT</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    <a href="#" onclick="return false;" style="cursor:default;color:var(--gold);"><i
-                            class="fas fa-award"></i> DRDO Winner</a>
+                    <a href="https://github.com/KAVYAJOSHI1/IoT-Security-Solution" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                    <span class="badge-tag" style="color:var(--gold);"><i
+                            class="fas fa-award"></i> DRDO Winner</span>
+                </div>
+            </div>
+
+            <!-- Sentinel GEC -->
+            <div class="project-card glass glass-hover animate-on-scroll">
+                <div class="project-badge">🎥 Hack.X '26</div>
+                <div class="project-icon"><i class="fas fa-video"></i></div>
+                <h3 class="project-title">Sentinel GEC — AI Retail Theft Detection System</h3>
+                <p class="project-description">
+                    AI-powered retail security system that cross-references live video feeds with POS transaction
+                    logs. Uses computer vision to detect theft, unauthorized cash drawer access, and suspicious
+                    gestures, anchoring high-value alerts on the Sepolia Ethereum testnet for immutable audit
+                    integrity.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Computer Vision</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Blockchain</span>
+                    <span class="tech-tag">Ethereum Sepolia</span>
+                    <span class="tech-tag">POS Integration</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/KAVYAJOSHI1/GEC" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                    <span class="badge-tag" style="color:var(--accent2);"><i
+                            class="fas fa-award"></i> Top 12 Finalist</span>
                 </div>
             </div>
 
@@ -1699,9 +1983,9 @@
                     <span class="tech-tag">REST API</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    <a href="#" onclick="return false;" style="cursor:default;color:var(--accent2);"><i
-                            class="fas fa-award"></i> SSIP Finalist</a>
+                    <a href="https://github.com/KAVYAJOSHI1/UrjaSetu-GUVNL-Platform" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                    <span class="badge-tag" style="color:var(--accent2);"><i
+                            class="fas fa-award"></i> SSIP Finalist</span>
                 </div>
             </div>
 
@@ -1721,7 +2005,7 @@
                     <span class="tech-tag">Sepolia Testnet</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <a href="https://github.com/KAVYAJOSHI1/MilletSetu-Blockchain" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
                 </div>
             </div>
 
@@ -1741,7 +2025,32 @@
                     <span class="tech-tag">Flask</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <a href="https://github.com/KAVYAJOSHI1/IC-SCANNER" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                </div>
+            </div>
+
+            <!-- ERP -->
+            <div class="project-card glass glass-hover animate-on-scroll">
+                <div class="project-badge">🏭 Enterprise ERP</div>
+                <div class="project-icon"><i class="fas fa-industry"></i></div>
+                <h3 class="project-title">Smart Manufacturing ERP & Supply Chain Platform</h3>
+                <p class="project-description">
+                    Enterprise-grade, event-driven microservices ERP for manufacturing, procurement, inventory, and
+                    finance. Go services (auth, inventory, procurement, finance) coordinated via a Kafka transactional
+                    outbox pattern, a Node.js API gateway with RBAC and Redis-backed rate limiting, and full
+                    observability via Prometheus, Grafana, and Loki.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Go</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">Kafka</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Redis</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/KAVYAJOSHI1/ERP" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
                 </div>
             </div>
 
@@ -1751,6 +2060,7 @@
     <!-- ──────────────── ACHIEVEMENTS ──────────────── -->
     <section id="achievements" class="section">
         <div class="section-header animate-on-scroll">
+            <span class="section-eyebrow">04</span>
             <h2 class="section-title">Achievements & Recognition</h2>
             <div class="divider"></div>
             <p class="section-subtitle" style="margin-top:16px;">National-level victories and professional milestones in
@@ -1794,8 +2104,8 @@
                     <h3 class="achievement-title">Ingenious Hackathon 7.0 — Ingenium 2026</h3>
                     <p class="achievement-description">
                         Recognized as a <strong>Finalist</strong> at this prestigious event held at Ahmedabad
-                        University. Awarded for innovation and technical resilience in developing VeriCred, a
-                        ZKML-powered decentralized credit scoring system.
+                        University. Awarded for innovation and technical resilience in developing GeoAnushasan, a
+                        decentralized Digital Twin platform for smart city governance.
                     </p>
                 </div>
             </div>
@@ -1803,9 +2113,6 @@
             <!-- DRDO -->
             <div class="achievement-card glass glass-hover animate-on-scroll">
                 <div class="achievement-badge badge-winner">Winner</div>
-                <div class="achievement-image-container">
-                    <img src="Certificates/DRDO.jpeg" alt="DRDO Winner" class="achievement-image">
-                </div>
                 <div class="achievement-content">
                     <div class="achievement-icon"><i class="fas fa-user-shield"></i></div>
                     <h3 class="achievement-title">DRDO DIA-SVPCoE Hackathon 'Sampada 2025'</h3>
@@ -1820,9 +2127,6 @@
             <!-- Breach 2025 & PDEU -->
             <div class="achievement-card glass glass-hover animate-on-scroll">
                 <div class="achievement-badge badge-winner">1st Place (Winner)</div>
-                <div class="achievement-image-container">
-                    <img src="Certificates/PDEU%20WINNING.jpeg" alt="PDEU Hackathon Winner" class="achievement-image">
-                </div>
                 <div class="achievement-content">
                     <div class="achievement-icon"><i class="fas fa-medal"></i></div>
                     <h3 class="achievement-title">Breach 2025 FinTech Hackathon, PDEU</h3>
@@ -1898,9 +2202,6 @@
             <!-- SSIP Gujarat Hackathon 2025 -->
             <div class="achievement-card glass glass-hover animate-on-scroll">
                 <div class="achievement-badge badge-finalist">State Finalist</div>
-                <div class="achievement-image-container">
-                    <img src="Certificates/VIKAS_SAPTAH.png" alt="SSIP Gujarat Hackathon 2025" class="achievement-image">
-                </div>
                 <div class="achievement-content">
                     <div class="achievement-icon"><i class="fas fa-award"></i></div>
                     <h3 class="achievement-title">SSIP Gujarat Hackathon 2025</h3>
@@ -1944,6 +2245,7 @@
     <!-- ──────────────── LEETCODE ──────────────── -->
     <section id="leetcode" class="section">
         <div class="section-header animate-on-scroll">
+            <span class="section-eyebrow">05</span>
             <h2 class="section-title">LeetCode</h2>
             <div class="divider"></div>
             <p class="section-subtitle" style="margin-top:16px;">Competitive programming track record</p>
@@ -1952,15 +2254,13 @@
         <div class="leetcode-card glass glass-hover animate-on-scroll">
             <div class="leetcode-top">
                 <div class="leetcode-identity">
-                    <div class="leetcode-avatar">
-                        <img src="Certificates/LEETCODE.png" alt="LeetCode">
-                    </div>
+                    <div class="leetcode-icon"><i class="fas fa-square-root-variable"></i></div>
                     <div>
                         <h3 class="leetcode-name">Top 2.5% Global Rank</h3>
                         <p class="leetcode-meta">601 problems solved · beats 98.8% on Hard</p>
                     </div>
                 </div>
-                <a href="https://leetcode.com/u/JoshiKavya/" target="_blank" class="btn btn-secondary btn-sm">
+                <a href="https://leetcode.com/u/JoshiKavya/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
                     <i class="fas fa-arrow-up-right-from-square"></i> View Profile
                 </a>
             </div>
@@ -1976,30 +2276,32 @@
     <!-- ──────────────── CONNECT ──────────────── -->
     <section class="section">
         <div class="section-header animate-on-scroll">
+            <span class="section-eyebrow">06</span>
             <h2 class="section-title">Connect With Me</h2>
             <div class="divider"></div>
             <p class="section-subtitle" style="margin-top:16px;">Find me across different platforms</p>
         </div>
         <div class="profiles-grid compact">
-            <div class="profile-card glass glass-hover animate-on-scroll"
-                onclick="window.open('https://www.linkedin.com/in/kavya-joshi-3765742b0', '_blank')">
+            <a href="https://www.linkedin.com/in/kavya-joshi-3765742b0" target="_blank" rel="noopener noreferrer"
+                class="profile-card glass glass-hover animate-on-scroll">
                 <div class="profile-icon"><i class="fab fa-linkedin" style="color:#0a66c2"></i></div>
                 <h3 class="profile-title">LinkedIn</h3>
                 <p class="profile-description">Professional networking and career updates</p>
-            </div>
+            </a>
 
-            <div class="profile-card glass glass-hover animate-on-scroll"
-                onclick="window.open('https://github.com/KAVYAJOSHI1', '_blank')">
+            <a href="https://github.com/KAVYAJOSHI1" target="_blank" rel="noopener noreferrer"
+                class="profile-card glass glass-hover animate-on-scroll">
                 <div class="profile-icon"><i class="fab fa-github"></i></div>
                 <h3 class="profile-title">GitHub</h3>
                 <p class="profile-description">Code repositories and open source projects</p>
-            </div>
+            </a>
         </div>
     </section>
 
     <!-- ──────────────── CONTACT ──────────────── -->
     <section id="contact" class="section">
         <div class="section-header animate-on-scroll">
+            <span class="section-eyebrow">07</span>
             <h2 class="section-title">Let's Build Something Amazing</h2>
             <div class="divider"></div>
             <p class="section-subtitle" style="margin-top:16px;">Ready to collaborate? Drop me a message!</p>
@@ -2034,18 +2336,22 @@
     <footer class="footer">
         <div class="footer-content animate-on-scroll">
             <div class="footer-social">
-                <a href="https://www.linkedin.com/in/kavya-joshi-3765742b0" target="_blank" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/kavya-joshi-3765742b0" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://github.com/KAVYAJOSHI1" target="_blank" title="GitHub">
+                <a href="https://github.com/KAVYAJOSHI1" target="_blank" rel="noopener noreferrer" title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="/cdn-cgi/l/email-protection#0a616b7c736b60657962633b3f383a3a3f4a6d676b636624696567"
+                <a href="mailto:kavyajoshi152005@gmail.com"
                     title="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
                 <a href="tel:+919664518705" title="Call">
                     <i class="fas fa-phone"></i>
+                </a>
+                <a href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0D%0AVERSION%3A3.0%0D%0AN%3AJoshi%3BKavya%3B%3B%3B%0D%0AFN%3AKavya%20Joshi%0D%0ATITLE%3AAI%2FML%20%26%20Blockchain%20Developer%0D%0AORG%3AGLS%20University%0D%0AEMAIL%3Akavyajoshi152005%40gmail.com%0D%0ATEL%3BTYPE%3DCELL%3A%2B919664518705%0D%0AURL%3Ahttps%3A%2F%2Fwww.linkedin.com%2Fin%2Fkavya-joshi-3765742b0%0D%0AURL%3Ahttps%3A%2F%2Fgithub.com%2FKAVYAJOSHI1%0D%0AEND%3AVCARD"
+                    download="Kavya_Joshi.vcf" title="Save Contact">
+                    <i class="fas fa-address-card"></i>
                 </a>
             </div>
             <p>&copy; 2025 Kavya Joshi. Crafted with <i class="fas fa-heart" style="color:#ef4444"></i> and lots of ☕
@@ -2054,16 +2360,21 @@
         </div>
     </footer>
 
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
         // ── Loading
         window.addEventListener('load', () => {
             setTimeout(() => document.getElementById('loading').classList.add('done'), 400);
         });
 
-        // ── Scroll-based nav highlight & shadow
+        // ── Scroll-based nav highlight, navbar shadow & back-to-top
         const navbar = document.getElementById('navbar');
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.navbar ul li a');
+        const backToTop = document.getElementById('backToTop');
 
         window.addEventListener('scroll', () => {
             // Navbar shadow
@@ -2078,27 +2389,48 @@
                 a.classList.remove('active');
                 if (a.getAttribute('href') === '#' + current) a.classList.add('active');
             });
+
+            // Back-to-top visibility
+            backToTop.classList.toggle('visible', window.scrollY > 500);
         });
 
-        // ── Intersection Observer for animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) { e.target.classList.add('visible'); }
-            });
-        }, { threshold: 0.12 });
-        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-        // ── Contact form
+        // ── Intersection Observer for animations (falls back to always-visible if unsupported)
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) { e.target.classList.add('visible'); }
+                });
+            }, { threshold: 0.12 });
+            document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+        } else {
+            document.querySelectorAll('.animate-on-scroll').forEach(el => el.classList.add('visible'));
+        }
+
+        // ── Contact form (mailto fallback — static site, no backend)
         document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value || 'Portfolio Contact Form';
+            const message = document.getElementById('message').value;
+
+            const mailSubject = encodeURIComponent(subject);
+            const mailBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+            const mailtoLink = `mailto:kavyajoshi152005@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+
             const btn = this.querySelector('[type=submit]');
-            btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-            btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            const originalLabel = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-paper-plane"></i> Opening Email App…';
+            window.location.href = mailtoLink;
+
             setTimeout(() => {
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-                btn.style.background = '';
+                btn.innerHTML = originalLabel;
                 this.reset();
-            }, 3000);
+            }, 2500);
         });
     </script>
 </body>
