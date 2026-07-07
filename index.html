@@ -444,6 +444,15 @@
             margin: 22px auto 24px;
         }
 
+        .hero-role {
+            font-family: var(--font-body);
+            font-size: var(--fs-label);
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+            margin-bottom: 20px;
+        }
+
         .tagline {
             font-size: var(--fs-caption);
             color: var(--text-secondary);
@@ -1065,6 +1074,51 @@
             overflow: hidden;
         }
 
+        /* ─── CERTIFICATIONS ─── */
+        .certs-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--gap-lg);
+        }
+
+        .cert-card {
+            flex: 1 1 300px;
+            max-width: 360px;
+            padding: 24px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .cert-icon {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 1.15rem;
+            color: var(--primary);
+        }
+
+        .cert-title {
+            font-family: var(--font-display);
+            font-size: var(--fs-label);
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 4px;
+        }
+
+        .cert-issuer {
+            font-size: var(--fs-caption);
+            color: var(--text-secondary);
+        }
+
         /* ─── PROFILES ─── */
         .profiles-grid {
             display: grid;
@@ -1413,7 +1467,8 @@
 
             .project-card,
             .achievement-card,
-            .academic-card {
+            .academic-card,
+            .cert-card {
                 flex-basis: 100%;
                 max-width: 100%;
             }
@@ -1495,6 +1550,7 @@
             <li><a href="#academics"><i class="fas fa-graduation-cap"></i> Academics</a></li>
             <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
             <li><a href="#achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
+            <li><a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
             <li><a href="#leetcode"><i class="fas fa-square-root-variable"></i> LeetCode</a></li>
             <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
         </ul>
@@ -1510,6 +1566,8 @@
             <h1><span class="name-light">Kavya</span> <span class="name-accent">Joshi</span></h1>
             <div class="divider"></div>
 
+            <p class="hero-role">AI Engineer • Software Engineer • Full Stack Developer</p>
+
             <div class="tagline">
                 <span class="tagline-pill">🏆 SIH '25 National Winner</span>
                 <span class="tagline-pill">🥇 DRDO Sampada 2025 Winner</span>
@@ -1518,9 +1576,9 @@
             </div>
 
             <p class="description">
-                B.Tech CSE student at GLS University specializing in <strong>Scalable AI Pipelines</strong> and
-                <strong>Decentralized Infrastructure</strong>. Multi-time national hackathon champion with a focus on
-                ZKML, Digital Twins, and Sovereign AI.
+                Software Engineer specializing in Artificial Intelligence, Full-Stack Development, and Enterprise
+                Systems. National hackathon winner, startup founder, and AI engineer passionate about building
+                scalable software, intelligent automation, blockchain applications, and real-world AI solutions.
             </p>
 
             <div class="hero-buttons">
@@ -1534,20 +1592,20 @@
 
             <div class="hero-stats">
                 <div class="stat">
-                    <span class="stat-number">7+</span>
-                    <span class="stat-label">Hackathon Victories & Finals</span>
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">National Hackathons</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number">601</span>
-                    <span class="stat-label">LeetCode Problems Solved</span>
+                    <span class="stat-number">Founder</span>
+                    <span class="stat-label">CarbonVerse Startup</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">Oracle + AWS</span>
+                    <span class="stat-label">Cloud Certified</span>
                 </div>
                 <div class="stat">
                     <span class="stat-number">8.75</span>
                     <span class="stat-label">CGPA · GLS University</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">Top 2.5%</span>
-                    <span class="stat-label">Global LeetCode Rank</span>
                 </div>
             </div>
         </div>
@@ -1565,21 +1623,23 @@
 
         <div class="about-content glass glass-hover animate-on-scroll">
             <p class="about-lead">
-                I am a B.Tech CSE student at GLS University, driven by a passion for architecting <strong>Scalable AI
-                    Pipelines</strong> and <strong>Decentralized Systems</strong>. I specialize in full-stack software
-                development and high-level problem solving, with a proven track record of converting complex logic into
-                award-winning applications — including a <strong>National Winner at Smart India Hackathon 2025</strong>
-                and a <strong>Finalist at Ingenium 2026</strong>.
+                I am a <strong>B.Tech Computer Science</strong> student at GLS University passionate about
+                <strong>Artificial Intelligence</strong>, <strong>Full-Stack Engineering</strong>,
+                <strong>Enterprise Software</strong>, and <strong>Blockchain</strong>. I enjoy designing scalable
+                applications, AI agents, cloud-native systems, and intelligent automation solutions that solve
+                real-world problems. My journey combines software engineering, research, entrepreneurship, and
+                national-level hackathons to build impactful technology.
             </p>
 
             <div class="about-cols">
                 <div class="about-col primary">
                     <h4><i class="fas fa-trophy"></i> Elite Achievements</h4>
                     <ul>
-                        <li><strong>PIERC Startup Grant:</strong> Winner (Cohort 9) — CarbonVerse</li>
+                        <li><strong>PIERC Cohort 9:</strong> Incubated Startup — CarbonVerse</li>
                         <li><strong>SIH 2025:</strong> National Winner — CoastScan (AI Sand Classification)</li>
+                        <li><strong>GLS Incubation Centre:</strong> Outstanding Innovation Award — CoastScan</li>
                         <li><strong>Ingenium 2026:</strong> Finalist — Ahmedabad University</li>
-                        <li><strong>Breach 2025 &amp; PDEU:</strong> 1st Place (Winner) — AI Fraud Detection &amp; Prototyping</li>
+                        <li><strong>Breach 2025 &amp; PDEU:</strong> Winner — AI Fraud Detection &amp; Prototyping</li>
                         <li><strong>DRDO Sampada 2025:</strong> Winner — Defense IoT Security</li>
                         <li><strong>Hack.X '26:</strong> Top 12 Finalist — AI &amp; Blockchain POS Auditing</li>
                         <li><strong>GLS Hackathons:</strong> 2x Champion (1st 2024 · 2nd 2025)</li>
@@ -1589,7 +1649,8 @@
                 <div class="about-col accent">
                     <h4><i class="fas fa-briefcase"></i> Experience &amp; Leadership</h4>
                     <ul>
-                        <li><strong>AI/ML Intern:</strong> Cygnet.one (June – July 2026)</li>
+                        <li><strong>AI/ML & Full Stack Intern:</strong> Cygnet.One (June – July 2026)</li>
+                        <li><strong>Student Coordinator:</strong> CyberShadez 2026 — 300+ participants</li>
                         <li><strong>ACM Membership Chair:</strong> Leads 200+ member university chapter</li>
                         <li><strong>IEEE Student Member:</strong> International Technical Network</li>
                         <li><strong>SSIP Gujarat Hackathon 2025:</strong> State-level Finalist</li>
@@ -1644,12 +1705,12 @@
             <div class="skill-item glass glass-hover animate-on-scroll">
                 <div class="skill-icon"><i class="fab fa-docker" style="color:#0ea5e9"></i></div>
                 <div class="skill-name">Docker</div>
-                <div class="skill-level beginner">Beginner</div>
+                <div class="skill-level beginner">Hands-on</div>
             </div>
             <div class="skill-item glass glass-hover animate-on-scroll">
                 <div class="skill-icon"><i class="fab fa-aws" style="color:#f97316"></i></div>
                 <div class="skill-name">AWS</div>
-                <div class="skill-level beginner">Beginner</div>
+                <div class="skill-level beginner">Foundational</div>
             </div>
         </div>
     </section>
@@ -1697,6 +1758,29 @@
         </div>
 
         <div class="projects-grid">
+
+            <!-- CoastScan -->
+            <div class="project-card glass glass-hover animate-on-scroll">
+                <div class="project-badge">🏆 SIH '25 Winner</div>
+                <div class="project-icon"><i class="fas fa-microchip"></i></div>
+                <h3 class="project-title">CoastScan — AI Sand Classification</h3>
+                <p class="project-description">
+                    National Winner of SIH 2025. AI-driven ecosystem for automated beach sand grain mapping using
+                    Computer Vision and TensorFlow. Recognized for superior software architecture and cloud-integrated
+                    analytical reporting.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Computer Vision</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Cloud Integration</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/KAVYAJOSHI1/CoastScan" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                    <span class="badge-tag" style="color:var(--gold);"><i
+                            class="fas fa-trophy"></i> SIH Winner</span>
+                </div>
+            </div>
 
             <!-- VeriCred -->
             <div class="project-card glass glass-hover animate-on-scroll">
@@ -1766,6 +1850,56 @@
                 </div>
             </div>
 
+            <!-- ERP -->
+            <div class="project-card glass glass-hover animate-on-scroll">
+                <div class="project-badge">🏭 Enterprise ERP</div>
+                <div class="project-icon"><i class="fas fa-industry"></i></div>
+                <h3 class="project-title">Smart Manufacturing ERP & Supply Chain Platform</h3>
+                <p class="project-description">
+                    Enterprise-grade, event-driven microservices ERP for manufacturing, procurement, inventory, and
+                    finance. Go services (auth, inventory, procurement, finance) coordinated via a Kafka transactional
+                    outbox pattern, a Node.js API gateway with RBAC and Redis-backed rate limiting, and full
+                    observability via Prometheus, Grafana, and Loki.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Go</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">Kafka</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Redis</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/KAVYAJOSHI1/ERP" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                </div>
+            </div>
+
+            <!-- Fraud Detection -->
+            <div class="project-card glass glass-hover animate-on-scroll">
+                <div class="project-badge">🥇 Breach 2025 &amp; PDEU</div>
+                <div class="project-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3 class="project-title">AI-Powered Fraud Detection System</h3>
+                <p class="project-description">
+                    Winner at Breach 2025 FinTech Hackathon, PDEU. Real-time anomaly detection engine for
+                    high-frequency financial transactions using advanced ML algorithms and scalable backend
+                    architecture.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">AI/ML</span>
+                    <span class="tech-tag">FinTech</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">TensorFlow</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/KAVYAJOSHI1/AI-Powered-Fraud-Detection-System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                    <span class="badge-tag" style="color:var(--gold);"><i
+                            class="fas fa-trophy"></i> Winner</span>
+                </div>
+            </div>
+
             <!-- GeoAnushasan -->
             <div class="project-card glass glass-hover animate-on-scroll">
                 <div class="project-badge">🌆 Digital Twin</div>
@@ -1790,71 +1924,49 @@
                 </div>
             </div>
 
-            <!-- CoastScan -->
+            <!-- Sentinel GEC -->
             <div class="project-card glass glass-hover animate-on-scroll">
-                <div class="project-badge">🏆 SIH '25 Winner</div>
-                <div class="project-icon"><i class="fas fa-microchip"></i></div>
-                <h3 class="project-title">CoastScan — AI Sand Classification</h3>
+                <div class="project-badge">🎥 Hack.X '26</div>
+                <div class="project-icon"><i class="fas fa-video"></i></div>
+                <h3 class="project-title">Sentinel GEC — AI Retail Theft Detection System</h3>
                 <p class="project-description">
-                    National Winner of SIH 2025. AI-driven ecosystem for automated beach sand grain mapping using
-                    Computer Vision and TensorFlow. Recognized for superior software architecture and cloud-integrated
-                    analytical reporting.
+                    AI-powered retail security system that cross-references live video feeds with POS transaction
+                    logs. Uses computer vision to detect theft, unauthorized cash drawer access, and suspicious
+                    gestures, anchoring high-value alerts on the Sepolia Ethereum testnet for immutable audit
+                    integrity.
                 </p>
                 <div class="tech-stack">
                     <span class="tech-tag">Computer Vision</span>
-                    <span class="tech-tag">TensorFlow</span>
                     <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Cloud Integration</span>
+                    <span class="tech-tag">Blockchain</span>
+                    <span class="tech-tag">Ethereum Sepolia</span>
+                    <span class="tech-tag">POS Integration</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1/CoastScan" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
-                    <span class="badge-tag" style="color:var(--gold);"><i
-                            class="fas fa-trophy"></i> SIH Winner</span>
+                    <a href="https://github.com/KAVYAJOSHI1/GEC" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                    <span class="badge-tag" style="color:var(--accent2);"><i
+                            class="fas fa-award"></i> Top 12 Finalist</span>
                 </div>
             </div>
 
-            <!-- EcoScan -->
+            <!-- Tribekart -->
             <div class="project-card glass glass-hover animate-on-scroll">
-                <div class="project-icon"><i class="fas fa-leaf"></i></div>
-                <h3 class="project-title">EcoScan — Greenwashing Detector</h3>
+                <div class="project-icon"><i class="fas fa-store-alt"></i></div>
+                <h3 class="project-title">Tribekart — Artisan E-Commerce Platform</h3>
                 <p class="project-description">
-                    AI-powered platform to combat greenwashing and empower consumers. Uses Google Vision API and Hugging
-                    Face Transformers to analyze product photos and URLs for misleading environmental claims.
+                    Full-stack mobile e-commerce platform connecting artisans with buyers. Features role-based
+                    dashboards, a wallet payment system, QR scanner, art history encyclopedia, and a complete seller
+                    portal.
                 </p>
                 <div class="tech-stack">
-                    <span class="tech-tag">AI/ML</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Flask</span>
-                    <span class="tech-tag">Google Vision API</span>
-                    <span class="tech-tag">Hugging Face</span>
+                    <span class="tech-tag">React Native</span>
+                    <span class="tech-tag">Firebase</span>
+                    <span class="tech-tag">Firestore</span>
+                    <span class="tech-tag">Expo</span>
+                    <span class="tech-tag">Firebase Auth</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1/Greenwashing-Detector" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
-                </div>
-            </div>
-
-            <!-- Fraud Detection -->
-            <div class="project-card glass glass-hover animate-on-scroll">
-                <div class="project-badge">🥇 Breach 2025 &amp; PDEU</div>
-                <div class="project-icon"><i class="fas fa-shield-alt"></i></div>
-                <h3 class="project-title">AI-Powered Fraud Detection System</h3>
-                <p class="project-description">
-                    1st Place (Winner) at Breach 2025 FinTech Hackathon, PDEU. Real-time anomaly detection engine for
-                    high-frequency financial transactions using advanced ML algorithms and scalable backend
-                    architecture.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">AI/ML</span>
-                    <span class="tech-tag">FinTech</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Django</span>
-                    <span class="tech-tag">MongoDB</span>
-                    <span class="tech-tag">TensorFlow</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1/AI-Powered-Fraud-Detection-System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
-                    <span class="badge-tag" style="color:var(--gold);"><i
-                            class="fas fa-trophy"></i> 1st Place (Winner)</span>
+                    <a href="https://github.com/KAVYAJOSHI1/TRIBEKART" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
                 </div>
             </div>
 
@@ -1879,24 +1991,63 @@
                 </div>
             </div>
 
-            <!-- Tribekart -->
+            <!-- EcoScan -->
             <div class="project-card glass glass-hover animate-on-scroll">
-                <div class="project-icon"><i class="fas fa-store-alt"></i></div>
-                <h3 class="project-title">Tribekart — Artisan E-Commerce Platform</h3>
+                <div class="project-icon"><i class="fas fa-leaf"></i></div>
+                <h3 class="project-title">EcoScan — Greenwashing Detector</h3>
                 <p class="project-description">
-                    Full-stack mobile e-commerce platform connecting artisans with buyers. Features role-based
-                    dashboards, a wallet payment system, QR scanner, art history encyclopedia, and a complete seller
-                    portal.
+                    AI-powered platform to combat greenwashing and empower consumers. Uses Google Vision API and Hugging
+                    Face Transformers to analyze product photos and URLs for misleading environmental claims.
                 </p>
                 <div class="tech-stack">
-                    <span class="tech-tag">React Native</span>
-                    <span class="tech-tag">Firebase</span>
-                    <span class="tech-tag">Firestore</span>
-                    <span class="tech-tag">Expo</span>
-                    <span class="tech-tag">Firebase Auth</span>
+                    <span class="tech-tag">AI/ML</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">Google Vision API</span>
+                    <span class="tech-tag">Hugging Face</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1/TRIBEKART" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                    <a href="https://github.com/KAVYAJOSHI1/Greenwashing-Detector" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                </div>
+            </div>
+
+            <!-- MilletSetu -->
+            <div class="project-card glass glass-hover animate-on-scroll">
+                <div class="project-icon"><i class="fas fa-seedling"></i></div>
+                <h3 class="project-title">MilletSetu — Blockchain for Farmers</h3>
+                <p class="project-description">
+                    DApp on Ethereum Sepolia testnet creating a transparent supply chain for millet farmers, ensuring
+                    fair pricing and full traceability using blockchain smart contracts.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Blockchain</span>
+                    <span class="tech-tag">Solidity</span>
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Ethers.js</span>
+                    <span class="tech-tag">Sepolia Testnet</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/KAVYAJOSHI1/MilletSetu-Blockchain" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                </div>
+            </div>
+
+            <!-- IC Scanner -->
+            <div class="project-card glass glass-hover animate-on-scroll">
+                <div class="project-icon"><i class="fas fa-search-plus"></i></div>
+                <h3 class="project-title">IC Scanner — Counterfeit IC Detector</h3>
+                <p class="project-description">
+                    AI-powered tool using computer vision and ML to detect counterfeit integrated circuits by analyzing
+                    images against a genuine component database.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Computer Vision</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">OpenCV</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">Flask</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/KAVYAJOSHI1/IC-SCANNER" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
                 </div>
             </div>
 
@@ -1943,31 +2094,6 @@
                 </div>
             </div>
 
-            <!-- Sentinel GEC -->
-            <div class="project-card glass glass-hover animate-on-scroll">
-                <div class="project-badge">🎥 Hack.X '26</div>
-                <div class="project-icon"><i class="fas fa-video"></i></div>
-                <h3 class="project-title">Sentinel GEC — AI Retail Theft Detection System</h3>
-                <p class="project-description">
-                    AI-powered retail security system that cross-references live video feeds with POS transaction
-                    logs. Uses computer vision to detect theft, unauthorized cash drawer access, and suspicious
-                    gestures, anchoring high-value alerts on the Sepolia Ethereum testnet for immutable audit
-                    integrity.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Computer Vision</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Blockchain</span>
-                    <span class="tech-tag">Ethereum Sepolia</span>
-                    <span class="tech-tag">POS Integration</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1/GEC" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
-                    <span class="badge-tag" style="color:var(--accent2);"><i
-                            class="fas fa-award"></i> Top 12 Finalist</span>
-                </div>
-            </div>
-
             <!-- UrjaSetu -->
             <div class="project-card glass glass-hover animate-on-scroll">
                 <div class="project-icon"><i class="fas fa-bolt"></i></div>
@@ -1989,71 +2115,6 @@
                 </div>
             </div>
 
-            <!-- MilletSetu -->
-            <div class="project-card glass glass-hover animate-on-scroll">
-                <div class="project-icon"><i class="fas fa-seedling"></i></div>
-                <h3 class="project-title">MilletSetu — Blockchain for Farmers</h3>
-                <p class="project-description">
-                    DApp on Ethereum Sepolia testnet creating a transparent supply chain for millet farmers, ensuring
-                    fair pricing and full traceability using blockchain smart contracts.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Blockchain</span>
-                    <span class="tech-tag">Solidity</span>
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Ethers.js</span>
-                    <span class="tech-tag">Sepolia Testnet</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1/MilletSetu-Blockchain" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
-                </div>
-            </div>
-
-            <!-- IC Scanner -->
-            <div class="project-card glass glass-hover animate-on-scroll">
-                <div class="project-icon"><i class="fas fa-search-plus"></i></div>
-                <h3 class="project-title">IC Scanner — Counterfeit IC Detector</h3>
-                <p class="project-description">
-                    AI-powered tool using computer vision and ML to detect counterfeit integrated circuits by analyzing
-                    images against a genuine component database.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Computer Vision</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">OpenCV</span>
-                    <span class="tech-tag">TensorFlow</span>
-                    <span class="tech-tag">Flask</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1/IC-SCANNER" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
-                </div>
-            </div>
-
-            <!-- ERP -->
-            <div class="project-card glass glass-hover animate-on-scroll">
-                <div class="project-badge">🏭 Enterprise ERP</div>
-                <div class="project-icon"><i class="fas fa-industry"></i></div>
-                <h3 class="project-title">Smart Manufacturing ERP & Supply Chain Platform</h3>
-                <p class="project-description">
-                    Enterprise-grade, event-driven microservices ERP for manufacturing, procurement, inventory, and
-                    finance. Go services (auth, inventory, procurement, finance) coordinated via a Kafka transactional
-                    outbox pattern, a Node.js API gateway with RBAC and Redis-backed rate limiting, and full
-                    observability via Prometheus, Grafana, and Loki.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Go</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">Next.js</span>
-                    <span class="tech-tag">Kafka</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">Redis</span>
-                    <span class="tech-tag">Docker</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1/ERP" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -2069,29 +2130,127 @@
 
         <div class="achievements-grid">
 
-            <!-- PIERC Grant -->
+            <!-- Founder - CarbonVerse -->
             <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-winner">Grant Winner</div>
+                <div class="achievement-badge badge-winner">Founder</div>
                 <div class="achievement-content">
                     <div class="achievement-icon"><i class="fas fa-rocket"></i></div>
-                    <h3 class="achievement-title">PIERC Startup Grant Winner</h3>
+                    <h3 class="achievement-title">Founder — CarbonVerse</h3>
                     <p class="achievement-description">
-                        Awarded a seed grant and selected for the highly competitive <strong>Cohort 9 Incubation
-                            Program</strong> at Parul University to build and scale <strong>CarbonVerse</strong>.
+                        Founded and lead the development of <strong>CarbonVerse</strong>, a blockchain-powered
+                        sustainability platform selected for the <strong>PIERC Cohort 9 Incubation Program</strong>,
+                        focused on transparent carbon credit management and environmental sustainability.
                     </p>
                 </div>
             </div>
 
             <!-- SIH 2025 -->
             <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-winner">National Winner</div>
+                <div class="achievement-badge badge-winner">Winner</div>
                 <div class="achievement-content">
                     <div class="achievement-icon"><i class="fas fa-crown"></i></div>
                     <h3 class="achievement-title">Smart India Hackathon 2025</h3>
                     <p class="achievement-description">
-                        Crowned <strong>National Winner</strong> for CoastScan — an AI-driven hardware/software solution
-                        for beach sand classification. Recognized for superior software architecture,
-                        cloud-integrated analytical pipeline, and real-time data processing.
+                        National Winner among thousands of teams for CoastScan — an AI-driven system for automated
+                        beach sand classification, recognized for its cloud-integrated architecture and real-time
+                        processing pipeline.
+                    </p>
+                </div>
+            </div>
+
+            <!-- DRDO -->
+            <div class="achievement-card glass glass-hover animate-on-scroll">
+                <div class="achievement-badge badge-winner">Winner</div>
+                <div class="achievement-content">
+                    <div class="achievement-icon"><i class="fas fa-user-shield"></i></div>
+                    <h3 class="achievement-title">DRDO DIA-SVPCoE Hackathon — Sampada 2025</h3>
+                    <p class="achievement-description">
+                        Winner in the <strong>IoT Security domain</strong> — engineered a software-defined security
+                        framework combining advanced cryptographic protocols with AI-driven threat detection for
+                        defense-grade IoT systems.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Breach 2025 & PDEU -->
+            <div class="achievement-card glass glass-hover animate-on-scroll">
+                <div class="achievement-badge badge-winner">Winner</div>
+                <div class="achievement-content">
+                    <div class="achievement-icon"><i class="fas fa-medal"></i></div>
+                    <h3 class="achievement-title">Breach 2025 FinTech Hackathon, PDEU</h3>
+                    <p class="achievement-description">
+                        Winner at Breach 2025 — engineered a real-time AI fraud detection engine and rapid-prototyping
+                        framework for high-frequency financial transactions.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Outstanding Innovation Award -->
+            <div class="achievement-card glass glass-hover animate-on-scroll">
+                <div class="achievement-badge badge-winner">Award</div>
+                <div class="achievement-content">
+                    <div class="achievement-icon"><i class="fas fa-award"></i></div>
+                    <h3 class="achievement-title">Outstanding Innovation Award — CoastScan</h3>
+                    <p class="achievement-description">
+                        Recognized by the <strong>GLS University Incubation Centre</strong> for outstanding innovation
+                        in CoastScan, the award-winning AI project for automated beach sand classification.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CyberShadez -->
+            <div class="achievement-card glass glass-hover animate-on-scroll">
+                <div class="achievement-badge badge-prof">Coordinator</div>
+                <div class="achievement-content">
+                    <div class="achievement-icon"><i class="fas fa-shield-halved"></i></div>
+                    <h3 class="achievement-title">Student Coordinator — CyberShadez 2026</h3>
+                    <p class="achievement-description">
+                        Officially recognized by <strong>GLS University</strong> for leading Track 3 for
+                        <strong>300+ participants</strong> and organizing the flagship AI automation event,
+                        <strong>"Rise of Agent."</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Cygnet.One Internship -->
+            <div class="achievement-card glass glass-hover animate-on-scroll">
+                <div class="achievement-badge badge-prof">Internship</div>
+                <div class="achievement-content">
+                    <div class="achievement-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3 class="achievement-title">AI/ML & Full Stack Intern — Cygnet.One</h3>
+                    <p class="achievement-description">
+                        Designed AI-powered enterprise solutions, including SDLC automation agents and Jira
+                        intelligence agents. Built scalable FastAPI backend services with REST APIs, authentication
+                        &amp; authorization, HTTPS/TLS, and AES/RSA hybrid encryption. Delivered JSON-driven dynamic
+                        rendering with Angular frontend integration and AI-driven business automation, gaining
+                        hands-on experience in enterprise software architecture and Agile SDLC.
+                    </p>
+                </div>
+            </div>
+
+            <!-- GLS Internal -->
+            <div class="achievement-card glass glass-hover animate-on-scroll">
+                <div class="achievement-badge badge-2x">2x Winner</div>
+                <div class="achievement-content">
+                    <div class="achievement-icon"><i class="fas fa-star"></i></div>
+                    <h3 class="achievement-title">GLS Internal Hackathons</h3>
+                    <p class="achievement-description">
+                        Two-time <strong>Winner</strong> of GLS University's internal hackathons (2024 and 2025),
+                        demonstrating consistent technical leadership and rapid software development under
+                        competitive pressure.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Hack.X '26 Finalist -->
+            <div class="achievement-card glass glass-hover animate-on-scroll">
+                <div class="achievement-badge badge-finalist">Top 12 Finalist</div>
+                <div class="achievement-content">
+                    <div class="achievement-icon"><i class="fas fa-code-branch"></i></div>
+                    <h3 class="achievement-title">Hack.X at HackTheSpring '26</h3>
+                    <p class="achievement-description">
+                        Placed <strong>Top 12 out of 70+ teams</strong> at GEC Gandhinagar's national-level hackathon
+                        — developed Sentinel GEC, an AI and blockchain-integrated retail security auditing system.
                     </p>
                 </div>
             </div>
@@ -2103,85 +2262,21 @@
                     <div class="achievement-icon"><i class="fas fa-star"></i></div>
                     <h3 class="achievement-title">Ingenious Hackathon 7.0 — Ingenium 2026</h3>
                     <p class="achievement-description">
-                        Recognized as a <strong>Finalist</strong> at this prestigious event held at Ahmedabad
-                        University. Awarded for innovation and technical resilience in developing GeoAnushasan, a
-                        decentralized Digital Twin platform for smart city governance.
+                        Finalist at this prestigious Ahmedabad University event for GeoAnushasan, a decentralized
+                        Digital Twin platform for smart city governance.
                     </p>
                 </div>
             </div>
 
-            <!-- DRDO -->
+            <!-- SSIP Gujarat Hackathon 2025 -->
             <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-winner">Winner</div>
+                <div class="achievement-badge badge-finalist">State Finalist</div>
                 <div class="achievement-content">
-                    <div class="achievement-icon"><i class="fas fa-user-shield"></i></div>
-                    <h3 class="achievement-title">DRDO DIA-SVPCoE Hackathon 'Sampada 2025'</h3>
+                    <div class="achievement-icon"><i class="fas fa-award"></i></div>
+                    <h3 class="achievement-title">SSIP Gujarat Hackathon 2025</h3>
                     <p class="achievement-description">
-                        Winner in the <strong>IoT Security domain</strong>. Developed a software-defined security logic
-                        framework using advanced cryptographic protocols and AI-driven threat identification for
-                        defense-grade applications.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Breach 2025 & PDEU -->
-            <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-winner">1st Place (Winner)</div>
-                <div class="achievement-content">
-                    <div class="achievement-icon"><i class="fas fa-medal"></i></div>
-                    <h3 class="achievement-title">Breach 2025 FinTech Hackathon, PDEU</h3>
-                    <p class="achievement-description">
-                        Secured 1st Place (Winner) at Breach 2025 FinTech Hackathon at PDEU. Designed an AI Fraud Detection Engine &amp; Rapid Prototyping framework.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Cygnet.one Internship -->
-            <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-prof">Internship</div>
-                <div class="achievement-content">
-                    <div class="achievement-icon"><i class="fas fa-briefcase"></i></div>
-                    <h3 class="achievement-title">AI/ML Intern — Cygnet.one</h3>
-                    <p class="achievement-description">
-                        Developing and optimizing AI/ML models, automating business workflows, and deploying cognitive solutions under industry mentorship (June – July 2026).
-                    </p>
-                </div>
-            </div>
-
-            <!-- Hack.X '26 Finalist -->
-            <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-finalist">Finalist</div>
-                <div class="achievement-content">
-                    <div class="achievement-icon"><i class="fas fa-code-branch"></i></div>
-                    <h3 class="achievement-title">Hack.X at HackTheSpring '26</h3>
-                    <p class="achievement-description">
-                        Placed in the <strong>Top 12 out of 70+ teams</strong> globally at GEC Gandhinagar's national-level hackathon. Developed Sentinel GEC, an AI and Blockchain-integrated auditing system.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Oracle AI Certification -->
-            <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-prof">Certification</div>
-                <div class="achievement-content">
-                    <div class="achievement-icon"><i class="fas fa-certificate"></i></div>
-                    <h3 class="achievement-title">Oracle Cloud Infrastructure Certified AI Associate</h3>
-                    <p class="achievement-description">
-                        Professional credential from Oracle validating advanced core knowledge of AI, ML algorithms, Deep Learning (CNNs, RNNs), LLMs, and Generative AI services.
-                    </p>
-                </div>
-            </div>
-
-            <!-- GLS Internal -->
-            <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-2x">2x Champion</div>
-                <div class="achievement-content">
-                    <div class="achievement-icon"><i class="fas fa-star"></i></div>
-                    <h3 class="achievement-title">GLS Internal Hackathons</h3>
-                    <p class="achievement-description">
-                        Maintained a consistent winning streak — <strong>1st Place in 2024</strong> and <strong>2nd
-                            Place in 2025</strong>, demonstrating technical leadership and versatility in rapid software
-                        development.
+                        State-level Finalist for UrjaSetu, an AI-based grievance and feedback platform, at Gujarat's
+                        premier student innovation program.
                     </p>
                 </div>
             </div>
@@ -2194,33 +2289,7 @@
                     <h3 class="achievement-title">Parul Ideathon 2026 — Vadodara Startup Festival 6.0</h3>
                     <p class="achievement-description">
                         Led team <strong>CarbonVerse</strong> to the final round of Vadodara Startup Festival 6.0 with
-                        an innovative carbon tracking solution at the intersection of sustainability and Web3.
-                    </p>
-                </div>
-            </div>
-
-            <!-- SSIP Gujarat Hackathon 2025 -->
-            <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-finalist">State Finalist</div>
-                <div class="achievement-content">
-                    <div class="achievement-icon"><i class="fas fa-award"></i></div>
-                    <h3 class="achievement-title">SSIP Gujarat Hackathon 2025</h3>
-                    <p class="achievement-description">
-                        Selected as a <strong>State-level Finalist</strong> for designing high-impact software utility
-                        systems (UrjaSetu). Competed at the state government's premier startup and innovation platform.
-                    </p>
-                </div>
-            </div>
-
-            <!-- IDE Bootcamp -->
-            <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-prof">Participant</div>
-                <div class="achievement-content">
-                    <div class="achievement-icon"><i class="fas fa-lightbulb"></i></div>
-                    <h3 class="achievement-title">Innovation, Design & Entrepreneurship (IDE) Bootcamp</h3>
-                    <p class="achievement-description">
-                        Participated in the Edition 3, Phase I bootcamp organized by the <strong>AICTE and Ministry of
-                            Education</strong> (Apr 2026), hosted at GITAM University, Bengaluru Campus.
+                        an innovative carbon-tracking solution at the intersection of sustainability and Web3.
                     </p>
                 </div>
             </div>
@@ -2242,10 +2311,72 @@
         </div>
     </section>
 
+    <!-- ──────────────── CERTIFICATIONS ──────────────── -->
+    <section id="certifications" class="section">
+        <div class="section-header animate-on-scroll">
+            <span class="section-eyebrow">05</span>
+            <h2 class="section-title">Featured Certifications</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle" style="margin-top:16px;">Professional credentials and specialized training</p>
+        </div>
+
+        <div class="certs-grid">
+            <div class="cert-card glass glass-hover animate-on-scroll">
+                <div class="cert-icon"><i class="fas fa-cloud"></i></div>
+                <div>
+                    <h3 class="cert-title">Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</h3>
+                    <p class="cert-issuer">Oracle</p>
+                </div>
+            </div>
+            <div class="cert-card glass glass-hover animate-on-scroll">
+                <div class="cert-icon"><i class="fab fa-aws"></i></div>
+                <div>
+                    <h3 class="cert-title">AWS Academy Graduate — Cloud Foundations</h3>
+                    <p class="cert-issuer">Amazon Web Services (AWS)</p>
+                </div>
+            </div>
+            <div class="cert-card glass glass-hover animate-on-scroll">
+                <div class="cert-icon"><i class="fas fa-chart-column"></i></div>
+                <div>
+                    <h3 class="cert-title">Microsoft Learning Path: Dashboard in a Day (Power BI)</h3>
+                    <p class="cert-issuer">Microsoft</p>
+                </div>
+            </div>
+            <div class="cert-card glass glass-hover animate-on-scroll">
+                <div class="cert-icon"><i class="fas fa-robot"></i></div>
+                <div>
+                    <h3 class="cert-title">30-Day Industrial Training on Robotics & AI Simulation</h3>
+                    <p class="cert-issuer">My Equation (Ratified by NVIDIA & Microsoft)</p>
+                </div>
+            </div>
+            <div class="cert-card glass glass-hover animate-on-scroll">
+                <div class="cert-icon"><i class="fas fa-brain"></i></div>
+                <div>
+                    <h3 class="cert-title">Foundation Course on Green Skills & Artificial Intelligence</h3>
+                    <p class="cert-issuer">Edunet Foundation</p>
+                </div>
+            </div>
+            <div class="cert-card glass glass-hover animate-on-scroll">
+                <div class="cert-icon"><i class="fas fa-link"></i></div>
+                <div>
+                    <h3 class="cert-title">Mentorship Program on Blockchain / Bitcoin</h3>
+                    <p class="cert-issuer">LaunchED Global</p>
+                </div>
+            </div>
+            <div class="cert-card glass glass-hover animate-on-scroll">
+                <div class="cert-icon"><i class="fas fa-rocket"></i></div>
+                <div>
+                    <h3 class="cert-title">Startup Pre-Incubation Program</h3>
+                    <p class="cert-issuer">PIERC, Parul University</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ──────────────── LEETCODE ──────────────── -->
     <section id="leetcode" class="section">
         <div class="section-header animate-on-scroll">
-            <span class="section-eyebrow">05</span>
+            <span class="section-eyebrow">06</span>
             <h2 class="section-title">LeetCode</h2>
             <div class="divider"></div>
             <p class="section-subtitle" style="margin-top:16px;">Competitive programming track record</p>
@@ -2256,8 +2387,8 @@
                 <div class="leetcode-identity">
                     <div class="leetcode-icon"><i class="fas fa-square-root-variable"></i></div>
                     <div>
-                        <h3 class="leetcode-name">Top 2.5% Global Rank</h3>
-                        <p class="leetcode-meta">601 problems solved · beats 98.8% on Hard</p>
+                        <h3 class="leetcode-name">601+ Problems Solved • Top 2.5% Globally</h3>
+                        <p class="leetcode-meta">Beats 98.8% of submissions on Hard-difficulty problems</p>
                     </div>
                 </div>
                 <a href="https://leetcode.com/u/JoshiKavya/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
@@ -2276,7 +2407,7 @@
     <!-- ──────────────── CONNECT ──────────────── -->
     <section class="section">
         <div class="section-header animate-on-scroll">
-            <span class="section-eyebrow">06</span>
+            <span class="section-eyebrow">07</span>
             <h2 class="section-title">Connect With Me</h2>
             <div class="divider"></div>
             <p class="section-subtitle" style="margin-top:16px;">Find me across different platforms</p>
@@ -2301,10 +2432,17 @@
     <!-- ──────────────── CONTACT ──────────────── -->
     <section id="contact" class="section">
         <div class="section-header animate-on-scroll">
-            <span class="section-eyebrow">07</span>
+            <span class="section-eyebrow">08</span>
             <h2 class="section-title">Let's Build Something Amazing</h2>
             <div class="divider"></div>
             <p class="section-subtitle" style="margin-top:16px;">Ready to collaborate? Drop me a message!</p>
+        </div>
+        <div class="project-links" style="justify-content:center; flex-wrap:wrap; margin-bottom:28px;">
+            <a href="Kavya_Joshi_Resume.pdf" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> Resume</a>
+            <a href="mailto:kavyajoshi152005@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://www.linkedin.com/in/kavya-joshi-3765742b0" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/KAVYAJOSHI1" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://leetcode.com/u/JoshiKavya/" target="_blank" rel="noopener noreferrer"><i class="fas fa-square-root-variable"></i> LeetCode</a>
         </div>
         <form class="contact-form glass glass-hover animate-on-scroll" id="contactForm">
             <div class="form-group">
@@ -2354,9 +2492,9 @@
                     <i class="fas fa-address-card"></i>
                 </a>
             </div>
-            <p>&copy; 2025 Kavya Joshi. Crafted with <i class="fas fa-heart" style="color:#ef4444"></i> and lots of ☕
+            <p>&copy; 2026 Kavya Joshi. Crafted with <i class="fas fa-heart" style="color:#ef4444"></i> and lots of ☕
             </p>
-            <p style="font-size:0.85rem; margin-top:4px;">Building the future, one line of code at a time.</p>
+            <p style="font-size:0.85rem; margin-top:4px;">Building intelligent software that bridges AI, cloud, and real-world innovation.</p>
         </div>
     </footer>
 
