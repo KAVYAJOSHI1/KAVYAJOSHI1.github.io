@@ -160,6 +160,20 @@
             overflow: hidden;
         }
 
+        /* ─── CURSOR TRAIL ─── */
+        .cursor-trail {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            pointer-events: none;
+        }
+
+        @media (hover: none), (prefers-reduced-motion: reduce) {
+            .cursor-trail {
+                display: none;
+            }
+        }
+
         .bg-orb {
             position: absolute;
             border-radius: 50%;
@@ -1533,6 +1547,8 @@
 
 <body>
 
+    <canvas id="cursorTrail" class="cursor-trail"></canvas>
+
     <div class="loading" id="loading">
         <div class="loader"></div>
     </div>
@@ -2608,6 +2624,120 @@
                     console.warn('LeetCode live stats unavailable, showing last known values:', err.message);
                 })
                 .finally(() => clearTimeout(timeout));
+        })();
+
+        // ── Cursor trail: a glowing ribbon that curls behind the pointer and vanishes when idle
+        (function () {
+            if (window.matchMedia('(hover: none)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            const canvas = document.getElementById('cursorTrail');
+            const ctx = canvas.getContext('2d');
+            const rootStyle = getComputedStyle(document.documentElement);
+            const stops = ['--primary', '--accent', '--accent2'].map(v => hexToRgb(rootStyle.getPropertyValue(v).trim()));
+
+            function hexToRgb(hex) {
+                hex = hex.replace('#', '');
+                if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+                const num = parseInt(hex, 16);
+                return [(num >> 16) & 255, (num >> 8) & 255, num & 255];
+            }
+            function lerp(a, b, t) { return a + (b - a) * t; }
+            function colorAt(t) { // t: 0 (head) → 1 (tail), sweeps across the 3 theme accents
+                const seg = t < 0.5 ? [stops[0], stops[1], t * 2] : [stops[1], stops[2], (t - 0.5) * 2];
+                const [c1, c2, lt] = seg;
+                return `rgb(${Math.round(lerp(c1[0], c2[0], lt))}, ${Math.round(lerp(c1[1], c2[1], lt))}, ${Math.round(lerp(c1[2], c2[2], lt))})`;
+            }
+
+            function resize() {
+                const dpr = window.devicePixelRatio || 1;
+                canvas.width = window.innerWidth * dpr;
+                canvas.height = window.innerHeight * dpr;
+                canvas.style.width = window.innerWidth + 'px';
+                canvas.style.height = window.innerHeight + 'px';
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            const NODE_COUNT = 22;
+            const EASE = 0.32;
+            const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+            const nodes = Array.from({ length: NODE_COUNT }, () => ({ x: mouse.x, y: mouse.y }));
+            let lastMoveTime = 0;
+            let started = false;
+
+            window.addEventListener('mousemove', (e) => {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+                lastMoveTime = performance.now();
+                started = true;
+            }, { passive: true });
+
+            function loop() {
+                const now = performance.now();
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                if (started) {
+                    nodes[0].x = lerp(nodes[0].x, mouse.x, EASE);
+                    nodes[0].y = lerp(nodes[0].y, mouse.y, EASE);
+                    for (let i = 1; i < nodes.length; i++) {
+                        nodes[i].x = lerp(nodes[i].x, nodes[i - 1].x, EASE);
+                        nodes[i].y = lerp(nodes[i].y, nodes[i - 1].y, EASE);
+                    }
+
+                    // Idle fade: full opacity while moving, fades out ~450ms after the pointer stops
+                    const idleMs = now - lastMoveTime;
+                    const idleAlpha = Math.max(0, Math.min(1, 1 - (idleMs - 250) / 450));
+
+                    if (idleAlpha > 0) {
+                        for (let i = 1; i < nodes.length; i++) {
+                            const t = i / (nodes.length - 1); // 0 head → 1 tail
+                            const alpha = (1 - t) * idleAlpha;
+                            if (alpha <= 0.01) continue;
+                            const color = colorAt(t);
+
+                            const midX = (nodes[i - 1].x + nodes[i].x) / 2;
+                            const midY = (nodes[i - 1].y + nodes[i].y) / 2;
+                            const prevMidX = i > 1 ? (nodes[i - 2].x + nodes[i - 1].x) / 2 : nodes[0].x;
+                            const prevMidY = i > 1 ? (nodes[i - 2].y + nodes[i - 1].y) / 2 : nodes[0].y;
+
+                            ctx.beginPath();
+                            ctx.moveTo(prevMidX, prevMidY);
+                            ctx.quadraticCurveTo(nodes[i - 1].x, nodes[i - 1].y, midX, midY);
+                            ctx.lineCap = 'round';
+                            ctx.lineJoin = 'round';
+
+                            // outer glow pass
+                            ctx.strokeStyle = color;
+                            ctx.globalAlpha = alpha * 0.35;
+                            ctx.lineWidth = lerp(7, 1, t);
+                            ctx.shadowBlur = 16 * alpha;
+                            ctx.shadowColor = color;
+                            ctx.stroke();
+
+                            // bright core pass
+                            ctx.globalAlpha = alpha * 0.9;
+                            ctx.lineWidth = lerp(2.5, 0.4, t);
+                            ctx.shadowBlur = 6 * alpha;
+                            ctx.stroke();
+                        }
+
+                        // comet head
+                        ctx.globalAlpha = idleAlpha * 0.9;
+                        ctx.beginPath();
+                        ctx.arc(nodes[0].x, nodes[0].y, 3, 0, Math.PI * 2);
+                        ctx.fillStyle = colorAt(0);
+                        ctx.shadowBlur = 14;
+                        ctx.shadowColor = colorAt(0);
+                        ctx.fill();
+                    }
+                }
+
+                ctx.globalAlpha = 1;
+                ctx.shadowBlur = 0;
+                requestAnimationFrame(loop);
+            }
+            requestAnimationFrame(loop);
         })();
     </script>
 </body>
