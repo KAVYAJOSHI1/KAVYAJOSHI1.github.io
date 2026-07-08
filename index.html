@@ -2373,7 +2373,7 @@
                 <div class="leetcode-identity">
                     <div class="leetcode-icon"><i class="fas fa-square-root-variable"></i></div>
                     <div>
-                        <h3 class="leetcode-name">601+ Problems Solved • Top 2.5% Globally</h3>
+                        <h3 class="leetcode-name"><span id="lcHeadingTotal">610</span>+ Problems Solved • Top 2.5% Globally</h3>
                         <p class="leetcode-meta">Beats 98.8% of submissions on Hard-difficulty problems</p>
                     </div>
                 </div>
@@ -2382,11 +2382,12 @@
                 </a>
             </div>
             <div class="lc-stats">
-                <div class="lc-card glass lc-easy"><span class="lc-num">171</span><span class="lc-label">Easy</span></div>
-                <div class="lc-card glass lc-med"><span class="lc-num">282</span><span class="lc-label">Medium</span></div>
-                <div class="lc-card glass lc-hard"><span class="lc-num">148</span><span class="lc-label">Hard</span></div>
-                <div class="lc-card glass lc-total"><span class="lc-num">601</span><span class="lc-label">Total</span></div>
+                <div class="lc-card glass lc-easy"><span class="lc-num" id="lcEasy">171</span><span class="lc-label">Easy</span></div>
+                <div class="lc-card glass lc-med"><span class="lc-num" id="lcMedium">291</span><span class="lc-label">Medium</span></div>
+                <div class="lc-card glass lc-hard"><span class="lc-num" id="lcHard">148</span><span class="lc-label">Hard</span></div>
+                <div class="lc-card glass lc-total"><span class="lc-num" id="lcTotal">610</span><span class="lc-label">Total</span></div>
             </div>
+            <p class="leetcode-meta" id="lcUpdated" style="opacity:.6; margin-top:-8px;"></p>
         </div>
     </section>
 
@@ -2556,6 +2557,61 @@
                 this.reset();
             }, 2500);
         });
+
+        // ── Live LeetCode stats (falls back to the static numbers above on failure)
+        (function () {
+            const LC_USERNAME = 'JoshiKavya';
+            const LC_API = `https://alfa-leetcode-api.onrender.com/${LC_USERNAME}/solved`;
+            const CACHE_KEY = 'lcStatsCache';
+            const CACHE_TTL_MS = 6 * 60 * 60 * 1000; // 6 hours
+
+            const els = {
+                easy: document.getElementById('lcEasy'),
+                medium: document.getElementById('lcMedium'),
+                hard: document.getElementById('lcHard'),
+                total: document.getElementById('lcTotal'),
+                headingTotal: document.getElementById('lcHeadingTotal'),
+                updated: document.getElementById('lcUpdated'),
+            };
+
+            function render(stats, timestamp) {
+                if (typeof stats.easySolved === 'number') els.easy.textContent = stats.easySolved;
+                if (typeof stats.mediumSolved === 'number') els.medium.textContent = stats.mediumSolved;
+                if (typeof stats.hardSolved === 'number') els.hard.textContent = stats.hardSolved;
+                if (typeof stats.solvedProblem === 'number') {
+                    els.total.textContent = stats.solvedProblem;
+                    els.headingTotal.textContent = stats.solvedProblem;
+                }
+                if (els.updated && timestamp) {
+                    els.updated.textContent = `Live • updated ${new Date(timestamp).toLocaleDateString()}`;
+                }
+            }
+
+            // Show cached data immediately if it's fresh, so the section never flashes stale numbers
+            try {
+                const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+                if (cached && Date.now() - cached.timestamp < CACHE_TTL_MS) {
+                    render(cached.stats, cached.timestamp);
+                    return;
+                }
+            } catch (_) { /* ignore malformed cache */ }
+
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 20000); // onrender.com free tier can cold-start slowly
+
+            fetch(LC_API, { signal: controller.signal })
+                .then(res => { if (!res.ok) throw new Error('LeetCode API error ' + res.status); return res.json(); })
+                .then(stats => {
+                    if (typeof stats.solvedProblem !== 'number') throw new Error('Unexpected response shape');
+                    const timestamp = Date.now();
+                    localStorage.setItem(CACHE_KEY, JSON.stringify({ stats, timestamp }));
+                    render(stats, timestamp);
+                })
+                .catch(err => {
+                    console.warn('LeetCode live stats unavailable, showing last known values:', err.message);
+                })
+                .finally(() => clearTimeout(timeout));
+        })();
     </script>
 </body>
 
