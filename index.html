@@ -4,11 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kavya Joshi — AI Developer & National Hackathon Champion</title>
+    <title>Kavya Joshi | AI Engineer & Software Developer</title>
+    <meta name="description"
+        content="Kavya Joshi — B.Tech CSE student, AI/ML &amp; blockchain developer, and multi-time national hackathon champion (SIH 2025, DRDO Sampada, Breach FinTech). LeetCode Expert, Top 2.5% globally.">
+    <meta name="theme-color" content="#060910">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%233b82f6'/%3E%3Cstop%20offset='0.55'%20stop-color='%23a78bfa'/%3E%3Cstop%20offset='1'%20stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='100'%20height='100'%20rx='26'%20fill='url(%23g)'/%3E%3Ctext%20x='50'%20y='66'%20font-family='Arial,sans-serif'%20font-size='42'%20font-weight='800'%20fill='white'%20text-anchor='middle'%3EKJ%3C/text%3E%3C/svg%3E">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kavya Joshi | AI Engineer & Software Developer">
+    <meta property="og:description"
+        content="B.Tech CSE student specializing in Scalable AI Pipelines and Decentralized Infrastructure. Multi-time national hackathon champion and LeetCode Expert, Top 2.5% globally.">
+    <meta property="og:url" content="https://kavyajoshi1.github.io/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Kavya Joshi | AI Engineer & Software Developer">
+    <meta name="twitter:description"
+        content="B.Tech CSE student specializing in Scalable AI Pipelines and Decentralized Infrastructure. Multi-time national hackathon champion and LeetCode Expert, Top 2.5% globally.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Kavya Joshi",
+        "jobTitle": "AI/ML & Blockchain Developer",
+        "url": "https://kavyajoshi1.github.io/",
+        "sameAs": [
+            "https://www.linkedin.com/in/kavya-joshi-3765742b0",
+            "https://github.com/KAVYAJOSHI1",
+            "https://leetcode.com/u/JoshiKavya/"
+        ],
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "GLS University"
+        }
+    }
+    </script>
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
         rel="stylesheet">
+    <noscript>
+        <style>
+            .animate-on-scroll {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
+    </noscript>
     <style>
         *,
         *::before,
@@ -19,6 +62,7 @@
         }
 
         :root {
+            /* palette (unchanged) */
             --bg: #060910;
             --bg2: #0b1120;
             --surface: rgba(255, 255, 255, 0.03);
@@ -35,8 +79,31 @@
             --text: #f1f5f9;
             --text-secondary: #94a3b8;
             --text-muted: #475569;
+
+            /* typography */
+            --font-display: 'Sora', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            --fs-hero: clamp(2.75rem, 7.5vw, 4.75rem);
+            --fs-h2: clamp(1.875rem, 3.5vw, 2.5rem);
+            --fs-h3: 1.125rem;
+            --fs-h4: 1rem;
+            --fs-stat-num: 2.25rem;
+            --fs-body-lg: 1.125rem;
+            --fs-body: 1rem;
+            --fs-small: 0.9375rem;
+            --fs-label: 0.875rem;
+            --fs-caption: 0.8125rem;
+            --fs-micro: 0.75rem;
+
+            /* layout */
             --radius: 16px;
             --radius-sm: 10px;
+            --radius-pill: 100px;
+            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+            --transition: 0.25s ease;
+            --gap-lg: 22px;
+            --gap-sm: 14px;
         }
 
         html {
@@ -44,11 +111,12 @@
         }
 
         body {
-            font-family: 'DM Sans', sans-serif;
+            font-family: var(--font-body);
             background: var(--bg);
             color: var(--text);
             overflow-x: hidden;
             line-height: 1.65;
+            font-size: var(--fs-body);
         }
 
         /* ─── LOADING ─── */
@@ -90,6 +158,20 @@
             z-index: 0;
             pointer-events: none;
             overflow: hidden;
+        }
+
+        /* ─── CURSOR TRAIL ─── */
+        .cursor-trail {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            pointer-events: none;
+        }
+
+        @media (hover: none), (prefers-reduced-motion: reduce) {
+            .cursor-trail {
+                display: none;
+            }
         }
 
         .bg-orb {
@@ -164,7 +246,7 @@
             background: rgba(6, 9, 16, 0.75);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
-            transition: box-shadow 0.3s;
+            transition: box-shadow var(--transition);
         }
 
         .navbar.scrolled {
@@ -182,13 +264,13 @@
         .navbar ul li a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.87rem;
+            font-family: var(--font-body);
+            font-size: var(--fs-label);
             font-weight: 500;
             padding: 7px 14px;
             border-radius: 8px;
             border: 1px solid transparent;
-            transition: all 0.2s;
+            transition: all var(--transition);
             display: flex;
             align-items: center;
             gap: 6px;
@@ -220,9 +302,30 @@
             margin-bottom: 60px;
         }
 
+        .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: var(--fs-caption);
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        .section-eyebrow::before,
+        .section-eyebrow::after {
+            content: '';
+            width: 22px;
+            height: 1px;
+            background: var(--accent);
+            opacity: 0.5;
+        }
+
         .section-title {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-family: var(--font-display);
+            font-size: var(--fs-h2);
             font-weight: 800;
             letter-spacing: -0.03em;
             margin-bottom: 12px;
@@ -233,7 +336,7 @@
 
         .section-subtitle {
             color: var(--text-secondary);
-            font-size: 1.05rem;
+            font-size: var(--fs-body-lg);
             font-weight: 300;
         }
 
@@ -246,12 +349,12 @@
         }
 
         .glass-hover {
-            transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+            transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
         }
 
         .glass-hover:hover {
             border-color: var(--border2);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+            box-shadow: var(--shadow-hover);
             transform: translateY(-3px);
         }
 
@@ -271,53 +374,106 @@
             max-width: 780px;
         }
 
-        .hero-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+        .hero-logo {
+            position: relative;
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-logo-mark {
+            width: 100%;
+            height: 100%;
+            border-radius: 26px;
+            background: linear-gradient(135deg, var(--primary), var(--accent2) 55%, var(--accent));
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 28px;
-            font-family: 'Syne', sans-serif;
-            font-size: 2rem;
+            font-family: var(--font-display);
+            font-size: 2.1rem;
             font-weight: 800;
+            letter-spacing: -0.02em;
             color: #fff;
-            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2), 0 0 0 8px rgba(59, 130, 246, 0.08);
+            position: relative;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.16), 0 0 0 8px rgba(59, 130, 246, 0.06), 0 20px 40px -14px rgba(59, 130, 246, 0.6);
             animation: pulse-ring 3s ease-in-out infinite;
+        }
+
+        .hero-logo-mark::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .hero-logo-tag {
+            position: absolute;
+            bottom: -8px;
+            right: -8px;
+            width: 34px;
+            height: 34px;
+            border-radius: 11px;
+            background: var(--bg2);
+            border: 1px solid var(--border2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 0.85rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
         }
 
         @keyframes pulse-ring {
 
             0%,
             100% {
-                box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2), 0 0 0 8px rgba(59, 130, 246, 0.08);
+                box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.16), 0 0 0 8px rgba(59, 130, 246, 0.06), 0 20px 40px -14px rgba(59, 130, 246, 0.6);
             }
 
             50% {
-                box-shadow: 0 0 0 8px rgba(59, 130, 246, 0.15), 0 0 0 16px rgba(59, 130, 246, 0.05);
+                box-shadow: 0 0 0 8px rgba(59, 130, 246, 0.12), 0 0 0 16px rgba(59, 130, 246, 0.04), 0 20px 40px -14px rgba(59, 130, 246, 0.6);
             }
         }
 
         .hero-content h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(2.8rem, 7vw, 5rem);
+            font-family: var(--font-display);
+            font-size: var(--fs-hero);
             font-weight: 800;
-            letter-spacing: -0.04em;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #fff 40%, var(--accent));
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+        }
+
+        .hero-content h1 .name-light {
+            color: #f8fafc;
+        }
+
+        .hero-content h1 .name-accent {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
+        .hero-content .divider {
+            margin: 22px auto 24px;
+        }
+
+        .hero-role {
+            font-family: var(--font-body);
+            font-size: var(--fs-label);
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+            margin-bottom: 20px;
+        }
+
         .tagline {
-            font-size: 0.95rem;
+            font-size: var(--fs-caption);
             color: var(--text-secondary);
             font-weight: 400;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -327,19 +483,19 @@
         .tagline-pill {
             background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(6, 182, 212, 0.1));
             border: 1px solid rgba(59, 130, 246, 0.25);
-            border-radius: 100px;
+            border-radius: var(--radius-pill);
             padding: 4px 14px;
-            font-size: 0.82rem;
+            font-size: var(--fs-caption);
             letter-spacing: 0.05em;
             color: var(--accent);
         }
 
         .description {
             color: var(--text-secondary);
-            font-size: 1.1rem;
+            font-size: var(--fs-body-lg);
             font-weight: 300;
             max-width: 600px;
-            margin: 0 auto 36px;
+            margin: 0 auto 40px;
         }
 
         .hero-buttons {
@@ -347,28 +503,51 @@
             gap: 14px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 52px;
+            margin-bottom: 48px;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 13px 28px;
-            border-radius: 10px;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.95rem;
+            padding: 13px 30px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: var(--fs-label);
             font-weight: 500;
             text-decoration: none;
             border: none;
             cursor: pointer;
-            transition: all 0.25s;
+            transition: all var(--transition);
+        }
+
+        .btn-sm {
+            padding: 9px 18px;
+            font-size: var(--fs-caption);
         }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--accent));
             color: #fff;
             box-shadow: 0 4px 24px rgba(59, 130, 246, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.6s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 125%;
         }
 
         .btn-primary:hover {
@@ -389,8 +568,8 @@
 
         /* Hero Stats */
         .hero-stats {
-            display: flex;
-            gap: 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             justify-content: center;
             background: var(--surface);
             border: 1px solid var(--border);
@@ -401,11 +580,14 @@
         }
 
         .stat {
-            flex: 1;
             padding: 22px 16px;
             text-align: center;
             border-right: 1px solid var(--border);
-            transition: background 0.2s;
+            transition: background var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .stat:last-child {
@@ -417,19 +599,28 @@
         }
 
         .stat-number {
-            display: block;
-            font-family: 'Syne', sans-serif;
-            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 2.1rem;
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 2.4vw, 2rem);
             font-weight: 800;
+            line-height: 1.1;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .stat-label {
-            font-size: 0.78rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 2.5em;
+            font-size: var(--fs-caption);
             color: var(--text-muted);
-            margin-top: 4px;
+            margin-top: 6px;
+            line-height: 1.3;
             letter-spacing: 0.04em;
         }
 
@@ -440,7 +631,7 @@
         }
 
         .about-lead {
-            font-size: 1.12rem;
+            font-size: var(--fs-body-lg);
             margin-bottom: 28px;
             line-height: 1.75;
         }
@@ -454,10 +645,10 @@
         }
 
         .about-col h4 {
-            font-family: 'Syne', sans-serif;
+            font-family: var(--font-display);
             font-weight: 700;
-            font-size: 0.95rem;
-            letter-spacing: 0.04em;
+            font-size: var(--fs-h4);
+            letter-spacing: 0.02em;
             margin-bottom: 14px;
             display: flex;
             align-items: center;
@@ -478,7 +669,7 @@
 
         .about-col li {
             color: var(--text-secondary);
-            font-size: 0.92rem;
+            font-size: var(--fs-small);
             margin-bottom: 10px;
             padding-left: 16px;
             position: relative;
@@ -498,42 +689,65 @@
             background: rgba(59, 130, 246, 0.05);
             border-radius: 0 8px 8px 0;
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: var(--fs-body);
             font-style: italic;
         }
 
         /* ─── SKILLS ─── */
         .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-            gap: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--gap-sm);
             margin-top: 16px;
         }
 
+        .skills-grid .skill-item {
+            flex: 1 1 130px;
+            max-width: 160px;
+        }
+
         .skill-item {
-            padding: 22px 14px;
+            padding: 24px 14px;
             text-align: center;
             border-radius: var(--radius-sm);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .skill-icon {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            transition: transform var(--transition), border-color var(--transition);
+        }
+
+        .skill-item:hover .skill-icon {
+            transform: translateY(-2px);
+            border-color: var(--border2);
         }
 
         .skill-name {
-            font-size: 0.88rem;
+            font-size: var(--fs-label);
             font-weight: 500;
             margin-bottom: 5px;
         }
 
         .skill-level {
-            font-size: 0.72rem;
+            font-size: var(--fs-micro);
             font-weight: 600;
             letter-spacing: 0.06em;
             text-transform: uppercase;
             padding: 3px 8px;
-            border-radius: 100px;
+            border-radius: var(--radius-pill);
         }
 
         .skill-level.expert {
@@ -556,32 +770,42 @@
             color: var(--text-muted);
         }
 
-        /* Auto-assign levels */
-        .skill-item:nth-child(1) .skill-level::before {
-            content: none;
-        }
-
         /* ─── ACADEMICS ─── */
         .academics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--gap-lg);
         }
 
         .academic-card {
+            flex: 1 1 240px;
+            max-width: 340px;
             padding: 36px 28px;
             text-align: center;
             border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .academic-icon {
-            font-size: 2rem;
-            margin-bottom: 14px;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 1.5rem;
+            margin: 0 auto 16px;
             color: var(--primary);
         }
 
         .academic-year {
-            font-size: 0.8rem;
+            font-size: var(--fs-caption);
             letter-spacing: 0.08em;
             text-transform: uppercase;
             color: var(--text-muted);
@@ -589,8 +813,8 @@
         }
 
         .academic-score {
-            font-family: 'Syne', sans-serif;
-            font-size: 2.4rem;
+            font-family: var(--font-display);
+            font-size: var(--fs-stat-num);
             font-weight: 800;
             background: linear-gradient(135deg, var(--gold), var(--gold-light));
             -webkit-background-clip: text;
@@ -600,13 +824,7 @@
 
         .academic-school {
             color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .academic-note {
-            font-size: 0.78rem;
-            color: var(--success);
-            margin-top: 4px;
+            font-size: var(--fs-small);
         }
 
         .academic-badge {
@@ -615,23 +833,28 @@
             background: rgba(245, 158, 11, 0.1);
             border: 1px solid rgba(245, 158, 11, 0.2);
             color: var(--gold);
-            border-radius: 100px;
+            border-radius: var(--radius-pill);
             padding: 3px 10px;
-            font-size: 0.75rem;
+            font-size: var(--fs-micro);
         }
 
         /* ─── PROJECTS ─── */
         .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 22px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--gap-lg);
         }
 
         .project-card {
+            flex: 1 1 340px;
+            max-width: 400px;
             padding: 28px;
             border-radius: var(--radius);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card::before {
@@ -643,7 +866,7 @@
             height: 3px;
             background: linear-gradient(90deg, var(--primary), var(--accent));
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: opacity var(--transition);
         }
 
         .project-card:hover::before {
@@ -654,7 +877,7 @@
             position: absolute;
             top: 16px;
             right: 16px;
-            font-size: 0.7rem;
+            font-size: var(--fs-micro);
             font-weight: 700;
             letter-spacing: 0.06em;
             text-transform: uppercase;
@@ -666,23 +889,42 @@
         }
 
         .project-icon {
-            font-size: 1.6rem;
-            margin-bottom: 14px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 1.15rem;
+            margin-bottom: 16px;
             color: var(--primary);
         }
 
         .project-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.1rem;
+            font-family: var(--font-display);
+            font-size: var(--fs-h3);
             font-weight: 700;
+            line-height: 1.35;
+            min-height: 2.7em;
             margin-bottom: 10px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
         }
 
         .project-description {
-            font-size: 0.9rem;
+            font-size: var(--fs-small);
             color: var(--text-secondary);
             margin-bottom: 18px;
             line-height: 1.65;
+            min-height: 8.25em;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 5;
+            overflow: hidden;
         }
 
         .tech-stack {
@@ -693,7 +935,7 @@
         }
 
         .tech-tag {
-            font-size: 0.73rem;
+            font-size: var(--fs-micro);
             font-weight: 500;
             padding: 3px 9px;
             border-radius: 6px;
@@ -705,19 +947,24 @@
         .project-links {
             display: flex;
             gap: 12px;
+            margin-top: auto;
         }
 
-        .project-links a {
-            font-size: 0.83rem;
-            color: var(--text-secondary);
-            text-decoration: none;
+        .project-links a,
+        .project-links .badge-tag {
+            font-size: var(--fs-caption);
             display: flex;
             align-items: center;
             gap: 5px;
             padding: 6px 12px;
             border-radius: 8px;
             border: 1px solid var(--border);
-            transition: all 0.2s;
+        }
+
+        .project-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all var(--transition);
         }
 
         .project-links a:hover {
@@ -725,24 +972,50 @@
             color: var(--primary);
         }
 
+        .project-links .badge-tag {
+            cursor: default;
+        }
+
         /* ─── ACHIEVEMENTS ─── */
         .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 22px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--gap-lg);
         }
 
         .achievement-card {
+            flex: 1 1 320px;
+            max-width: 380px;
             padding: 28px;
             border-radius: var(--radius);
+            border-left: 3px solid transparent;
             position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .achievement-card:has(.badge-winner) {
+            border-left-color: var(--gold);
+        }
+
+        .achievement-card:has(.badge-finalist) {
+            border-left-color: var(--primary);
+        }
+
+        .achievement-card:has(.badge-prof) {
+            border-left-color: var(--success);
+        }
+
+        .achievement-card:has(.badge-2x) {
+            border-left-color: var(--accent2);
         }
 
         .achievement-badge {
             position: absolute;
             top: -1px;
             right: 20px;
-            font-size: 0.7rem;
+            font-size: var(--fs-micro);
             font-weight: 800;
             letter-spacing: 0.08em;
             text-transform: uppercase;
@@ -770,46 +1043,123 @@
             color: #fff;
         }
 
-        .achievement-image-container {
-            margin: 0 -28px;
-        }
-
-        .achievement-image {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-            display: block;
-            border-radius: 0;
-        }
-
         .achievement-content {
             padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
 
         .achievement-icon {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 1.15rem;
+            margin-bottom: 16px;
             color: var(--gold);
         }
 
         .achievement-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.1rem;
+            font-family: var(--font-display);
+            font-size: var(--fs-h3);
             font-weight: 700;
+            line-height: 1.35;
+            min-height: 2.7em;
             margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
         }
 
         .achievement-description {
-            font-size: 0.9rem;
+            font-size: var(--fs-small);
             color: var(--text-secondary);
             line-height: 1.65;
+            min-height: 8.25em;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 5;
+            overflow: hidden;
+        }
+
+        /* ─── CERTIFICATIONS ─── */
+        .certs-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--gap-lg);
+        }
+
+        .cert-card {
+            position: relative;
+            flex: 1 1 300px;
+            max-width: 360px;
+            padding: 24px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .cert-link-icon {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            transition: color var(--transition);
+        }
+
+        .cert-card:hover .cert-link-icon {
+            color: var(--accent);
+        }
+
+        .cert-icon {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 1.15rem;
+            color: var(--primary);
+        }
+
+        .cert-title {
+            font-family: var(--font-display);
+            font-size: var(--fs-label);
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 4px;
+        }
+
+        .cert-issuer {
+            font-size: var(--fs-caption);
+            color: var(--text-secondary);
         }
 
         /* ─── PROFILES ─── */
         .profiles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 18px;
+            gap: var(--gap-lg);
+        }
+
+        .profiles-grid.compact {
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            max-width: 420px;
+            margin: 0 auto;
         }
 
         .profile-card {
@@ -817,24 +1167,132 @@
             text-align: center;
             border-radius: var(--radius);
             cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: inherit;
         }
 
         .profile-icon {
-            font-size: 2.2rem;
-            margin-bottom: 14px;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 1.5rem;
+            margin: 0 auto 16px;
             color: var(--primary);
         }
 
         .profile-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 1rem;
+            font-family: var(--font-display);
+            font-size: var(--fs-h4);
             font-weight: 700;
             margin-bottom: 6px;
         }
 
         .profile-description {
-            font-size: 0.85rem;
+            font-size: var(--fs-small);
             color: var(--text-secondary);
+        }
+
+        /* ─── LEETCODE ─── */
+        .leetcode-card {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .leetcode-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .leetcode-identity {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .leetcode-icon {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 1.5rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .leetcode-name {
+            font-family: var(--font-display);
+            font-size: var(--fs-h4);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .leetcode-meta {
+            font-size: var(--fs-small);
+            color: var(--text-secondary);
+        }
+
+        /* ─── LEETCODE STATS (shared) ─── */
+        .lc-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: var(--gap-sm);
+        }
+
+        .lc-card {
+            padding: 18px 14px;
+            text-align: center;
+            border-radius: var(--radius-sm);
+        }
+
+        .lc-num {
+            font-family: var(--font-display);
+            font-size: 1.9rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .lc-label {
+            font-size: var(--fs-caption);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .lc-easy .lc-num {
+            color: var(--success);
+        }
+
+        .lc-med .lc-num {
+            color: var(--gold);
+        }
+
+        .lc-hard .lc-num {
+            color: #ef4444;
+        }
+
+        .lc-total .lc-num {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* ─── CONTACT ─── */
@@ -850,7 +1308,7 @@
 
         .form-group label {
             display: block;
-            font-size: 0.87rem;
+            font-size: var(--fs-label);
             font-weight: 500;
             color: var(--text-secondary);
             margin-bottom: 8px;
@@ -867,11 +1325,11 @@
             padding: 13px 16px;
             background: var(--surface2);
             border: 1px solid var(--border);
-            border-radius: 10px;
+            border-radius: var(--radius-sm);
             color: var(--text);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.95rem;
-            transition: border-color 0.2s;
+            font-family: var(--font-body);
+            font-size: var(--fs-body);
+            transition: border-color var(--transition);
             outline: none;
         }
 
@@ -887,6 +1345,40 @@
 
         .form-submit {
             text-align: center;
+        }
+
+        /* ─── BACK TO TOP ─── */
+        .back-to-top {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+            z-index: 900;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
         }
 
         /* ─── FOOTER ─── */
@@ -908,7 +1400,7 @@
         .footer-social a {
             width: 42px;
             height: 42px;
-            border-radius: 10px;
+            border-radius: var(--radius-sm);
             background: var(--surface2);
             border: 1px solid var(--border);
             display: flex;
@@ -917,7 +1409,7 @@
             color: var(--text-secondary);
             font-size: 1rem;
             text-decoration: none;
-            transition: all 0.2s;
+            transition: all var(--transition);
         }
 
         .footer-social a:hover {
@@ -929,7 +1421,7 @@
 
         .footer p {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: var(--fs-small);
             margin-bottom: 6px;
         }
 
@@ -979,53 +1471,6 @@
             transition-delay: 0.32s;
         }
 
-        /* ─── LEETCODE STATS ─── */
-        .lc-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 14px;
-            margin-top: 24px;
-        }
-
-        .lc-card {
-            padding: 22px 16px;
-            text-align: center;
-            border-radius: var(--radius-sm);
-        }
-
-        .lc-num {
-            font-family: 'Syne', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 800;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .lc-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-
-        .lc-easy .lc-num {
-            color: var(--success);
-        }
-
-        .lc-med .lc-num {
-            color: var(--gold);
-        }
-
-        .lc-hard .lc-num {
-            color: #ef4444;
-        }
-
-        .lc-total .lc-num {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
         /* ─── SECTION DIVIDER ─── */
         .divider {
             width: 60px;
@@ -1050,16 +1495,12 @@
                 grid-template-columns: 1fr;
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .achievements-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-stats .stat {
-                padding: 16px 10px;
+            .project-card,
+            .achievement-card,
+            .academic-card,
+            .cert-card {
+                flex-basis: 100%;
+                max-width: 100%;
             }
 
             .about-content {
@@ -1069,11 +1510,60 @@
             .contact-form {
                 padding: 24px;
             }
+
+            .leetcode-card {
+                padding: 24px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat {
+                border-right: 1px solid var(--border);
+                border-bottom: 1px solid var(--border);
+            }
+
+            .stat:nth-child(2n) {
+                border-right: none;
+            }
+
+            .stat:nth-child(3),
+            .stat:nth-child(4) {
+                border-bottom: none;
+            }
+
+            .leetcode-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .leetcode-top .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ─── REDUCED MOTION ─── */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
         }
     </style>
 </head>
 
 <body>
+
+    <canvas id="cursorTrail" class="cursor-trail"></canvas>
 
     <div class="loading" id="loading">
         <div class="loader"></div>
@@ -1092,6 +1582,8 @@
             <li><a href="#academics"><i class="fas fa-graduation-cap"></i> Academics</a></li>
             <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
             <li><a href="#achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
+            <li><a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
+            <li><a href="#leetcode"><i class="fas fa-square-root-variable"></i> LeetCode</a></li>
             <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
         </ul>
     </nav>
@@ -1099,47 +1591,53 @@
     <!-- ──────────────── HERO ──────────────── -->
     <section id="home">
         <div class="hero-content">
-            <div class="hero-avatar">KJ</div>
-            <h1>Kavya Joshi</h1>
+            <div class="hero-logo">
+                <span class="hero-logo-mark">KJ</span>
+                <span class="hero-logo-tag"><i class="fas fa-code"></i></span>
+            </div>
+            <h1><span class="name-light">Kavya</span> <span class="name-accent">Joshi</span></h1>
+            <div class="divider"></div>
+
+            <p class="hero-role">AI Engineer • Software Engineer • Full Stack Developer</p>
 
             <div class="tagline">
                 <span class="tagline-pill">🏆 SIH '25 National Winner</span>
-                <span class="tagline-pill">🚀 Ingenium 2026 Finalist</span>
+                <span class="tagline-pill">🥇 DRDO Sampada 2025 Winner</span>
+                <span class="tagline-pill">🚀 Founder — CarbonVerse</span>
                 <span class="tagline-pill">⚡ LeetCode Expert — Top 2.5%</span>
-                <span class="tagline-pill">🔗 AI & Blockchain Dev</span>
             </div>
 
             <p class="description">
-                B.Tech CSE student at GLS University specializing in <strong>Scalable AI Pipelines</strong> and
-                <strong>Decentralized Infrastructure</strong>. Multi-time national hackathon champion with a focus on
-                ZKML, Digital Twins, and Sovereign AI.
+                Software Engineer specializing in Artificial Intelligence, Full-Stack Development, and Enterprise
+                Systems. National hackathon winner, startup founder, and AI engineer passionate about building
+                scalable software, intelligent automation, blockchain applications, and real-world AI solutions.
             </p>
 
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">
                     <i class="fas fa-code"></i> Explore Projects
                 </a>
-                <a href="Kavya_Joshi_Resume.pdf" target="_blank" class="btn btn-secondary">
+                <a href="Kavya_Joshi_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                     <i class="fas fa-file-alt"></i> View CV
                 </a>
             </div>
 
             <div class="hero-stats">
                 <div class="stat">
-                    <span class="stat-number">7+</span>
-                    <span class="stat-label">Hackathon Victories & Finals</span>
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">National Hackathons</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number">601</span>
-                    <span class="stat-label">LeetCode Problems Solved</span>
+                    <span class="stat-number">Founder</span>
+                    <span class="stat-label">CarbonVerse Startup</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">Oracle + AWS</span>
+                    <span class="stat-label">Cloud Certified</span>
                 </div>
                 <div class="stat">
                     <span class="stat-number">8.75</span>
                     <span class="stat-label">CGPA · GLS University</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">Top 2.5%</span>
-                    <span class="stat-label">Global LeetCode Rank</span>
                 </div>
             </div>
         </div>
@@ -1148,6 +1646,7 @@
     <!-- ──────────────── ABOUT ──────────────── -->
     <section id="about" class="section">
         <div class="section-header animate-on-scroll">
+            <span class="section-eyebrow">01</span>
             <h2 class="section-title">About Me</h2>
             <div class="divider"></div>
             <p class="section-subtitle" style="margin-top: 16px;">Passionate developer with a mission to innovate and
@@ -1156,21 +1655,23 @@
 
         <div class="about-content glass glass-hover animate-on-scroll">
             <p class="about-lead">
-                I am a B.Tech CSE student at GLS University, driven by a passion for architecting <strong>Scalable AI
-                    Pipelines</strong> and <strong>Decentralized Systems</strong>. I specialize in full-stack software
-                development and high-level problem solving, with a proven track record of converting complex logic into
-                award-winning applications — including a <strong>National Winner at Smart India Hackathon 2025</strong>
-                and a <strong>Finalist at Ingenium 2026</strong>.
+                I am a <strong>B.Tech Computer Science</strong> student at GLS University passionate about
+                <strong>Artificial Intelligence</strong>, <strong>Full-Stack Engineering</strong>,
+                <strong>Enterprise Software</strong>, and <strong>Blockchain</strong>. I enjoy designing scalable
+                applications, AI agents, cloud-native systems, and intelligent automation solutions that solve
+                real-world problems. My journey combines software engineering, research, entrepreneurship, and
+                national-level hackathons to build impactful technology.
             </p>
 
             <div class="about-cols">
                 <div class="about-col primary">
                     <h4><i class="fas fa-trophy"></i> Elite Achievements</h4>
                     <ul>
-                        <li><strong>PIERC Startup Grant:</strong> Winner (Cohort 9) — CarbonVerse</li>
+                        <li><strong>PIERC Cohort 9:</strong> Incubated Startup — CarbonVerse</li>
                         <li><strong>SIH 2025:</strong> National Winner — CoastScan (AI Sand Classification)</li>
+                        <li><strong>GLS Incubation Centre:</strong> Outstanding Innovation Award — CoastScan</li>
                         <li><strong>Ingenium 2026:</strong> Finalist — Ahmedabad University</li>
-                        <li><strong>Breach 2025 &amp; PDEU:</strong> 1st Place (Winner) — AI Fraud Detection &amp; Prototyping</li>
+                        <li><strong>Breach 2025 &amp; PDEU:</strong> Winner — AI Fraud Detection &amp; Prototyping</li>
                         <li><strong>DRDO Sampada 2025:</strong> Winner — Defense IoT Security</li>
                         <li><strong>Hack.X '26:</strong> Top 12 Finalist — AI &amp; Blockchain POS Auditing</li>
                         <li><strong>GLS Hackathons:</strong> 2x Champion (1st 2024 · 2nd 2025)</li>
@@ -1180,7 +1681,8 @@
                 <div class="about-col accent">
                     <h4><i class="fas fa-briefcase"></i> Experience &amp; Leadership</h4>
                     <ul>
-                        <li><strong>AI/ML Intern:</strong> Cygnet.one (June – July 2026)</li>
+                        <li><strong>AI/ML & Full Stack Intern:</strong> Cygnet.One (June – July 2026)</li>
+                        <li><strong>Student Coordinator:</strong> CyberShadez 2026 — 300+ participants</li>
                         <li><strong>ACM Membership Chair:</strong> Leads 200+ member university chapter</li>
                         <li><strong>IEEE Student Member:</strong> International Technical Network</li>
                         <li><strong>SSIP Gujarat Hackathon 2025:</strong> State-level Finalist</li>
@@ -1228,6 +1730,11 @@
                 <div class="skill-level advanced">Advanced</div>
             </div>
             <div class="skill-item glass glass-hover animate-on-scroll">
+                <div class="skill-icon"><i class="fab fa-python" style="color:#0c4b33"></i></div>
+                <div class="skill-name">Django</div>
+                <div class="skill-level advanced">Advanced</div>
+            </div>
+            <div class="skill-item glass glass-hover animate-on-scroll">
                 <div class="skill-icon"><i class="fas fa-cubes" style="color:#f59e0b"></i></div>
                 <div class="skill-name">Blockchain / ZKML</div>
                 <div class="skill-level intermediate">Intermediate</div>
@@ -1235,12 +1742,12 @@
             <div class="skill-item glass glass-hover animate-on-scroll">
                 <div class="skill-icon"><i class="fab fa-docker" style="color:#0ea5e9"></i></div>
                 <div class="skill-name">Docker</div>
-                <div class="skill-level beginner">Beginner</div>
+                <div class="skill-level beginner">Hands-on</div>
             </div>
             <div class="skill-item glass glass-hover animate-on-scroll">
                 <div class="skill-icon"><i class="fab fa-aws" style="color:#f97316"></i></div>
                 <div class="skill-name">AWS</div>
-                <div class="skill-level beginner">Beginner</div>
+                <div class="skill-level beginner">Foundational</div>
             </div>
         </div>
     </section>
@@ -1248,6 +1755,7 @@
     <!-- ──────────────── ACADEMICS ──────────────── -->
     <section id="academics" class="section">
         <div class="section-header animate-on-scroll">
+            <span class="section-eyebrow">02</span>
             <h2 class="section-title">Academic Excellence</h2>
             <div class="divider"></div>
             <p class="section-subtitle" style="margin-top:16px;">A journey of continuous learning and achievement</p>
@@ -1279,6 +1787,7 @@
     <!-- ──────────────── PROJECTS ──────────────── -->
     <section id="projects" class="section">
         <div class="section-header animate-on-scroll">
+            <span class="section-eyebrow">03</span>
             <h2 class="section-title">Featured Projects</h2>
             <div class="divider"></div>
             <p class="section-subtitle" style="margin-top:16px;">Innovative solutions that showcase my technical
@@ -1287,15 +1796,36 @@
 
         <div class="projects-grid">
 
-            <!-- VeriCred – NEW -->
+            <!-- CoastScan -->
+            <div class="project-card glass glass-hover animate-on-scroll">
+                <div class="project-badge">🏆 SIH '25 Winner</div>
+                <div class="project-icon"><i class="fas fa-microchip"></i></div>
+                <h3 class="project-title">CoastScan — AI Sand Classification</h3>
+                <p class="project-description">
+                    National Winner of SIH 2025 — AI-driven system for automated beach sand grain mapping using
+                    Computer Vision and TensorFlow, with cloud-integrated analytical reporting.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Computer Vision</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Cloud Integration</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/KAVYAJOSHI1/CoastScan" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                    <span class="badge-tag" style="color:var(--gold);"><i
+                            class="fas fa-trophy"></i> SIH Winner</span>
+                </div>
+            </div>
+
+            <!-- VeriCred -->
             <div class="project-card glass glass-hover animate-on-scroll">
                 <div class="project-badge">🔐 ZKML</div>
                 <div class="project-icon"><i class="fas fa-lock"></i></div>
                 <h3 class="project-title">VeriCred — Privacy-Preserving ZKML Credit Scoring</h3>
                 <p class="project-description">
-                    Decentralized credit scoring engine using Zero-Knowledge Machine Learning (ZKML). Computes scores
-                    locally with PyTorch and validates ZK-proofs on-chain via Solidity smart contracts on Sepolia,
-                    ensuring financial transparency without compromising user data.
+                    Decentralized credit scoring engine using Zero-Knowledge Machine Learning. Computes scores
+                    locally with PyTorch, validating proofs on-chain via Solidity on Sepolia — private by design.
                 </p>
                 <div class="tech-stack">
                     <span class="tech-tag">ZKML (EZKL)</span>
@@ -1305,9 +1835,8 @@
                     <span class="tech-tag">Web3.js</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    <a href="#" onclick="return false;" style="cursor:default;color:var(--accent2);"><i
-                            class="fas fa-shield-alt"></i> Ingenium Finalist</a>
+                    <span class="badge-tag" style="color:var(--text-muted);"><i
+                            class="fas fa-lock"></i> Private Repo</span>
                 </div>
             </div>
 
@@ -1317,9 +1846,8 @@
                 <div class="project-icon"><i class="fas fa-server"></i></div>
                 <h3 class="project-title">L3M — Local Multi-Modal MCP System</h3>
                 <p class="project-description">
-                    Privacy-first, wholly offline AI architecture utilizing a custom Model Context Protocol (MCP) over
-                    TCP. Features a Go orchestration server, Python/Qdrant RAG pipeline, and persistent PostgreSQL state
-                    management for high-speed token streaming and semantic chunking.
+                    Privacy-first, offline AI architecture using a custom Model Context Protocol over TCP — a Go
+                    orchestration server, Python/Qdrant RAG pipeline, and PostgreSQL state management.
                 </p>
                 <div class="tech-stack">
                     <span class="tech-tag">Go</span>
@@ -1330,19 +1858,18 @@
                     <span class="tech-tag">MCP</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <a href="https://github.com/KAVYAJOSHI1/L3M" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
                 </div>
             </div>
 
-            <!-- LocalMinds – NEW -->
+            <!-- LocalMinds -->
             <div class="project-card glass glass-hover animate-on-scroll">
                 <div class="project-badge">🤖 On-Device AI</div>
                 <div class="project-icon"><i class="fas fa-brain"></i></div>
                 <h3 class="project-title">LocalMinds — Sovereign Offline AI Companion</h3>
                 <p class="project-description">
-                    100% offline AI agent built with Flutter and MediaPipe for high-performance on-device inference.
-                    Integrated Local RAG and persistent memory for personalized assistance with zero data egress — true
-                    Sovereign AI.
+                    100% offline AI agent built with Flutter and MediaPipe for on-device inference — Local RAG and
+                    persistent memory for personalized, zero-data-egress Sovereign AI.
                 </p>
                 <div class="tech-stack">
                     <span class="tech-tag">Flutter</span>
@@ -1352,72 +1879,30 @@
                     <span class="tech-tag">Python</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <a href="https://github.com/KAVYAJOSHI1/LOCALMINDS" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
                 </div>
             </div>
 
-            <!-- GeoAnushasan – NEW -->
+            <!-- ERP -->
             <div class="project-card glass glass-hover animate-on-scroll">
-                <div class="project-badge">🌆 Digital Twin</div>
-                <div class="project-icon"><i class="fas fa-city"></i></div>
-                <h3 class="project-title">GeoAnushasan — Decentralized Smart City Digital Twin</h3>
+                <div class="project-badge">🏭 Enterprise ERP</div>
+                <div class="project-icon"><i class="fas fa-industry"></i></div>
+                <h3 class="project-title">Smart Manufacturing ERP & Supply Chain Platform</h3>
                 <p class="project-description">
-                    Data-driven Digital Twin platform for smart city governance integrating real-time Weather, AQI, and
-                    Traffic telemetry. Developed a decentralized "Urban Nervous System" to simulate and optimize
-                    city-wide resource allocation.
+                    Enterprise-grade, event-driven microservices ERP for manufacturing, procurement, inventory, and
+                    finance — Kafka outbox pattern, Node.js API gateway with RBAC, full observability.
                 </p>
                 <div class="tech-stack">
-                    <span class="tech-tag">Digital Twins</span>
-                    <span class="tech-tag">Real-time APIs</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">n8n</span>
-                    <span class="tech-tag">Firebase</span>
+                    <span class="tech-tag">Go</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">Kafka</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Redis</span>
+                    <span class="tech-tag">Docker</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                </div>
-            </div>
-
-            <!-- CoastScan -->
-            <div class="project-card glass glass-hover animate-on-scroll">
-                <div class="project-badge">🏆 SIH '25 Winner</div>
-                <div class="project-icon"><i class="fas fa-microchip"></i></div>
-                <h3 class="project-title">CoastScan — AI Sand Classification</h3>
-                <p class="project-description">
-                    National Winner of SIH 2025. AI-driven ecosystem for automated beach sand grain mapping using
-                    Computer Vision and TensorFlow. Recognized for superior software architecture and cloud-integrated
-                    analytical reporting.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Computer Vision</span>
-                    <span class="tech-tag">TensorFlow</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Cloud Integration</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    <a href="#" onclick="return false;" style="cursor:default;color:var(--gold);"><i
-                            class="fas fa-trophy"></i> SIH Winner</a>
-                </div>
-            </div>
-
-            <!-- EcoScan -->
-            <div class="project-card glass glass-hover animate-on-scroll">
-                <div class="project-icon"><i class="fas fa-leaf"></i></div>
-                <h3 class="project-title">EcoScan — Greenwashing Detector</h3>
-                <p class="project-description">
-                    AI-powered platform to combat greenwashing and empower consumers. Uses Google Vision API and Hugging
-                    Face Transformers to analyze product photos and URLs for misleading environmental claims.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">AI/ML</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Flask</span>
-                    <span class="tech-tag">Google Vision API</span>
-                    <span class="tech-tag">Hugging Face</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <a href="https://github.com/KAVYAJOSHI1/ERP" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
                 </div>
             </div>
 
@@ -1427,9 +1912,8 @@
                 <div class="project-icon"><i class="fas fa-shield-alt"></i></div>
                 <h3 class="project-title">AI-Powered Fraud Detection System</h3>
                 <p class="project-description">
-                    1st Place (Winner) at Breach 2025 FinTech Hackathon, PDEU. Real-time anomaly detection engine for
-                    high-frequency financial transactions using advanced ML algorithms and scalable backend
-                    architecture.
+                    Winner at Breach 2025 FinTech Hackathon, PDEU — a real-time anomaly detection engine for
+                    high-frequency financial transactions using ML and a scalable backend.
                 </p>
                 <div class="tech-stack">
                     <span class="tech-tag">AI/ML</span>
@@ -1440,30 +1924,55 @@
                     <span class="tech-tag">TensorFlow</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    <a href="#" onclick="return false;" style="cursor:default;color:var(--gold);"><i
-                            class="fas fa-trophy"></i> 1st Place (Winner)</a>
+                    <a href="https://github.com/KAVYAJOSHI1/AI-Powered-Fraud-Detection-System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                    <span class="badge-tag" style="color:var(--gold);"><i
+                            class="fas fa-trophy"></i> Winner</span>
                 </div>
             </div>
 
-            <!-- Flash Mentor -->
+            <!-- GeoAnushasan -->
             <div class="project-card glass glass-hover animate-on-scroll">
-                <div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                <h3 class="project-title">Flash Mentor — AI Learning Assistant</h3>
+                <div class="project-badge">🌆 Digital Twin</div>
+                <div class="project-icon"><i class="fas fa-city"></i></div>
+                <h3 class="project-title">GeoAnushasan — Decentralized Smart City Digital Twin</h3>
                 <p class="project-description">
-                    Comprehensive AI-powered personal learning platform with a long-term roadmap planner, skill tracker
-                    with AI-generated learning paths, and an interactive interview coach.
+                    Data-driven Digital Twin platform for smart city governance, integrating real-time Weather, AQI,
+                    and Traffic telemetry into a decentralized "Urban Nervous System."
                 </p>
                 <div class="tech-stack">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Digital Twins</span>
+                    <span class="tech-tag">Real-time APIs</span>
                     <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Flask</span>
-                    <span class="tech-tag">Gemini AI</span>
-                    <span class="tech-tag">SQLAlchemy</span>
+                    <span class="tech-tag">n8n</span>
+                    <span class="tech-tag">Firebase</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <a href="https://github.com/KAVYAJOSHI1/GeoAnushasan" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                    <span class="badge-tag" style="color:var(--accent2);"><i
+                            class="fas fa-shield-alt"></i> Ingenium Finalist</span>
+                </div>
+            </div>
+
+            <!-- Sentinel GEC -->
+            <div class="project-card glass glass-hover animate-on-scroll">
+                <div class="project-badge">🎥 Hack.X '26</div>
+                <div class="project-icon"><i class="fas fa-video"></i></div>
+                <h3 class="project-title">Sentinel GEC — AI Retail Theft Detection System</h3>
+                <p class="project-description">
+                    AI-powered retail security system cross-referencing video feeds with POS logs — computer vision
+                    detects theft, anchoring alerts on Sepolia for audit integrity.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Computer Vision</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Blockchain</span>
+                    <span class="tech-tag">Ethereum Sepolia</span>
+                    <span class="tech-tag">POS Integration</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/KAVYAJOSHI1/GEC" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                    <span class="badge-tag" style="color:var(--accent2);"><i
+                            class="fas fa-award"></i> Top 12 Finalist</span>
                 </div>
             </div>
 
@@ -1484,7 +1993,88 @@
                     <span class="tech-tag">Firebase Auth</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <a href="https://github.com/KAVYAJOSHI1/TRIBEKART" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                </div>
+            </div>
+
+            <!-- Flash Mentor -->
+            <div class="project-card glass glass-hover animate-on-scroll">
+                <div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                <h3 class="project-title">Flash Mentor — AI Learning Assistant</h3>
+                <p class="project-description">
+                    Comprehensive AI-powered personal learning platform with a long-term roadmap planner, skill tracker
+                    with AI-generated learning paths, and an interactive interview coach.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">Gemini AI</span>
+                    <span class="tech-tag">SQLAlchemy</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/KAVYAJOSHI1/flash-mentor" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                </div>
+            </div>
+
+            <!-- EcoScan -->
+            <div class="project-card glass glass-hover animate-on-scroll">
+                <div class="project-icon"><i class="fas fa-leaf"></i></div>
+                <h3 class="project-title">EcoScan — Greenwashing Detector</h3>
+                <p class="project-description">
+                    AI-powered platform combating greenwashing — uses Google Vision API and Hugging Face
+                    Transformers to analyze product photos and URLs for misleading environmental claims.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">AI/ML</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">Google Vision API</span>
+                    <span class="tech-tag">Hugging Face</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/KAVYAJOSHI1/Greenwashing-Detector" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                </div>
+            </div>
+
+            <!-- MilletSetu -->
+            <div class="project-card glass glass-hover animate-on-scroll">
+                <div class="project-icon"><i class="fas fa-seedling"></i></div>
+                <h3 class="project-title">MilletSetu — Blockchain for Farmers</h3>
+                <p class="project-description">
+                    DApp on Ethereum Sepolia testnet creating a transparent supply chain for millet farmers, ensuring
+                    fair pricing and full traceability using blockchain smart contracts.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Blockchain</span>
+                    <span class="tech-tag">Solidity</span>
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Ethers.js</span>
+                    <span class="tech-tag">Sepolia Testnet</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/KAVYAJOSHI1/MilletSetu-Blockchain" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                </div>
+            </div>
+
+            <!-- IC Scanner -->
+            <div class="project-card glass glass-hover animate-on-scroll">
+                <div class="project-icon"><i class="fas fa-search-plus"></i></div>
+                <h3 class="project-title">IC Scanner — Counterfeit IC Detector</h3>
+                <p class="project-description">
+                    AI-powered tool using computer vision and ML to detect counterfeit integrated circuits by analyzing
+                    images against a genuine component database.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Computer Vision</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">OpenCV</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">Flask</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/KAVYAJOSHI1/IC-SCANNER" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
                 </div>
             </div>
 
@@ -1504,7 +2094,7 @@
                     <span class="tech-tag">SMTP</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <a href="https://github.com/KAVYAJOSHI1/ANANTAM_WEBSITE" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
                 </div>
             </div>
 
@@ -1525,9 +2115,9 @@
                     <span class="tech-tag">MQTT</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    <a href="#" onclick="return false;" style="cursor:default;color:var(--gold);"><i
-                            class="fas fa-award"></i> DRDO Winner</a>
+                    <a href="https://github.com/KAVYAJOSHI1/IoT-Security-Solution" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                    <span class="badge-tag" style="color:var(--gold);"><i
+                            class="fas fa-award"></i> DRDO Winner</span>
                 </div>
             </div>
 
@@ -1546,66 +2136,19 @@
                     <span class="tech-tag">REST API</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    <a href="#" onclick="return false;" style="cursor:default;color:var(--accent2);"><i
-                            class="fas fa-award"></i> SSIP Finalist</a>
+                    <a href="https://github.com/KAVYAJOSHI1/UrjaSetu-GUVNL-Platform" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+                    <span class="badge-tag" style="color:var(--accent2);"><i
+                            class="fas fa-award"></i> SSIP Finalist</span>
                 </div>
             </div>
 
-            <!-- MilletSetu -->
-            <div class="project-card glass glass-hover animate-on-scroll">
-                <div class="project-icon"><i class="fas fa-seedling"></i></div>
-                <h3 class="project-title">MilletSetu — Blockchain for Farmers</h3>
-                <p class="project-description">
-                    DApp on Ethereum Sepolia testnet creating a transparent supply chain for millet farmers, ensuring
-                    fair pricing and full traceability using blockchain smart contracts.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Blockchain</span>
-                    <span class="tech-tag">Solidity</span>
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Ethers.js</span>
-                    <span class="tech-tag">Sepolia Testnet</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                </div>
-            </div>
-
-            <!-- IC Scanner -->
-            <div class="project-card glass glass-hover animate-on-scroll">
-                <div class="project-icon"><i class="fas fa-search-plus"></i></div>
-                <h3 class="project-title">IC Scanner — Counterfeit IC Detector</h3>
-                <p class="project-description">
-                    AI-powered tool using computer vision and ML to detect counterfeit integrated circuits by analyzing
-                    images against a genuine component database.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Computer Vision</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">OpenCV</span>
-                    <span class="tech-tag">TensorFlow</span>
-                    <span class="tech-tag">Flask</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/KAVYAJOSHI1" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- GitHub section placeholder -->
-        <div class="section-header animate-on-scroll" style="margin-top: 80px; margin-bottom: 40px;">
-            <p class="section-subtitle">Latest from GitHub</p>
-        </div>
-        <div class="projects-grid more-projects-grid">
-            <!-- Dynamic Projects will be injected here -->
         </div>
     </section>
 
     <!-- ──────────────── ACHIEVEMENTS ──────────────── -->
     <section id="achievements" class="section">
         <div class="section-header animate-on-scroll">
+            <span class="section-eyebrow">04</span>
             <h2 class="section-title">Achievements & Recognition</h2>
             <div class="divider"></div>
             <p class="section-subtitle" style="margin-top:16px;">National-level victories and professional milestones in
@@ -1614,43 +2157,29 @@
 
         <div class="achievements-grid">
 
-            <!-- PIERC Grant – NEW -->
+            <!-- Founder - CarbonVerse -->
             <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-winner">Grant Winner</div>
+                <div class="achievement-badge badge-winner">Founder</div>
                 <div class="achievement-content">
                     <div class="achievement-icon"><i class="fas fa-rocket"></i></div>
-                    <h3 class="achievement-title">PIERC Startup Grant Winner</h3>
+                    <h3 class="achievement-title">Founder — CarbonVerse</h3>
                     <p class="achievement-description">
-                        Awarded a seed grant and selected for the highly competitive <strong>Cohort 9 Incubation
-                            Program</strong> at Parul University to build and scale <strong>CarbonVerse</strong>.
+                        Founded and lead <strong>CarbonVerse</strong>, a blockchain-powered sustainability platform
+                        selected for the <strong>PIERC Cohort 9 Incubation Program</strong>, focused on transparent
+                        carbon credit management.
                     </p>
                 </div>
             </div>
 
             <!-- SIH 2025 -->
             <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-winner">National Winner</div>
+                <div class="achievement-badge badge-winner">Winner</div>
                 <div class="achievement-content">
                     <div class="achievement-icon"><i class="fas fa-crown"></i></div>
                     <h3 class="achievement-title">Smart India Hackathon 2025</h3>
                     <p class="achievement-description">
-                        Crowned <strong>National Winner</strong> for CoastScan — an AI-driven hardware/software solution
-                        for beach sand classification. Recognized for superior software architecture,
-                        cloud-integrated analytical pipeline, and real-time data processing.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Ingenium 2026 – NEW -->
-            <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-finalist">Finalist</div>
-                <div class="achievement-content">
-                    <div class="achievement-icon"><i class="fas fa-star"></i></div>
-                    <h3 class="achievement-title">Ingenious Hackathon 7.0 — Ingenium 2026</h3>
-                    <p class="achievement-description">
-                        Recognized as a <strong>Finalist</strong> at this prestigious event held at Ahmedabad
-                        University. Awarded for innovation and technical resilience in developing VeriCred, a
-                        ZKML-powered decentralized credit scoring system.
+                        National Winner for CoastScan — an AI-driven system for automated beach sand classification,
+                        recognized for its cloud-integrated architecture and real-time processing.
                     </p>
                 </div>
             </div>
@@ -1658,94 +2187,106 @@
             <!-- DRDO -->
             <div class="achievement-card glass glass-hover animate-on-scroll">
                 <div class="achievement-badge badge-winner">Winner</div>
-                <div class="achievement-image-container">
-                    <img src="Certificates/DRDO.jpeg" alt="DRDO Winner" class="achievement-image">
-                </div>
                 <div class="achievement-content">
                     <div class="achievement-icon"><i class="fas fa-user-shield"></i></div>
-                    <h3 class="achievement-title">DRDO DIA-SVPCoE Hackathon 'Sampada 2025'</h3>
+                    <h3 class="achievement-title">DRDO DIA-SVPCoE Hackathon — Sampada 2025</h3>
                     <p class="achievement-description">
-                        Winner in the <strong>IoT Security domain</strong>. Developed a software-defined security logic
-                        framework using advanced cryptographic protocols and AI-driven threat identification for
-                        defense-grade applications.
+                        Winner in the <strong>IoT Security domain</strong> — engineered a software-defined security
+                        framework combining cryptographic protocols with AI-driven threat detection for defense
+                        systems.
                     </p>
                 </div>
             </div>
 
             <!-- Breach 2025 & PDEU -->
             <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-winner">1st Place (Winner)</div>
-                <div class="achievement-image-container">
-                    <img src="Certificates/PDEU%20WINNING.jpeg" alt="PDEU Hackathon Winner" class="achievement-image">
-                </div>
+                <div class="achievement-badge badge-winner">Winner</div>
                 <div class="achievement-content">
                     <div class="achievement-icon"><i class="fas fa-medal"></i></div>
                     <h3 class="achievement-title">Breach 2025 FinTech Hackathon, PDEU</h3>
                     <p class="achievement-description">
-                        Secured 1st Place (Winner) at Breach 2025 FinTech Hackathon at PDEU. Designed an AI Fraud Detection Engine &amp; Rapid Prototyping framework.
+                        Winner at Breach 2025 — engineered a real-time AI fraud detection engine and rapid-prototyping
+                        framework for high-frequency financial transactions.
                     </p>
                 </div>
             </div>
 
-            <!-- Cygnet.one Internship -->
+            <!-- Outstanding Innovation Award -->
+            <div class="achievement-card glass glass-hover animate-on-scroll">
+                <div class="achievement-badge badge-winner">Award</div>
+                <div class="achievement-content">
+                    <div class="achievement-icon"><i class="fas fa-award"></i></div>
+                    <h3 class="achievement-title">Outstanding Innovation Award — CoastScan</h3>
+                    <p class="achievement-description">
+                        Recognized by the <strong>GLS University Incubation Centre</strong> for outstanding innovation
+                        in CoastScan, the award-winning AI project for automated beach sand classification.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CyberShadez -->
+            <div class="achievement-card glass glass-hover animate-on-scroll">
+                <div class="achievement-badge badge-prof">Coordinator</div>
+                <div class="achievement-content">
+                    <div class="achievement-icon"><i class="fas fa-shield-halved"></i></div>
+                    <h3 class="achievement-title">Student Coordinator — CyberShadez 2026</h3>
+                    <p class="achievement-description">
+                        Officially recognized by <strong>GLS University</strong> for leading Track 3 for
+                        <strong>300+ participants</strong> and organizing the flagship AI automation event,
+                        <strong>"Rise of Agent."</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Cygnet.One Internship -->
             <div class="achievement-card glass glass-hover animate-on-scroll">
                 <div class="achievement-badge badge-prof">Internship</div>
                 <div class="achievement-content">
                     <div class="achievement-icon"><i class="fas fa-briefcase"></i></div>
-                    <h3 class="achievement-title">AI/ML Intern — Cygnet.one</h3>
+                    <h3 class="achievement-title">AI/ML & Full Stack Intern — Cygnet.One</h3>
                     <p class="achievement-description">
-                        Developing and optimizing AI/ML models, automating business workflows, and deploying cognitive solutions under industry mentorship (June – July 2026).
-                    </p>
-                </div>
-            </div>
-
-            <!-- Hack.X '26 Finalist -->
-            <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-finalist">Finalist</div>
-                <div class="achievement-content">
-                    <div class="achievement-icon"><i class="fas fa-code-branch"></i></div>
-                    <h3 class="achievement-title">Hack.X at HackTheSpring '26</h3>
-                    <p class="achievement-description">
-                        Placed in the <strong>Top 12 out of 70+ teams</strong> globally at GEC Gandhinagar's national-level hackathon. Developed Sentinel GEC, an AI and Blockchain-integrated auditing system.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Oracle AI Certification -->
-            <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-prof">Certification</div>
-                <div class="achievement-content">
-                    <div class="achievement-icon"><i class="fas fa-certificate"></i></div>
-                    <h3 class="achievement-title">Oracle Cloud Infrastructure Certified AI Associate</h3>
-                    <p class="achievement-description">
-                        Professional credential from Oracle validating advanced core knowledge of AI, ML algorithms, Deep Learning (CNNs, RNNs), LLMs, and Generative AI services.
+                        AI-powered SDLC &amp; Jira automation agents. FastAPI backend with REST APIs, auth,
+                        HTTPS/TLS, AES-RSA encryption, JSON rendering, Angular integration, enterprise AI workflows.
                     </p>
                 </div>
             </div>
 
             <!-- GLS Internal -->
             <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-2x">2x Champion</div>
+                <div class="achievement-badge badge-2x">2x Winner</div>
                 <div class="achievement-content">
                     <div class="achievement-icon"><i class="fas fa-star"></i></div>
                     <h3 class="achievement-title">GLS Internal Hackathons</h3>
                     <p class="achievement-description">
-                        Maintained a consistent winning streak — <strong>1st Place in 2024</strong> and <strong>2nd
-                            Place in 2025</strong>, demonstrating technical leadership and versatility in rapid software
-                        development.
+                        Two-time <strong>Winner</strong> of GLS University's internal hackathons (2024 and 2025),
+                        demonstrating consistent technical leadership and rapid software development under
+                        competitive pressure.
                     </p>
                 </div>
             </div>
 
-            <!-- Parul Ideathon – NEW -->
+            <!-- Hack.X '26 Finalist -->
+            <div class="achievement-card glass glass-hover animate-on-scroll">
+                <div class="achievement-badge badge-finalist">Top 12 Finalist</div>
+                <div class="achievement-content">
+                    <div class="achievement-icon"><i class="fas fa-code-branch"></i></div>
+                    <h3 class="achievement-title">Hack.X at HackTheSpring '26</h3>
+                    <p class="achievement-description">
+                        Placed <strong>Top 12 out of 70+ teams</strong> at GEC Gandhinagar's national-level hackathon
+                        — developed Sentinel GEC, an AI and blockchain-integrated retail security auditing system.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Ingenium 2026 -->
             <div class="achievement-card glass glass-hover animate-on-scroll">
                 <div class="achievement-badge badge-finalist">Finalist</div>
                 <div class="achievement-content">
-                    <div class="achievement-icon"><i class="fas fa-leaf"></i></div>
-                    <h3 class="achievement-title">Parul Ideathon 2026 — Vadodara Startup Festival 6.0</h3>
+                    <div class="achievement-icon"><i class="fas fa-star"></i></div>
+                    <h3 class="achievement-title">Ingenious Hackathon 7.0 — Ingenium 2026</h3>
                     <p class="achievement-description">
-                        Led team <strong>CarbonVerse</strong> to the final round of Vadodara Startup Festival 6.0 with
-                        an innovative carbon tracking solution at the intersection of sustainability and Web3.
+                        Finalist at this prestigious Ahmedabad University event for GeoAnushasan, a decentralized
+                        Digital Twin platform for smart city governance.
                     </p>
                 </div>
             </div>
@@ -1753,50 +2294,25 @@
             <!-- SSIP Gujarat Hackathon 2025 -->
             <div class="achievement-card glass glass-hover animate-on-scroll">
                 <div class="achievement-badge badge-finalist">State Finalist</div>
-                <div class="achievement-image-container">
-                    <img src="Certificates/VIKAS_SAPTAH.png" alt="SSIP Gujarat Hackathon 2025" class="achievement-image">
-                </div>
                 <div class="achievement-content">
                     <div class="achievement-icon"><i class="fas fa-award"></i></div>
                     <h3 class="achievement-title">SSIP Gujarat Hackathon 2025</h3>
                     <p class="achievement-description">
-                        Selected as a <strong>State-level Finalist</strong> for designing high-impact software utility
-                        systems (UrjaSetu). Competed at the state government's premier startup and innovation platform.
+                        State-level Finalist for UrjaSetu, an AI-based grievance and feedback platform, at Gujarat's
+                        premier student innovation program.
                     </p>
                 </div>
             </div>
 
-            <!-- LeetCode -->
+            <!-- Parul Ideathon -->
             <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-prof">Expert</div>
+                <div class="achievement-badge badge-finalist">Finalist</div>
                 <div class="achievement-content">
-                    <div class="achievement-icon"><i class="fas fa-code"></i></div>
-                    <h3 class="achievement-title">LeetCode Expert — Top 2.5% Global Rank</h3>
+                    <div class="achievement-icon"><i class="fas fa-leaf"></i></div>
+                    <h3 class="achievement-title">Parul Ideathon 2026 — Vadodara Startup Festival 6.0</h3>
                     <p class="achievement-description">
-                        Solved <strong>601 problems</strong>. Performance beats <strong>98.8% on Hard</strong>, <strong>96.5% on Medium</strong>, and <strong>96.29% on Easy</strong>. Elite proficiency in Dynamic Programming and algorithmic optimization.
-                    </p>
-                    <div class="lc-stats">
-                        <div class="lc-card glass lc-hard"><span class="lc-num">148</span><span
-                                class="lc-label">Hard</span></div>
-                        <div class="lc-card glass lc-med"><span class="lc-num">282</span><span
-                                class="lc-label">Medium</span></div>
-                        <div class="lc-card glass lc-easy"><span class="lc-num">171</span><span
-                                class="lc-label">Easy</span></div>
-                        <div class="lc-card glass lc-total"><span class="lc-num">601</span><span
-                                class="lc-label">Total</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- IDE Bootcamp -->
-            <div class="achievement-card glass glass-hover animate-on-scroll">
-                <div class="achievement-badge badge-prof">Participant</div>
-                <div class="achievement-content">
-                    <div class="achievement-icon"><i class="fas fa-lightbulb"></i></div>
-                    <h3 class="achievement-title">Innovation, Design & Entrepreneurship (IDE) Bootcamp</h3>
-                    <p class="achievement-description">
-                        Participated in the Edition 3, Phase I bootcamp organized by the <strong>AICTE and Ministry of
-                            Education</strong> (Apr 2026), hosted at GITAM University, Bengaluru Campus.
+                        Led team <strong>CarbonVerse</strong> to the final round of Vadodara Startup Festival 6.0 with
+                        an innovative carbon-tracking solution at the intersection of sustainability and Web3.
                     </p>
                 </div>
             </div>
@@ -1815,58 +2331,145 @@
                 </div>
             </div>
 
+        </div>
+    </section>
 
+    <!-- ──────────────── CERTIFICATIONS ──────────────── -->
+    <section id="certifications" class="section">
+        <div class="section-header animate-on-scroll">
+            <span class="section-eyebrow">05</span>
+            <h2 class="section-title">Featured Certifications</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle" style="margin-top:16px;">Professional credentials and specialized training</p>
+        </div>
 
+        <div class="certs-grid">
+            <a href="Certificates/OCI_CERTIFICATE.pdf" target="_blank" rel="noopener noreferrer" class="cert-card glass glass-hover animate-on-scroll">
+                <div class="cert-icon"><i class="fas fa-cloud"></i></div>
+                <div>
+                    <h3 class="cert-title">Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</h3>
+                    <p class="cert-issuer">Oracle</p>
+                </div>
+                <i class="fas fa-arrow-up-right-from-square cert-link-icon"></i>
+            </a>
+            <div class="cert-card glass glass-hover animate-on-scroll">
+                <div class="cert-icon"><i class="fab fa-aws"></i></div>
+                <div>
+                    <h3 class="cert-title">AWS Academy Graduate — Cloud Foundations</h3>
+                    <p class="cert-issuer">Amazon Web Services (AWS)</p>
+                </div>
+            </div>
+            <div class="cert-card glass glass-hover animate-on-scroll">
+                <div class="cert-icon"><i class="fas fa-chart-column"></i></div>
+                <div>
+                    <h3 class="cert-title">Microsoft Learning Path: Dashboard in a Day (Power BI)</h3>
+                    <p class="cert-issuer">Microsoft</p>
+                </div>
+            </div>
+            <a href="Certificates/ROBO_AI_-_JADE-KAVYA_JOSHI.pdf" target="_blank" rel="noopener noreferrer" class="cert-card glass glass-hover animate-on-scroll">
+                <div class="cert-icon"><i class="fas fa-robot"></i></div>
+                <div>
+                    <h3 class="cert-title">30-Day Industrial Training on Robotics & AI Simulation</h3>
+                    <p class="cert-issuer">My Equation (Ratified by NVIDIA & Microsoft)</p>
+                </div>
+                <i class="fas fa-arrow-up-right-from-square cert-link-icon"></i>
+            </a>
+            <a href="Certificates/Kavya%20Joshi_EDUNET_Completion.pdf" target="_blank" rel="noopener noreferrer" class="cert-card glass glass-hover animate-on-scroll">
+                <div class="cert-icon"><i class="fas fa-brain"></i></div>
+                <div>
+                    <h3 class="cert-title">Foundation Course on Green Skills & Artificial Intelligence</h3>
+                    <p class="cert-issuer">Edunet Foundation</p>
+                </div>
+                <i class="fas fa-arrow-up-right-from-square cert-link-icon"></i>
+            </a>
+            <div class="cert-card glass glass-hover animate-on-scroll">
+                <div class="cert-icon"><i class="fas fa-link"></i></div>
+                <div>
+                    <h3 class="cert-title">Mentorship Program on Blockchain / Bitcoin</h3>
+                    <p class="cert-issuer">LaunchED Global</p>
+                </div>
+            </div>
+            <div class="cert-card glass glass-hover animate-on-scroll">
+                <div class="cert-icon"><i class="fas fa-rocket"></i></div>
+                <div>
+                    <h3 class="cert-title">Startup Pre-Incubation Program</h3>
+                    <p class="cert-issuer">PIERC, Parul University</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ──────────────── LEETCODE ──────────────── -->
+    <section id="leetcode" class="section">
+        <div class="section-header animate-on-scroll">
+            <span class="section-eyebrow">06</span>
+            <h2 class="section-title">LeetCode</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle" style="margin-top:16px;">Competitive programming track record</p>
+        </div>
+
+        <div class="leetcode-card glass glass-hover animate-on-scroll">
+            <div class="leetcode-top">
+                <div class="leetcode-identity">
+                    <div class="leetcode-icon"><i class="fas fa-square-root-variable"></i></div>
+                    <div>
+                        <h3 class="leetcode-name"><span id="lcHeadingTotal">610</span>+ Problems Solved • Top 2.5% Globally</h3>
+                        <p class="leetcode-meta">Beats 98.8% of submissions on Hard-difficulty problems</p>
+                    </div>
+                </div>
+                <a href="https://leetcode.com/u/JoshiKavya/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                    <i class="fas fa-arrow-up-right-from-square"></i> View Profile
+                </a>
+            </div>
+            <div class="lc-stats">
+                <div class="lc-card glass lc-easy"><span class="lc-num" id="lcEasy">171</span><span class="lc-label">Easy</span></div>
+                <div class="lc-card glass lc-med"><span class="lc-num" id="lcMedium">291</span><span class="lc-label">Medium</span></div>
+                <div class="lc-card glass lc-hard"><span class="lc-num" id="lcHard">148</span><span class="lc-label">Hard</span></div>
+                <div class="lc-card glass lc-total"><span class="lc-num" id="lcTotal">610</span><span class="lc-label">Total</span></div>
+            </div>
+            <p class="leetcode-meta" id="lcUpdated" style="opacity:.6; margin-top:-8px;"></p>
         </div>
     </section>
 
     <!-- ──────────────── CONNECT ──────────────── -->
     <section class="section">
         <div class="section-header animate-on-scroll">
+            <span class="section-eyebrow">07</span>
             <h2 class="section-title">Connect With Me</h2>
             <div class="divider"></div>
             <p class="section-subtitle" style="margin-top:16px;">Find me across different platforms</p>
         </div>
-        <div class="profiles-grid">
-            <div class="profile-card glass glass-hover animate-on-scroll"
-                onclick="window.open('https://www.linkedin.com/in/kavya-joshi-3765742b0', '_blank')">
+        <div class="profiles-grid compact">
+            <a href="https://www.linkedin.com/in/kavya-joshi-3765742b0" target="_blank" rel="noopener noreferrer"
+                class="profile-card glass glass-hover animate-on-scroll">
                 <div class="profile-icon"><i class="fab fa-linkedin" style="color:#0a66c2"></i></div>
                 <h3 class="profile-title">LinkedIn</h3>
                 <p class="profile-description">Professional networking and career updates</p>
-            </div>
+            </a>
 
-            <div class="profile-card glass glass-hover animate-on-scroll"
-                onclick="window.open('https://github.com/KAVYAJOSHI1', '_blank')">
+            <a href="https://github.com/KAVYAJOSHI1" target="_blank" rel="noopener noreferrer"
+                class="profile-card glass glass-hover animate-on-scroll">
                 <div class="profile-icon"><i class="fab fa-github"></i></div>
                 <h3 class="profile-title">GitHub</h3>
                 <p class="profile-description">Code repositories and open source projects</p>
-            </div>
-
-            <div class="profile-card glass glass-hover animate-on-scroll"
-                onclick="window.open('https://leetcode.com/u/JoshiKavya/', '_blank')">
-                <div class="profile-icon">
-                    <img src="Certificates/LEETCODE.png" style="width:50px;height:50px;border-radius:50%;"
-                        alt="LeetCode">
-                </div>
-                <h3 class="profile-title">LeetCode</h3>
-                <p class="profile-description">Competitive programming and problem solving</p>
-            </div>
-
-            <div class="profile-card glass glass-hover animate-on-scroll"
-                onclick="alert('Codeforces profile coming soon!')">
-                <div class="profile-icon"><i class="fas fa-terminal" style="color:var(--accent2)"></i></div>
-                <h3 class="profile-title">Codeforces</h3>
-                <p class="profile-description">Algorithm contests and competitive coding</p>
-            </div>
+            </a>
         </div>
     </section>
 
     <!-- ──────────────── CONTACT ──────────────── -->
     <section id="contact" class="section">
         <div class="section-header animate-on-scroll">
+            <span class="section-eyebrow">08</span>
             <h2 class="section-title">Let's Build Something Amazing</h2>
             <div class="divider"></div>
             <p class="section-subtitle" style="margin-top:16px;">Ready to collaborate? Drop me a message!</p>
+        </div>
+        <div class="project-links" style="justify-content:center; flex-wrap:wrap; margin-bottom:28px;">
+            <a href="Kavya_Joshi_Resume.pdf" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> Resume</a>
+            <a href="mailto:kavyajoshi152005@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://www.linkedin.com/in/kavya-joshi-3765742b0" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/KAVYAJOSHI1" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://leetcode.com/u/JoshiKavya/" target="_blank" rel="noopener noreferrer"><i class="fas fa-square-root-variable"></i> LeetCode</a>
         </div>
         <form class="contact-form glass glass-hover animate-on-scroll" id="contactForm">
             <div class="form-group">
@@ -1898,25 +2501,33 @@
     <footer class="footer">
         <div class="footer-content animate-on-scroll">
             <div class="footer-social">
-                <a href="https://www.linkedin.com/in/kavya-joshi-3765742b0" target="_blank" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/kavya-joshi-3765742b0" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://github.com/KAVYAJOSHI1" target="_blank" title="GitHub">
+                <a href="https://github.com/KAVYAJOSHI1" target="_blank" rel="noopener noreferrer" title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="/cdn-cgi/l/email-protection#0a616b7c736b60657962633b3f383a3a3f4a6d676b636624696567"
+                <a href="mailto:kavyajoshi152005@gmail.com"
                     title="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
                 <a href="tel:+919664518705" title="Call">
                     <i class="fas fa-phone"></i>
                 </a>
+                <a href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0D%0AVERSION%3A3.0%0D%0AN%3AJoshi%3BKavya%3B%3B%3B%0D%0AFN%3AKavya%20Joshi%0D%0ATITLE%3AAI%2FML%20%26%20Blockchain%20Developer%0D%0AORG%3AGLS%20University%0D%0AEMAIL%3Akavyajoshi152005%40gmail.com%0D%0ATEL%3BTYPE%3DCELL%3A%2B919664518705%0D%0AURL%3Ahttps%3A%2F%2Fwww.linkedin.com%2Fin%2Fkavya-joshi-3765742b0%0D%0AURL%3Ahttps%3A%2F%2Fgithub.com%2FKAVYAJOSHI1%0D%0AEND%3AVCARD"
+                    download="Kavya_Joshi.vcf" title="Save Contact">
+                    <i class="fas fa-address-card"></i>
+                </a>
             </div>
-            <p>&copy; 2025 Kavya Joshi. Crafted with <i class="fas fa-heart" style="color:#ef4444"></i> and lots of ☕
+            <p>&copy; 2026 Kavya Joshi. Crafted with <i class="fas fa-heart" style="color:#ef4444"></i> and lots of ☕
             </p>
-            <p style="font-size:0.85rem; margin-top:4px;">Building the future, one line of code at a time.</p>
+            <p style="font-size:0.85rem; margin-top:4px;">Building intelligent software that bridges AI, cloud, and real-world innovation.</p>
         </div>
     </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
         // ── Loading
@@ -1924,10 +2535,11 @@
             setTimeout(() => document.getElementById('loading').classList.add('done'), 400);
         });
 
-        // ── Scroll-based nav highlight & shadow
+        // ── Scroll-based nav highlight, navbar shadow & back-to-top
         const navbar = document.getElementById('navbar');
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.navbar ul li a');
+        const backToTop = document.getElementById('backToTop');
 
         window.addEventListener('scroll', () => {
             // Navbar shadow
@@ -1942,28 +2554,215 @@
                 a.classList.remove('active');
                 if (a.getAttribute('href') === '#' + current) a.classList.add('active');
             });
+
+            // Back-to-top visibility
+            backToTop.classList.toggle('visible', window.scrollY > 500);
         });
 
-        // ── Intersection Observer for animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) { e.target.classList.add('visible'); }
-            });
-        }, { threshold: 0.12 });
-        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-        // ── Contact form
+        // ── Intersection Observer for animations (falls back to always-visible if unsupported)
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) { e.target.classList.add('visible'); }
+                });
+            }, { threshold: 0.12 });
+            document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+        } else {
+            document.querySelectorAll('.animate-on-scroll').forEach(el => el.classList.add('visible'));
+        }
+
+        // ── Contact form (mailto fallback — static site, no backend)
         document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value || 'Portfolio Contact Form';
+            const message = document.getElementById('message').value;
+
+            const mailSubject = encodeURIComponent(subject);
+            const mailBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+            const mailtoLink = `mailto:kavyajoshi152005@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+
             const btn = this.querySelector('[type=submit]');
-            btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-            btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            const originalLabel = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-paper-plane"></i> Opening Email App…';
+            window.location.href = mailtoLink;
+
             setTimeout(() => {
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-                btn.style.background = '';
+                btn.innerHTML = originalLabel;
                 this.reset();
-            }, 3000);
+            }, 2500);
         });
+
+        // ── Live LeetCode stats (falls back to the static numbers above on failure)
+        (function () {
+            const LC_USERNAME = 'JoshiKavya';
+            const LC_API = `https://alfa-leetcode-api.onrender.com/${LC_USERNAME}/solved`;
+            const CACHE_KEY = 'lcStatsCache';
+
+            const els = {
+                easy: document.getElementById('lcEasy'),
+                medium: document.getElementById('lcMedium'),
+                hard: document.getElementById('lcHard'),
+                total: document.getElementById('lcTotal'),
+                headingTotal: document.getElementById('lcHeadingTotal'),
+                updated: document.getElementById('lcUpdated'),
+            };
+
+            function render(stats, timestamp) {
+                if (typeof stats.easySolved === 'number') els.easy.textContent = stats.easySolved;
+                if (typeof stats.mediumSolved === 'number') els.medium.textContent = stats.mediumSolved;
+                if (typeof stats.hardSolved === 'number') els.hard.textContent = stats.hardSolved;
+                if (typeof stats.solvedProblem === 'number') {
+                    els.total.textContent = stats.solvedProblem;
+                    els.headingTotal.textContent = stats.solvedProblem;
+                }
+                if (els.updated && timestamp) {
+                    els.updated.textContent = `Live • updated ${new Date(timestamp).toLocaleDateString()}`;
+                }
+            }
+
+            // Paint last-known values instantly (avoids flashing the static fallback while the fetch is in flight),
+            // then always fetch fresh below so every page load reflects the latest solve count.
+            try {
+                const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+                if (cached) render(cached.stats, cached.timestamp);
+            } catch (_) { /* ignore malformed cache */ }
+
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 20000); // onrender.com free tier can cold-start slowly
+
+            fetch(LC_API, { signal: controller.signal })
+                .then(res => { if (!res.ok) throw new Error('LeetCode API error ' + res.status); return res.json(); })
+                .then(stats => {
+                    if (typeof stats.solvedProblem !== 'number') throw new Error('Unexpected response shape');
+                    const timestamp = Date.now();
+                    localStorage.setItem(CACHE_KEY, JSON.stringify({ stats, timestamp }));
+                    render(stats, timestamp);
+                })
+                .catch(err => {
+                    console.warn('LeetCode live stats unavailable, showing last known values:', err.message);
+                })
+                .finally(() => clearTimeout(timeout));
+        })();
+
+        // ── Cursor trail: a glowing ribbon that curls behind the pointer and vanishes when idle
+        (function () {
+            if (window.matchMedia('(hover: none)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            const canvas = document.getElementById('cursorTrail');
+            const ctx = canvas.getContext('2d');
+            const rootStyle = getComputedStyle(document.documentElement);
+            const stops = ['--primary', '--accent', '--accent2'].map(v => hexToRgb(rootStyle.getPropertyValue(v).trim()));
+
+            function hexToRgb(hex) {
+                hex = hex.replace('#', '');
+                if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+                const num = parseInt(hex, 16);
+                return [(num >> 16) & 255, (num >> 8) & 255, num & 255];
+            }
+            function lerp(a, b, t) { return a + (b - a) * t; }
+            function colorAt(t) { // t: 0 (head) → 1 (tail), sweeps across the 3 theme accents
+                const seg = t < 0.5 ? [stops[0], stops[1], t * 2] : [stops[1], stops[2], (t - 0.5) * 2];
+                const [c1, c2, lt] = seg;
+                return `rgb(${Math.round(lerp(c1[0], c2[0], lt))}, ${Math.round(lerp(c1[1], c2[1], lt))}, ${Math.round(lerp(c1[2], c2[2], lt))})`;
+            }
+
+            function resize() {
+                const dpr = window.devicePixelRatio || 1;
+                canvas.width = window.innerWidth * dpr;
+                canvas.height = window.innerHeight * dpr;
+                canvas.style.width = window.innerWidth + 'px';
+                canvas.style.height = window.innerHeight + 'px';
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            const NODE_COUNT = 22;
+            const EASE = 0.32;
+            const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+            const nodes = Array.from({ length: NODE_COUNT }, () => ({ x: mouse.x, y: mouse.y }));
+            let lastMoveTime = 0;
+            let started = false;
+
+            window.addEventListener('mousemove', (e) => {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+                lastMoveTime = performance.now();
+                started = true;
+            }, { passive: true });
+
+            function loop() {
+                const now = performance.now();
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                if (started) {
+                    nodes[0].x = lerp(nodes[0].x, mouse.x, EASE);
+                    nodes[0].y = lerp(nodes[0].y, mouse.y, EASE);
+                    for (let i = 1; i < nodes.length; i++) {
+                        nodes[i].x = lerp(nodes[i].x, nodes[i - 1].x, EASE);
+                        nodes[i].y = lerp(nodes[i].y, nodes[i - 1].y, EASE);
+                    }
+
+                    // Idle fade: full opacity while moving, fades out ~450ms after the pointer stops
+                    const idleMs = now - lastMoveTime;
+                    const idleAlpha = Math.max(0, Math.min(1, 1 - (idleMs - 250) / 450));
+
+                    if (idleAlpha > 0) {
+                        for (let i = 1; i < nodes.length; i++) {
+                            const t = i / (nodes.length - 1); // 0 head → 1 tail
+                            const alpha = (1 - t) * idleAlpha;
+                            if (alpha <= 0.01) continue;
+                            const color = colorAt(t);
+
+                            const midX = (nodes[i - 1].x + nodes[i].x) / 2;
+                            const midY = (nodes[i - 1].y + nodes[i].y) / 2;
+                            const prevMidX = i > 1 ? (nodes[i - 2].x + nodes[i - 1].x) / 2 : nodes[0].x;
+                            const prevMidY = i > 1 ? (nodes[i - 2].y + nodes[i - 1].y) / 2 : nodes[0].y;
+
+                            ctx.beginPath();
+                            ctx.moveTo(prevMidX, prevMidY);
+                            ctx.quadraticCurveTo(nodes[i - 1].x, nodes[i - 1].y, midX, midY);
+                            ctx.lineCap = 'round';
+                            ctx.lineJoin = 'round';
+
+                            // outer glow pass
+                            ctx.strokeStyle = color;
+                            ctx.globalAlpha = alpha * 0.35;
+                            ctx.lineWidth = lerp(7, 1, t);
+                            ctx.shadowBlur = 16 * alpha;
+                            ctx.shadowColor = color;
+                            ctx.stroke();
+
+                            // bright core pass
+                            ctx.globalAlpha = alpha * 0.9;
+                            ctx.lineWidth = lerp(2.5, 0.4, t);
+                            ctx.shadowBlur = 6 * alpha;
+                            ctx.stroke();
+                        }
+
+                        // comet head
+                        ctx.globalAlpha = idleAlpha * 0.9;
+                        ctx.beginPath();
+                        ctx.arc(nodes[0].x, nodes[0].y, 3, 0, Math.PI * 2);
+                        ctx.fillStyle = colorAt(0);
+                        ctx.shadowBlur = 14;
+                        ctx.shadowColor = colorAt(0);
+                        ctx.fill();
+                    }
+                }
+
+                ctx.globalAlpha = 1;
+                ctx.shadowBlur = 0;
+                requestAnimationFrame(loop);
+            }
+            requestAnimationFrame(loop);
+        })();
     </script>
 </body>
 
