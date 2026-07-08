@@ -2563,7 +2563,6 @@
             const LC_USERNAME = 'JoshiKavya';
             const LC_API = `https://alfa-leetcode-api.onrender.com/${LC_USERNAME}/solved`;
             const CACHE_KEY = 'lcStatsCache';
-            const CACHE_TTL_MS = 6 * 60 * 60 * 1000; // 6 hours
 
             const els = {
                 easy: document.getElementById('lcEasy'),
@@ -2587,13 +2586,11 @@
                 }
             }
 
-            // Show cached data immediately if it's fresh, so the section never flashes stale numbers
+            // Paint last-known values instantly (avoids flashing the static fallback while the fetch is in flight),
+            // then always fetch fresh below so every page load reflects the latest solve count.
             try {
                 const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
-                if (cached && Date.now() - cached.timestamp < CACHE_TTL_MS) {
-                    render(cached.stats, cached.timestamp);
-                    return;
-                }
+                if (cached) render(cached.stats, cached.timestamp);
             } catch (_) { /* ignore malformed cache */ }
 
             const controller = new AbortController();
