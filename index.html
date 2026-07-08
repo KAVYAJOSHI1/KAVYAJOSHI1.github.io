@@ -855,6 +855,44 @@
             gap: var(--gap-lg);
         }
 
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 auto 36px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .filter-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 8px 18px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: var(--fs-small);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition);
+            outline: none;
+        }
+
+        .filter-btn:hover {
+            background: var(--surface2);
+            border-color: var(--border2);
+            color: var(--text);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 4px 16px var(--primary-glow);
+        }
+
         .project-card {
             flex: 1 1 340px;
             max-width: 400px;
@@ -864,6 +902,21 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                        background var(--transition),
+                        border-color var(--transition),
+                        box-shadow var(--transition);
+        }
+
+        .project-card.fade-out {
+            opacity: 0;
+            transform: scale(0.92) translateY(15px);
+            pointer-events: none;
+        }
+
+        .project-card.hidden {
+            display: none !important;
         }
 
         .project-card::before {
@@ -1815,10 +1868,18 @@
                 expertise</p>
         </div>
 
+        <div class="project-filters animate-on-scroll">
+            <button class="filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
+            <button class="filter-btn" onclick="filterProjects('ai-ml', this)">AI &amp; ML</button>
+            <button class="filter-btn" onclick="filterProjects('blockchain-web3', this)">Blockchain &amp; Web3</button>
+            <button class="filter-btn" onclick="filterProjects('enterprise-web', this)">Enterprise &amp; Web</button>
+            <button class="filter-btn" onclick="filterProjects('cybersecurity-iot', this)">IoT &amp; Cybersecurity</button>
+        </div>
+
         <div class="projects-grid">
 
             <!-- CoastScan -->
-            <div class="project-card glass glass-hover animate-on-scroll">
+            <div class="project-card glass glass-hover animate-on-scroll" data-category="ai-ml">
                 <div class="project-badge">🏆 SIH '25 Winner</div>
                 <div class="project-icon"><i class="fas fa-microchip"></i></div>
                 <h3 class="project-title">CoastScan — AI Sand Classification</h3>
@@ -1840,7 +1901,7 @@
             </div>
 
             <!-- VeriCred -->
-            <div class="project-card glass glass-hover animate-on-scroll">
+            <div class="project-card glass glass-hover animate-on-scroll" data-category="blockchain-web3">
                 <div class="project-badge">🔐 ZKML</div>
                 <div class="project-icon"><i class="fas fa-lock"></i></div>
                 <h3 class="project-title">VeriCred — Privacy-Preserving ZKML Credit Scoring</h3>
@@ -1862,7 +1923,7 @@
             </div>
 
             <!-- L3M -->
-            <div class="project-card glass glass-hover animate-on-scroll">
+            <div class="project-card glass glass-hover animate-on-scroll" data-category="ai-ml">
                 <div class="project-badge">🧠 Local AI</div>
                 <div class="project-icon"><i class="fas fa-server"></i></div>
                 <h3 class="project-title">L3M — Local Multi-Modal MCP System</h3>
@@ -1884,7 +1945,7 @@
             </div>
 
             <!-- LocalMinds -->
-            <div class="project-card glass glass-hover animate-on-scroll">
+            <div class="project-card glass glass-hover animate-on-scroll" data-category="ai-ml">
                 <div class="project-badge">🤖 On-Device AI</div>
                 <div class="project-icon"><i class="fas fa-brain"></i></div>
                 <h3 class="project-title">LocalMinds — Sovereign Offline AI Companion</h3>
@@ -1905,7 +1966,7 @@
             </div>
 
             <!-- ERP -->
-            <div class="project-card glass glass-hover animate-on-scroll">
+            <div class="project-card glass glass-hover animate-on-scroll" data-category="enterprise-web">
                 <div class="project-badge">🏭 Enterprise ERP</div>
                 <div class="project-icon"><i class="fas fa-industry"></i></div>
                 <h3 class="project-title">Smart Manufacturing ERP & Supply Chain Platform</h3>
@@ -1928,7 +1989,7 @@
             </div>
 
             <!-- Fraud Detection -->
-            <div class="project-card glass glass-hover animate-on-scroll">
+            <div class="project-card glass glass-hover animate-on-scroll" data-category="ai-ml">
                 <div class="project-badge">🥇 Breach 2025 &amp; PDEU</div>
                 <div class="project-icon"><i class="fas fa-shield-alt"></i></div>
                 <h3 class="project-title">AI-Powered Fraud Detection System</h3>
@@ -1952,7 +2013,7 @@
             </div>
 
             <!-- GeoAnushasan -->
-            <div class="project-card glass glass-hover animate-on-scroll">
+            <div class="project-card glass glass-hover animate-on-scroll" data-category="enterprise-web">
                 <div class="project-badge">🌆 Digital Twin</div>
                 <div class="project-icon"><i class="fas fa-city"></i></div>
                 <h3 class="project-title">GeoAnushasan — Decentralized Smart City Digital Twin</h3>
@@ -1975,7 +2036,7 @@
             </div>
 
             <!-- Sentinel GEC -->
-            <div class="project-card glass glass-hover animate-on-scroll">
+            <div class="project-card glass glass-hover animate-on-scroll" data-category="blockchain-web3">
                 <div class="project-badge">🎥 Hack.X '26</div>
                 <div class="project-icon"><i class="fas fa-video"></i></div>
                 <h3 class="project-title">Sentinel GEC — AI Retail Theft Detection System</h3>
@@ -1998,7 +2059,7 @@
             </div>
 
             <!-- Tribekart -->
-            <div class="project-card glass glass-hover animate-on-scroll">
+            <div class="project-card glass glass-hover animate-on-scroll" data-category="enterprise-web">
                 <div class="project-icon"><i class="fas fa-store-alt"></i></div>
                 <h3 class="project-title">Tribekart — Artisan E-Commerce Platform</h3>
                 <p class="project-description">
@@ -2019,7 +2080,7 @@
             </div>
 
             <!-- Flash Mentor -->
-            <div class="project-card glass glass-hover animate-on-scroll">
+            <div class="project-card glass glass-hover animate-on-scroll" data-category="ai-ml">
                 <div class="project-icon"><i class="fas fa-chalkboard-teacher"></i></div>
                 <h3 class="project-title">Flash Mentor — AI Learning Assistant</h3>
                 <p class="project-description">
@@ -2040,7 +2101,7 @@
             </div>
 
             <!-- EcoScan -->
-            <div class="project-card glass glass-hover animate-on-scroll">
+            <div class="project-card glass glass-hover animate-on-scroll" data-category="ai-ml">
                 <div class="project-icon"><i class="fas fa-leaf"></i></div>
                 <h3 class="project-title">EcoScan — Greenwashing Detector</h3>
                 <p class="project-description">
@@ -2060,7 +2121,7 @@
             </div>
 
             <!-- MilletSetu -->
-            <div class="project-card glass glass-hover animate-on-scroll">
+            <div class="project-card glass glass-hover animate-on-scroll" data-category="blockchain-web3">
                 <div class="project-icon"><i class="fas fa-seedling"></i></div>
                 <h3 class="project-title">MilletSetu — Blockchain for Farmers</h3>
                 <p class="project-description">
@@ -2080,7 +2141,7 @@
             </div>
 
             <!-- IC Scanner -->
-            <div class="project-card glass glass-hover animate-on-scroll">
+            <div class="project-card glass glass-hover animate-on-scroll" data-category="ai-ml">
                 <div class="project-icon"><i class="fas fa-search-plus"></i></div>
                 <h3 class="project-title">IC Scanner — Counterfeit IC Detector</h3>
                 <p class="project-description">
@@ -2100,7 +2161,7 @@
             </div>
 
             <!-- Anantam Finserv -->
-            <div class="project-card glass glass-hover animate-on-scroll">
+            <div class="project-card glass glass-hover animate-on-scroll" data-category="enterprise-web">
                 <div class="project-icon"><i class="fas fa-hand-holding-usd"></i></div>
                 <h3 class="project-title">Anantam Finserv — Full-Stack FinTech Platform</h3>
                 <p class="project-description">
@@ -2120,7 +2181,7 @@
             </div>
 
             <!-- IoT Security -->
-            <div class="project-card glass glass-hover animate-on-scroll">
+            <div class="project-card glass glass-hover animate-on-scroll" data-category="cybersecurity-iot">
                 <div class="project-badge">🏅 DRDO Winner</div>
                 <div class="project-icon"><i class="fas fa-microchip"></i></div>
                 <h3 class="project-title">IoT Security Solution — DRDO Sampada 2025</h3>
@@ -2143,7 +2204,7 @@
             </div>
 
             <!-- UrjaSetu -->
-            <div class="project-card glass glass-hover animate-on-scroll">
+            <div class="project-card glass glass-hover animate-on-scroll" data-category="ai-ml">
                 <div class="project-icon"><i class="fas fa-bolt"></i></div>
                 <h3 class="project-title">UrjaSetu — GUVNL Feedback System</h3>
                 <p class="project-description">
@@ -2641,6 +2702,34 @@
                 this.reset();
             }, 2500);
         });
+
+        // ── Project Filtering Logic
+        function filterProjects(category, btnElement) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            if (btnElement) btnElement.classList.add('active');
+
+            const cards = document.querySelectorAll('.project-card');
+            
+            cards.forEach(card => {
+                const isMatch = category === 'all' || card.getAttribute('data-category') === category;
+                
+                if (isMatch) {
+                    card.classList.remove('hidden');
+                    card.classList.add('visible');
+                    setTimeout(() => {
+                        card.classList.remove('fade-out');
+                    }, 20);
+                } else {
+                    card.classList.add('fade-out');
+                    setTimeout(() => {
+                        if (card.classList.contains('fade-out')) {
+                            card.classList.add('hidden');
+                        }
+                    }, 350);
+                }
+            });
+        }
 
         // ── Live LeetCode stats (falls back to the static numbers above on failure)
         (function () {
