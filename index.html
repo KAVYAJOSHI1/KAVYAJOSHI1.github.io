@@ -375,6 +375,46 @@
             max-width: 780px;
         }
 
+        .scroll-cue {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: var(--fs-micro);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            opacity: 0.7;
+            transition: opacity var(--transition), color var(--transition);
+        }
+
+        .scroll-cue:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .scroll-cue i {
+            font-size: 0.9rem;
+            animation: scroll-bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes scroll-bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(6px);
+            }
+        }
+
         .hero-logo {
             position: relative;
             width: 120px;
@@ -498,6 +538,53 @@
             font-size: var(--fs-caption);
             letter-spacing: 0.05em;
             color: var(--accent);
+        }
+
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 6px 16px 6px 12px;
+            border-radius: var(--radius-pill);
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            color: var(--success);
+            font-size: var(--fs-caption);
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            margin-bottom: 22px;
+        }
+
+        .availability-dot {
+            position: relative;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+            flex-shrink: 0;
+        }
+
+        .availability-dot::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: var(--success);
+            opacity: 0.45;
+            animation: dot-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes dot-ping {
+            0% {
+                transform: scale(1);
+                opacity: 0.45;
+            }
+
+            75%,
+            100% {
+                transform: scale(2.4);
+                opacity: 0;
+            }
         }
 
         .description {
@@ -1675,6 +1762,11 @@
 
             <p class="hero-role">AI Engineer • Software Engineer • Full Stack Developer</p>
 
+            <span class="availability-badge">
+                <span class="availability-dot"></span>
+                Open to Internship &amp; Full-Time Opportunities
+            </span>
+
             <div class="tagline">
                 <span class="tagline-pill">🏆 SIH '25 National Winner</span>
                 <span class="tagline-pill">🥇 DRDO Sampada 2025 Winner</span>
@@ -1716,6 +1808,11 @@
                 </div>
             </div>
         </div>
+
+        <a href="#about" class="scroll-cue" aria-label="Scroll to About section">
+            Scroll
+            <i class="fas fa-chevron-down"></i>
+        </a>
     </section>
 
     <!-- ──────────────── ABOUT ──────────────── -->
