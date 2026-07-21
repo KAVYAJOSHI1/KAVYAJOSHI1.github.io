@@ -11,7 +11,7 @@ export interface TimelineStage {
 export const timeline: TimelineStage[] = [
   {
     id: "school-10",
-    period: "2020",
+    period: "2021",
     title: "10th Grade · 93%",
     place: "SDA School (ICSE)",
     detail: "98/100 in Computer Science",
