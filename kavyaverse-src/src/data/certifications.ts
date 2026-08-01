@@ -8,6 +8,20 @@ export interface Certification {
 
 export const certifications: Certification[] = [
   {
+    id: "agile-scrum-master",
+    title: "Agile Scrum Master",
+    issuer: "Simplilearn",
+    iconKey: "tasks",
+    path: "/Certificates/Agile_Scrum_Master.pdf",
+  },
+  {
+    id: "jira-scrum",
+    title: "How to Create a Jira SCRUM Project",
+    issuer: "Coursera Project Network",
+    iconKey: "jira",
+    path: "/Certificates/JIRA_CERTIFICATE.pdf",
+  },
+  {
     id: "oci-ai",
     title: "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
     issuer: "Oracle",
