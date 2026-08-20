@@ -12,6 +12,16 @@ export interface Achievement {
 
 export const achievements: Achievement[] = [
   {
+    id: "bhartiya-antariksh",
+    title: "Bhartiya Antariksh Hackathon (ISRO)",
+    badge: "winner",
+    badgeLabel: "ISRO Hackathon",
+    description:
+      "Engineered an End-to-End Lunar Mission Planning System analyzing DFSAR radar & OHRC data for subsurface ice detection, terrain hazard mapping, landing site selection, A*/Dijkstra rover path planning, and ice volume estimation.",
+    iconKey: "satellite",
+    certPath: "/Certificates/BhartiyaAntarikshHackathon.pdf",
+  },
+  {
     id: "carbonverse-founder",
     title: "Founder, CarbonVerse",
     badge: "winner",

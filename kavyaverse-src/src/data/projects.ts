@@ -21,6 +21,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "lunar-mission-planner",
+    title: "End-to-End Lunar Mission Planning System",
+    badge: "🚀 ISRO Hackathon",
+    description:
+      "Bhartiya Antariksh Hackathon solution. Multi-stage lunar ice mapping & rover traverse system utilizing DFSAR radar CPR/DOP analysis, OHRC terrain hazard characterization, landing site selection, cost-based path planning (A*/Dijkstra), and 3D/2D interactive ice volume estimation.",
+    tech: ["DFSAR Radar Data", "OHRC Imagery & DEM", "A*/Dijkstra", "3D/2D Mapping", "Python"],
+    category: "ai-ml",
+    zone: "ai-lab",
+    tag: "ISRO Hackathon",
+  },
+  {
     id: "coastscan",
     title: "CoastScan: AI Sand Classification",
     badge: "🏆 SIH '25 Winner",
