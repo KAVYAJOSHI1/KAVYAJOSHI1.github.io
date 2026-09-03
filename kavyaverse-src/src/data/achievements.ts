@@ -89,6 +89,7 @@ export const achievements: Achievement[] = [
     description:
       "AI-powered SDLC & Jira automation agents. FastAPI backend with REST APIs, auth, HTTPS/TLS, AES-RSA encryption, JSON rendering, Angular integration, enterprise AI workflows.",
     iconKey: "briefcase",
+    certPath: "/Certificates/Cygnet_Internship_Completion.pdf",
   },
   {
     id: "gls-internal-2x",
