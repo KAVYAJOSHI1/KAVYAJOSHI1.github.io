@@ -3065,15 +3065,19 @@
     </button>
 
     <script>
-        // ── Loading
-        window.addEventListener('load', () => {
-            setTimeout(() => document.getElementById('loading').classList.add('done'), 400);
-        });
+        // ── Loading Screen Handler
+        function dismissLoading() {
+            const loader = document.getElementById('loading');
+            if (loader) loader.classList.add('done');
+        }
+        window.addEventListener('load', () => setTimeout(dismissLoading, 300));
+        document.addEventListener('DOMContentLoaded', () => setTimeout(dismissLoading, 500));
+        setTimeout(dismissLoading, 1200); // Fail-safe fallback
 
         // ── Keep hero clearance in sync with the navbar's real (possibly wrapped) height
         const navbar = document.getElementById('navbar');
         function syncNavbarHeight() {
-            document.documentElement.style.setProperty('--navbar-h', navbar.offsetHeight + 'px');
+            if (navbar) document.documentElement.style.setProperty('--navbar-h', navbar.offsetHeight + 'px');
         }
         syncNavbarHeight();
         window.addEventListener('resize', syncNavbarHeight);
@@ -3081,11 +3085,6 @@
         if (document.fonts && document.fonts.ready) {
             document.fonts.ready.then(syncNavbarHeight);
         }
-
-        // ── Scroll-based nav highlight, navbar shadow & back-to-top
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.navbar ul li a');
-        const backToTop = document.getElementById('backToTop');
 
         // ── Scroll-driven section highlight, theme background morphing & parallax depth
         const sections = document.querySelectorAll('section[id]');
