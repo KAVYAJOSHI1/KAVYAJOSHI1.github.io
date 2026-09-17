@@ -41,6 +41,7 @@
     </script>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
         rel="stylesheet">
@@ -366,7 +367,17 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 25px rgba(59, 130, 246, 0.15);
         }
 
-        /* ─── MOTION GRAPHICS & CANVAS ENHANCEMENTS ─── */
+        /* ─── WEBGL & MOTION GRAPHICS CANVAS ENHANCEMENTS ─── */
+        #webglCanvas {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.85;
+        }
+
         #motionCanvas {
             position: fixed;
             inset: 0;
@@ -1859,6 +1870,7 @@
     </div>
 
     <div class="bg-canvas">
+        <canvas id="webglCanvas"></canvas>
         <canvas id="motionCanvas"></canvas>
         <div class="bg-orb"></div>
         <div class="bg-orb"></div>
@@ -3506,6 +3518,187 @@
 
             document.querySelectorAll('.skill-item').forEach(item => skillObserver.observe(item));
         }
+
+        // ── WebGL 3D Cinematic Scroll-Scrubbed Experience (Three.js)
+        (function () {
+            if (typeof THREE === 'undefined') return;
+
+            const canvas = document.getElementById('webglCanvas');
+            if (!canvas) return;
+
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 1000);
+            camera.position.z = 18;
+
+            let renderer;
+            try {
+                renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+                renderer.setSize(width, height);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            } catch (e) {
+                console.warn('WebGL setup fallback:', e);
+                return;
+            }
+
+            // 1. Particle Universe (1200 glowing nodes)
+            const particleCount = 1200;
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+
+            const palette = [
+                new THREE.Color('#3b82f6'),
+                new THREE.Color('#06b6d4'),
+                new THREE.Color('#a78bfa'),
+                new THREE.Color('#10b981'),
+                new THREE.Color('#f59e0b')
+            ];
+
+            for (let i = 0; i < particleCount; i++) {
+                positions[i * 3] = (Math.random() - 0.5) * 65;
+                positions[i * 3 + 1] = (Math.random() - 0.5) * 65;
+                positions[i * 3 + 2] = (Math.random() - 0.5) * 65;
+
+                const c = palette[Math.floor(Math.random() * palette.length)];
+                colors[i * 3] = c.r;
+                colors[i * 3 + 1] = c.g;
+                colors[i * 3 + 2] = c.b;
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            const particleMaterial = new THREE.PointsMaterial({
+                size: 0.12,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.75,
+                blending: THREE.AdditiveBlending
+            });
+
+            const particles = new THREE.Points(geometry, particleMaterial);
+            scene.add(particles);
+
+            // 2. 3D Cyber Core Mesh (Torus Knot)
+            const knotGeo = new THREE.TorusKnotGeometry(3.5, 0.9, 120, 16);
+            const knotMat = new THREE.MeshBasicMaterial({
+                color: 0x3b82f6,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.35
+            });
+            const cyberCore = new THREE.Mesh(knotGeo, knotMat);
+            cyberCore.position.set(0, 0, -2);
+            scene.add(cyberCore);
+
+            // 3. 3D Orbiting Ring (Embedded & AI Geometry)
+            const ringGeo = new THREE.RingGeometry(6, 6.2, 64);
+            const ringMat = new THREE.MeshBasicMaterial({
+                color: 0x10b981,
+                side: THREE.DoubleSide,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.4
+            });
+            const orbitRing = new THREE.Mesh(ringGeo, ringMat);
+            orbitRing.rotation.x = Math.PI / 3;
+            scene.add(orbitRing);
+
+            window.addEventListener('resize', () => {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                renderer.setSize(width, height);
+            });
+
+            const mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
+            window.addEventListener('mousemove', (e) => {
+                mouse.targetX = (e.clientX / width - 0.5) * 2;
+                mouse.targetY = (e.clientY / height - 0.5) * 2;
+            }, { passive: true });
+
+            let targetScrollProgress = 0;
+            let currentScrollProgress = 0;
+
+            function animate() {
+                requestAnimationFrame(animate);
+
+                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                targetScrollProgress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+
+                // Smooth scrub lerp
+                currentScrollProgress += (targetScrollProgress - currentScrollProgress) * 0.08;
+
+                mouse.x += (mouse.targetX - mouse.x) * 0.05;
+                mouse.y += (mouse.targetY - mouse.y) * 0.05;
+
+                // 3D SCROLL-SCRUBBING ANIMATIONS
+                camera.position.z = 18 - currentScrollProgress * 14;
+                camera.position.y = -currentScrollProgress * 10 + mouse.y * 0.5;
+                camera.position.x = Math.sin(currentScrollProgress * Math.PI * 2) * 2 + mouse.x * 0.5;
+
+                cyberCore.rotation.x = currentScrollProgress * Math.PI * 4;
+                cyberCore.rotation.y = currentScrollProgress * Math.PI * 3 + mouse.x * 0.2;
+                cyberCore.rotation.z = currentScrollProgress * Math.PI * 2;
+
+                orbitRing.rotation.z = -currentScrollProgress * Math.PI * 5;
+                orbitRing.rotation.y = currentScrollProgress * Math.PI * 2;
+
+                particles.rotation.y = currentScrollProgress * Math.PI * 2;
+                particles.rotation.x = currentScrollProgress * Math.PI * 0.5;
+
+                // Color shifts per scroll section
+                if (currentScrollProgress < 0.2) {
+                    knotMat.color.setHex(0x3b82f6);
+                } else if (currentScrollProgress < 0.4) {
+                    knotMat.color.setHex(0x10b981);
+                } else if (currentScrollProgress < 0.6) {
+                    knotMat.color.setHex(0xa78bfa);
+                } else if (currentScrollProgress < 0.8) {
+                    knotMat.color.setHex(0x06b6d4);
+                } else {
+                    knotMat.color.setHex(0xf59e0b);
+                }
+
+                renderer.render(scene, camera);
+            }
+
+            animate();
+        })();
+
+        // ── Continuous Scroll-Scrubbing DOM Card Animation Engine
+        (function () {
+            const scrubCards = document.querySelectorAll('.animate-on-scroll');
+            if (!scrubCards.length) return;
+
+            function scrubOnScroll() {
+                const viewH = window.innerHeight;
+                scrubCards.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    const distFromCenter = (rect.top + rect.height / 2 - viewH / 2) / (viewH / 2);
+
+                    if (rect.top < viewH + 120 && rect.bottom > -120) {
+                        card.classList.add('visible');
+
+                        const clampDist = Math.max(-1, Math.min(1, distFromCenter));
+                        const rotateX = clampDist * -10;
+                        const scale = 1 - Math.abs(clampDist) * 0.06;
+                        const opacity = 1 - Math.pow(Math.abs(clampDist), 2.5) * 0.5;
+
+                        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) scale(${scale.toFixed(3)})`;
+                        card.style.opacity = Math.max(0.45, opacity).toFixed(2);
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', scrubOnScroll, { passive: true });
+            window.addEventListener('resize', scrubOnScroll, { passive: true });
+            scrubOnScroll();
+        })();
     </script>
 </body>
 
