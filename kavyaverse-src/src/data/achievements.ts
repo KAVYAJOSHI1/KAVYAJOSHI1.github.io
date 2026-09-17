@@ -142,6 +142,16 @@ export const achievements: Achievement[] = [
     certPath: "/Certificates/Parul_Ideathon_Finalist.pdf",
   },
   {
+    id: "hackout-2025",
+    title: "HackOut'25 Hackathon, DA-IICT",
+    badge: "finalist",
+    badgeLabel: "Finalist",
+    description:
+      "Selected as a Finalist in HackOut'25, organised by Dhirubhai Ambani Institute of Information and Communication Technology (DA-IICT), Gandhinagar.",
+    iconKey: "trophy",
+    certPath: "/Certificates/HackOut2025.pdf",
+  },
+  {
     id: "hackout-2026",
     title: "HackOut'26 Hackathon, DA-IICT",
     badge: "finalist",
