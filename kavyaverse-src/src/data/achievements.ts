@@ -149,7 +149,7 @@ export const achievements: Achievement[] = [
     description:
       "Selected as a Finalist in HackOut'26 with Team Caffeine Clause, organised by Dhirubhai Ambani Institute of Information and Communication Technology (DA-IICT), Gandhinagar.",
     iconKey: "trophy",
-    certPath: "/Certificates/HackOut2026.png",
+    certPath: "/Certificates/HackOut2026.pdf",
   },
   {
     id: "acm-ieee",
