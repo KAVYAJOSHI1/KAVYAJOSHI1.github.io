@@ -42,6 +42,8 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
         rel="stylesheet">
@@ -3698,6 +3700,55 @@
             window.addEventListener('scroll', scrubOnScroll, { passive: true });
             window.addEventListener('resize', scrubOnScroll, { passive: true });
             scrubOnScroll();
+        })();
+
+        // ── GSAP & ScrollTrigger Cinematic Scrollytelling Setup
+        (function () {
+            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Animate section eyebrow tags with sliding neon glow on scroll
+            gsap.utils.toArray('.section-eyebrow').forEach(eyebrow => {
+                gsap.fromTo(eyebrow, 
+                    { x: -30, opacity: 0 },
+                    { 
+                        x: 0, 
+                        opacity: 1, 
+                        duration: 0.8,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: eyebrow,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+
+            // GSAP Stat Counter Rollup when scrolled into viewport
+            gsap.utils.toArray('.stat-number').forEach(stat => {
+                const text = stat.innerText.trim();
+                const num = parseFloat(text);
+                if (!isNaN(num) && num > 0) {
+                    const isInt = Number.isInteger(num);
+                    const suffix = text.replace(/[\d.]/g, '');
+                    const obj = { val: 0 };
+
+                    gsap.to(obj, {
+                        val: num,
+                        duration: 1.8,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: stat,
+                            start: "top 90%",
+                            toggleActions: "play none none reverse"
+                        },
+                        onUpdate: () => {
+                            stat.innerText = (isInt ? Math.floor(obj.val) : obj.val.toFixed(2)) + suffix;
+                        }
+                    });
+                }
+            });
         })();
     </script>
 </body>
