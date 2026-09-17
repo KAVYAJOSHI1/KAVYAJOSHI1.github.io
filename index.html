@@ -1705,51 +1705,71 @@
             margin-bottom: 6px;
         }
 
-        /* ─── ANIMATIONS ─── */
+        /* ─── SCROLL-DRIVEN MOTION GRAPHICS & ANIMATIONS ─── */
         .animate-on-scroll {
             opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: perspective(1000px) rotateX(12deg) translateY(45px) scale(0.92);
+            filter: blur(4px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        border-color 0.5s ease,
+                        box-shadow 0.5s ease;
+            will-change: transform, opacity, filter;
         }
 
         .animate-on-scroll.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: perspective(1000px) rotateX(0deg) translateY(0) scale(1);
+            filter: blur(0px);
         }
 
         .slide-left {
-            transform: translateX(-30px) !important;
+            transform: perspective(1000px) rotateY(15deg) translateX(-40px) scale(0.92) !important;
         }
 
         .slide-right {
-            transform: translateX(30px) !important;
+            transform: perspective(1000px) rotateY(-15deg) translateX(40px) scale(0.92) !important;
         }
 
         .slide-left.visible,
         .slide-right.visible {
-            transform: translateX(0) !important;
+            transform: perspective(1000px) rotateY(0deg) translateX(0) scale(1) !important;
         }
 
-        /* Stagger helper */
-        .animate-on-scroll:nth-child(2) {
-            transition-delay: 0.08s;
-        }
+        /* Cascade Grid Stagger Delays */
+        .animate-on-scroll:nth-child(1) { transition-delay: 0.04s; }
+        .animate-on-scroll:nth-child(2) { transition-delay: 0.08s; }
+        .animate-on-scroll:nth-child(3) { transition-delay: 0.12s; }
+        .animate-on-scroll:nth-child(4) { transition-delay: 0.16s; }
+        .animate-on-scroll:nth-child(5) { transition-delay: 0.20s; }
+        .animate-on-scroll:nth-child(6) { transition-delay: 0.24s; }
+        .animate-on-scroll:nth-child(7) { transition-delay: 0.28s; }
+        .animate-on-scroll:nth-child(8) { transition-delay: 0.32s; }
+        .animate-on-scroll:nth-child(9) { transition-delay: 0.36s; }
+        .animate-on-scroll:nth-child(10) { transition-delay: 0.40s; }
 
-        .animate-on-scroll:nth-child(3) {
-            transition-delay: 0.16s;
-        }
+        /* Ambient Glow Shift per Section */
+        body.theme-home .bg-orb:nth-child(1) { background: #3b82f6; }
+        body.theme-home .bg-orb:nth-child(2) { background: #06b6d4; }
 
-        .animate-on-scroll:nth-child(4) {
-            transition-delay: 0.22s;
-        }
+        body.theme-about .bg-orb:nth-child(1) { background: #10b981; }
+        body.theme-about .bg-orb:nth-child(2) { background: #06b6d4; }
 
-        .animate-on-scroll:nth-child(5) {
-            transition-delay: 0.28s;
-        }
+        body.theme-academics .bg-orb:nth-child(1) { background: #a78bfa; }
+        body.theme-academics .bg-orb:nth-child(2) { background: #3b82f6; }
 
-        .animate-on-scroll:nth-child(6) {
-            transition-delay: 0.32s;
-        }
+        body.theme-projects .bg-orb:nth-child(1) { background: #3b82f6; }
+        body.theme-projects .bg-orb:nth-child(2) { background: #f59e0b; }
+
+        body.theme-achievements .bg-orb:nth-child(1) { background: #fbbf24; }
+        body.theme-achievements .bg-orb:nth-child(2) { background: #10b981; }
+
+        body.theme-certifications .bg-orb:nth-child(1) { background: #06b6d4; }
+        body.theme-certifications .bg-orb:nth-child(2) { background: #a78bfa; }
+
+        body.theme-leetcode .bg-orb:nth-child(1) { background: #f59e0b; }
+        body.theme-leetcode .bg-orb:nth-child(2) { background: #3b82f6; }
 
         /* ─── SECTION DIVIDER ─── */
         .divider {
@@ -3067,23 +3087,38 @@
         const navLinks = document.querySelectorAll('.navbar ul li a');
         const backToTop = document.getElementById('backToTop');
 
-        window.addEventListener('scroll', () => {
-            // Navbar shadow
-            navbar.classList.toggle('scrolled', window.scrollY > 30);
+        // ── Scroll-driven section highlight, theme background morphing & parallax depth
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.navbar ul li a');
+        const backToTop = document.getElementById('backToTop');
+        const bgOrbs = document.querySelectorAll('.bg-orb');
 
-            // Active link
-            let current = '';
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            navbar.classList.toggle('scrolled', scrollY > 30);
+
+            // Active link & section theme morphing
+            let current = 'home';
             sections.forEach(s => {
-                if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+                if (scrollY >= s.offsetTop - 140) current = s.getAttribute('id');
             });
+
             navLinks.forEach(a => {
                 a.classList.remove('active');
                 if (a.getAttribute('href') === '#' + current) a.classList.add('active');
             });
 
-            // Back-to-top visibility
-            backToTop.classList.toggle('visible', window.scrollY > 500);
-        });
+            // Morph body theme class for dynamic background aura
+            document.body.className = 'theme-' + current;
+
+            // Parallax shift background orbs
+            if (bgOrbs.length >= 2) {
+                bgOrbs[0].style.transform = `translateY(${scrollY * 0.12}px)`;
+                bgOrbs[1].style.transform = `translateY(${-scrollY * 0.08}px)`;
+            }
+
+            backToTop.classList.toggle('visible', scrollY > 500);
+        }, { passive: true });
 
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
