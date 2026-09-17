@@ -122,19 +122,8 @@
 
         /* ─── LOADING ─── */
         .loading {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            background: var(--bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.6s, visibility 0.6s;
-        }
-
-        .loading.done {
-            opacity: 0;
-            visibility: hidden;
+            display: none !important;
+            pointer-events: none !important;
         }
 
         .loader {
@@ -3123,17 +3112,22 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // ── Intersection Observer for animations (falls back to always-visible if unsupported)
+        // ── Intersection Observer for animations (with rootMargin pre-trigger & failsafe)
         if ('IntersectionObserver' in window) {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(e => {
                     if (e.isIntersecting) { e.target.classList.add('visible'); }
                 });
-            }, { threshold: 0.12 });
+            }, { threshold: 0.01, rootMargin: '120px 0px 120px 0px' });
             document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
         } else {
             document.querySelectorAll('.animate-on-scroll').forEach(el => el.classList.add('visible'));
         }
+
+        // Global failsafe: reveal all elements after 1s in case of observer lag
+        setTimeout(() => {
+            document.querySelectorAll('.animate-on-scroll').forEach(el => el.classList.add('visible'));
+        }, 800);
 
         // ── Contact form (mailto fallback — static site, no backend)
         document.getElementById('contactForm').addEventListener('submit', function (e) {
