@@ -242,21 +242,35 @@
         /* ─── NAV ─── */
         .navbar {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 1000;
-            padding: 14px 40px;
+            padding: 8px 16px;
             display: flex;
+            align-items: center;
             justify-content: center;
-            background: rgba(6, 9, 16, 0.75);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            transition: box-shadow var(--transition);
+            background: rgba(11, 17, 32, 0.85);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: var(--radius-pill);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            max-width: calc(100vw - 32px);
+            width: fit-content;
+        }
+
+        .navbar.nav-hidden {
+            transform: translate(-50%, -100px);
+            opacity: 0;
+            pointer-events: none;
         }
 
         .navbar.scrolled {
-            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+            background: rgba(6, 9, 16, 0.94);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 20px rgba(59, 130, 246, 0.15);
         }
 
         .navbar ul {
@@ -361,19 +375,39 @@
             overflow: hidden;
         }
 
+        /* Spotlight glow layer */
         .glass-hover::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.07), transparent 40%);
+            background: radial-gradient(380px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                rgba(59, 130, 246, 0.13) 0%,
+                rgba(6, 182, 212, 0.07) 40%,
+                transparent 70%);
             pointer-events: none;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.35s ease;
             border-radius: inherit;
             z-index: 1;
         }
 
-        .glass-hover:hover::before {
+        /* Shimmer edge highlight layer */
+        .glass-hover::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(220px circle at var(--mouse-x, -200px) var(--mouse-y, -200px),
+                rgba(255,255,255,0.12) 0%,
+                transparent 60%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            z-index: 2;
+        }
+
+        .glass-hover:hover::before,
+        .glass-hover:hover::after {
             opacity: 1;
         }
 
@@ -426,15 +460,52 @@
         }
 
         .scroll-progress {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
-            height: 3px;
+            height: 2px;
             width: 0%;
             background: linear-gradient(90deg, #3b82f6, #06b6d4, #a78bfa, #10b981);
-            box-shadow: 0 0 12px rgba(6, 182, 212, 0.9);
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.8);
             transition: width 0.08s ease-out;
-            z-index: 1001;
+            z-index: 9999;
+            border-radius: 0 2px 2px 0;
+        }
+
+        /* ─── TOAST NOTIFICATION ─── */
+        .toast {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: rgba(11, 17, 32, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(16, 185, 129, 0.5);
+            color: #10b981;
+            padding: 12px 24px;
+            border-radius: var(--radius-pill);
+            font-size: var(--fs-label);
+            font-weight: 600;
+            font-family: var(--font-body);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 20px rgba(16,185,129,0.2);
+            z-index: 99999;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast.toast-error {
+            border-color: rgba(239, 68, 68, 0.5);
+            color: #ef4444;
         }
 
         .section-title, .name-accent {
@@ -1816,12 +1887,19 @@
         /* ─── RESPONSIVE ─── */
         @media (max-width: 768px) {
             .navbar {
-                padding: 12px 16px;
+                top: 10px;
+                padding: 6px 10px;
+                border-radius: 20px;
+                max-width: calc(100vw - 20px);
+            }
+
+            .navbar ul {
+                gap: 3px;
             }
 
             .navbar ul li a {
-                padding: 6px 10px;
-                font-size: 0.8rem;
+                padding: 5px 8px;
+                font-size: 0.75rem;
             }
 
             .about-cols {
@@ -1910,8 +1988,9 @@
         <div class="bg-orb"></div>
     </div>
 
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <nav class="navbar" id="navbar">
-        <div class="scroll-progress" id="scrollProgress"></div>
         <ul>
             <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
@@ -3205,15 +3284,36 @@
             document.fonts.ready.then(syncNavbarHeight);
         }
 
-        // ── Scroll-driven section highlight, theme background morphing & parallax depth
+        // ── Scroll-driven section highlight, auto-hide navbar, theme morphing & parallax depth
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.navbar ul li a');
         const backToTop = document.getElementById('backToTop');
         const bgOrbs = document.querySelectorAll('.bg-orb');
 
+        let lastScrollY = window.scrollY;
+        let navHideTimer = null;
+
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
-            navbar.classList.toggle('scrolled', scrollY > 30);
+            navbar.classList.toggle('scrolled', scrollY > 80);
+
+            // ── Auto-hide navbar: hide on scroll-down past 120px, show on scroll-up
+            if (scrollY > 120) {
+                if (scrollY > lastScrollY + 8) {
+                    // Scrolling DOWN — hide
+                    navbar.classList.add('nav-hidden');
+                    if (navHideTimer) clearTimeout(navHideTimer);
+                } else if (scrollY < lastScrollY - 4) {
+                    // Scrolling UP — reveal
+                    navbar.classList.remove('nav-hidden');
+                    // Also re-show briefly on any scroll-up and keep for 2s
+                    if (navHideTimer) clearTimeout(navHideTimer);
+                }
+            } else {
+                // Near top — always visible
+                navbar.classList.remove('nav-hidden');
+            }
+            lastScrollY = scrollY;
 
             // Active link & section theme morphing
             let current = 'home';
@@ -3236,6 +3336,11 @@
             }
 
             backToTop.classList.toggle('visible', scrollY > 500);
+        }, { passive: true });
+
+        // Hover near top of viewport — always show navbar
+        document.addEventListener('mousemove', (e) => {
+            if (e.clientY < 80) navbar.classList.remove('nav-hidden');
         }, { passive: true });
 
         backToTop.addEventListener('click', () => {
@@ -3861,6 +3966,74 @@
                     el.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
                 });
             });
+        })();
+        // ── Copy-to-Clipboard Toast Utility
+        function showToast(message, isError) {
+            let toast = document.getElementById('globalToast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'globalToast';
+                toast.className = 'toast';
+                document.body.appendChild(toast);
+            }
+            toast.className = 'toast' + (isError ? ' toast-error' : '');
+            toast.innerHTML = `<i class="fas fa-${isError ? 'times-circle' : 'check-circle'}"></i> ${message}`;
+            requestAnimationFrame(() => {
+                toast.classList.add('show');
+                clearTimeout(toast._hideTimer);
+                toast._hideTimer = setTimeout(() => toast.classList.remove('show'), 2800);
+            });
+        }
+
+        function copyToClipboard(text, label) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text)
+                    .then(() => showToast((label || text) + ' copied!', false))
+                    .catch(() => showToast('Copy failed — please copy manually', true));
+            } else {
+                // Fallback for older browsers
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none;';
+                document.body.appendChild(ta);
+                ta.select();
+                try { document.execCommand('copy'); showToast((label || text) + ' copied!', false); }
+                catch (_) { showToast('Copy failed — please copy manually', true); }
+                document.body.removeChild(ta);
+            }
+        }
+
+        // Attach copy-email button to contact section email link
+        (function () {
+            const emailLink = document.querySelector('a[href^="mailto:"]');
+            if (!emailLink) return;
+            const copyBtn = document.createElement('button');
+            copyBtn.title = 'Copy email address';
+            copyBtn.setAttribute('aria-label', 'Copy email address');
+            copyBtn.style.cssText = `
+                background: rgba(59,130,246,0.12);
+                border: 1px solid rgba(59,130,246,0.35);
+                border-radius: 6px;
+                color: var(--primary);
+                cursor: pointer;
+                font-size: 0.7rem;
+                padding: 3px 8px;
+                margin-left: 8px;
+                vertical-align: middle;
+                transition: all 0.2s ease;
+                font-family: var(--font-body);
+                font-weight: 600;
+                letter-spacing: 0.05em;
+            `;
+            copyBtn.innerHTML = '<i class="fas fa-copy"></i> COPY';
+            copyBtn.addEventListener('mouseover', () => { copyBtn.style.background = 'rgba(59,130,246,0.22)'; });
+            copyBtn.addEventListener('mouseout', () => { copyBtn.style.background = 'rgba(59,130,246,0.12)'; });
+            copyBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                copyToClipboard('kavyajoshi152005@gmail.com', 'Email address');
+            });
+            emailLink.insertAdjacentElement('afterend', copyBtn);
         })();
     </script>
 </body>
