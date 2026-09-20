@@ -124,6 +124,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: calc(var(--navbar-h) + 24px);
         }
 
         body {
@@ -3191,7 +3192,11 @@
         // ── Keep hero clearance in sync with the navbar's real (possibly wrapped) height
         const navbar = document.getElementById('navbar');
         function syncNavbarHeight() {
-            if (navbar) document.documentElement.style.setProperty('--navbar-h', navbar.offsetHeight + 'px');
+            if (navbar) {
+                const navH = navbar.offsetHeight;
+                document.documentElement.style.setProperty('--navbar-h', navH + 'px');
+                document.documentElement.style.scrollPaddingTop = (navH + 24) + 'px';
+            }
         }
         syncNavbarHeight();
         window.addEventListener('resize', syncNavbarHeight);
