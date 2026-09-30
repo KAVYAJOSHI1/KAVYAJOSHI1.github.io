@@ -135,6 +135,10 @@ Final-year **Computer Science & Engineering** student at **GLS University** (CGP
   - Multi-modal platform using Google Vision API and Hugging Face Transformers to detect misleading environmental labels.
 - **[Flash Mentor](https://github.com/KAVYAJOSHI1/flash-mentor)** — *Personalized AI Learning & Interview Coach*
   - Learning roadmap generator and interactive interview trainer built with React, TypeScript, Flask, and Gemini AI.
+- **[AI PDF Evaluator](https://github.com/KAVYAJOSHI1/AI-PDF-EVALUATOR)** — *Subjective Exam Evaluator*
+  - Interactive NLP pipeline that turns study PDFs into subjective exams, featuring explainable scoring via TF-IDF, BoW, and embeddings using FastAPI and Streamlit.
+- **[FraudShield AI](https://github.com/KAVYAJOSHI1/CREDIT-CARD-FRAUD-DETECTION)** — *Credit Card Fraud Detection*
+  - SaaS credit card fraud detection utilizing ML signals, NLP transaction analysis, AI explanations, and real-time alerts.
 
 </details>
 
