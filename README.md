@@ -53,6 +53,7 @@ Final-year **Computer Science & Engineering** student at **GLS University** (CGP
 
 | Award / Milestone | Organization / Event | Key Details | Verified Document |
 | :--- | :--- | :--- | :---: |
+| **SIH 2026 Internal Winner** | GLS University SIH Internal 2026 | **1st Place** for BEANS & HONEY-CHAIN projects. | - |
 | **SIH 2025 National Winner** | Smart India Hackathon | **1st Place Nationally** for CoastScan (AI Beach Sand Classification System). | [View Certificate](https://kavyajoshi1.github.io/Certificates/SIH.jpg) |
 | **DRDO Hackathon Winner** | DRDO DIA-SVPCoE Sampada 2025 | **1st Place** in IoT Security for automated firmware binary vulnerability scanning. | [View Certificate](https://kavyajoshi1.github.io/Certificates/DRDO_Sampada_Winner.jpg) |
 | **Breach 2025 Winner** | Breach FinTech Hackathon, PDEU | **1st Place** for real-time AI anomaly & fraud detection engine in high-frequency trading. | [View Certificate](https://kavyajoshi1.github.io/Certificates/AnirvedaWinning.jpg) |
