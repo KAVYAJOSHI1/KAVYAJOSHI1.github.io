@@ -93,7 +93,7 @@ Final-year **Computer Science & Engineering** student at **GLS University** (CGP
 <br>
 
 - **[BEANS](https://github.com/KAVYAJOSHI1/BEANS)** — *Bitcoin Traffic Analysis*
-  - An offline, Linux-native system using machine learning to monitor, analyse, and secure Bitcoin transaction traffic for investigations.
+  - An offline, Linux-native intelligence system for NTRO. Ingests bulk Bitcoin transaction metadata and runs five ML engines (entity clustering, anomaly detection, risk propagation, and a GNN) to power an investigator dashboard.
 - **[Gujarat Sentinel](https://github.com/KAVYAJOSHI1/GUJARAT-SENTINEL-)** — *CCTV Integration & Video Analytics Platform* **(Gujarat Police Innovation Hackathon 2026)**
   - Advanced CCTV analytics platform prototype for Gujarat Police featuring RTSP video ingestion, YOLOv8 vehicle detection + ANPR, EasyOCR multi-frame consensus, cross-camera ByteTrack spatial-temporal re-identification, PostGIS Leaflet trajectory mapping, and deterministic AI Copilot.
 - **[BAS-HAR](https://github.com/KAVYAJOSHI1/BAS-HAR)** — *AI Human Activity Recognition for On-Board Astronaut Experiments* **(ISRO Microgravity Assistance)**
@@ -143,7 +143,7 @@ Final-year **Computer Science & Engineering** student at **GLS University** (CGP
 <br>
 
 - **[HONEY-CHAIN](https://github.com/KAVYAJOSHI1/HONEY-CHAIN)** — *IoT Honey Traceability*
-  - IoT-enabled smart beekeeping and honey traceability platform. Features live hive monitoring, ML health scoring, and ERC-721 blockchain batch verification.
+  - Blockchain-backed smart beekeeping ecosystem for KVIC. Features live IoT hive telemetry, IsolationForest anomaly detection, AI-powered Varroa frame inspection, and ERC-721 token minting via IPFS for traceability.
 - **[CarbonVerse](https://github.com/KAVYAJOSHI1/CARBONCRED)** — *Decentralized Carbon Credit Marketplace* **(PIERC Incubated)**
   - Geo-tagged crop AI evaluation linked with Solidity smart contracts for transparent carbon offset verification.
 - **[UrjaSetu](https://github.com/KAVYAJOSHI1/UrjaSetu-GUVNL-Platform)** — *GUVNL AI Grievance Platform* **(SSIP Gujarat State Finalist)**
