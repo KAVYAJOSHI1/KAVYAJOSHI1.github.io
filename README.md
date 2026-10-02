@@ -152,7 +152,7 @@ Final-year **Computer Science & Engineering** student at **GLS University** (CGP
   - Geo-tagged crop AI evaluation linked with Solidity smart contracts for transparent carbon offset verification.
 - **[UrjaSetu](https://github.com/KAVYAJOSHI1/UrjaSetu-GUVNL-Platform)** — *GUVNL AI Grievance Platform* **(SSIP Gujarat State Finalist)**
   - Government utility feedback system with automated AI flaw detection built using React, Django, and PostgreSQL.
-- **[Tribekart](https://github.com/KAVYAJOSHI1/TRIBEKART)** — *Artisan E-Commerce & Cultural Platform*
+- **[Tribekart](https://github.com/KAVYAJOSHI1/TRIBEKART)** — *Artisan E-Commerce & Cultural Platform* **(SSIP Hackathon)**
   - Full-stack mobile app connecting indigenous artisans directly to buyers, complete with QR scanning and seller portals.
 - **[SportSpot](https://github.com/KAVYAJOSHI1/SportSpot)** — *Sports Turf Booking & Management App*
   - Multi-platform turf reservation system with real-time availability calendar, tournament hosting, and payment tracking.
