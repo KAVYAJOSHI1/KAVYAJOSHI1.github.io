@@ -185,6 +185,7 @@ Final-year **Computer Science & Engineering** student at **GLS University** (CGP
 | **Design** | [**Innovation, Design & Entrepreneurship (IDE) Bootcamp**](https://kavyajoshi1.github.io/Certificates/IDE%20KAVYA.jpg) | AICTE & Ministry of Education | [![View Certificate](https://img.shields.io/badge/Verify-Image-00599C?style=flat-square)](https://kavyajoshi1.github.io/Certificates/IDE%20KAVYA.jpg) |
 | **Blockchain** | [**Mentorship Program on Blockchain / Bitcoin**](https://kavyajoshi1.github.io/Certificates/Bitcoin_Kavya_Joshi.pdf) | LaunchED Global | [![View Certificate](https://img.shields.io/badge/Verify-PDF-F7931A?style=flat-square&logo=bitcoin&logoColor=white)](https://kavyajoshi1.github.io/Certificates/Bitcoin_Kavya_Joshi.pdf) |
 | **Scrum** | [**How to Create a Jira SCRUM Project**](https://kavyajoshi1.github.io/Certificates/JIRA_CERTIFICATE.pdf) | Coursera Project Network | [![View Certificate](https://img.shields.io/badge/Verify-PDF-0056D2?style=flat-square&logo=coursera&logoColor=white)](https://kavyajoshi1.github.io/Certificates/JIRA_CERTIFICATE.pdf) |
+| **Edge AI** | [**Arduino Edge AI Bootcamp**](https://kavyajoshi1.github.io/Certificates/Arduino%20Certificate.pdf) | Arduino | [![View Certificate](https://img.shields.io/badge/Verify-PDF-00878F?style=flat-square&logo=arduino&logoColor=white)](https://kavyajoshi1.github.io/Certificates/Arduino%20Certificate.pdf) |
 
 </div>
 
@@ -221,6 +222,7 @@ Final-year **Computer Science & Engineering** student at **GLS University** (CGP
 27. [**HackOut'26 DA-IICT Finalist Certificate**](https://kavyajoshi1.github.io/Certificates/HackOut2026.pdf) — *DA-IICT*
 28. [**IEEE & ACM Membership Credentials**](https://kavyajoshi1.github.io/Certificates/IEEE_Membership.pdf) — *IEEE & ACM*
 29. [**Bhrigu Lake Summit Trek Certificate**](https://kavyajoshi1.github.io/Certificates/Bhrigu_Lake_Trek_Certificate.pdf) — *Himachal Pradesh Alpine Expedition*
+30. [**Arduino Edge AI Bootcamp**](https://kavyajoshi1.github.io/Certificates/Arduino%20Certificate.pdf) — *Arduino*
 
 </details>
 
