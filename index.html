@@ -11,6 +11,8 @@
     <link rel="preload" href="vendor/fa/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
     <script>try{var t=localStorage.getItem("kj-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
     <link rel="canonical" href="https://kavyajoshi1.github.io/" />
+    <!-- Privacy-friendly analytics: create a free GoatCounter site, then put its code (the part before .goatcounter.com) in content below -->
+    <meta name="goatcounter-code" content="">
     <meta name="theme-color" content="#060910">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -63,9 +65,10 @@
     <script src="vendor/three.min.js"></script>
     <script src="vendor/gsap.min.js"></script>
     <script src="vendor/ScrollTrigger.min.js"></script>
+    <script src="vendor/Flip.min.js"></script>
     <script src="vendor/lenis.min.js"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
         rel="stylesheet">
     <noscript>
         <style>
@@ -2152,6 +2155,92 @@
         :root[data-theme="light"] .palette-list { scrollbar-color: #94a3b8 transparent; }
         .palette-list { scrollbar-width: thin; scrollbar-color: #334155 transparent; }
         :root[data-theme="light"] .cur-ring { color: #0f172a; }
+
+        /* ─── MOTION UPGRADE 4 ─── */
+        .live-status { display: inline-flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 8px 12px; margin: 0 auto 26px; padding: 8px 18px; border-radius: 99px; border: 1px solid var(--border2); background: var(--surface); font-size: var(--fs-caption); color: var(--text-secondary); }
+        .live-status b { color: var(--text); font-variant-numeric: tabular-nums; }
+        .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 0 0 rgba(16,185,129,.6); animation: livePulse 2s infinite; }
+        .live-sep { opacity: .35; }
+        @keyframes livePulse { 70% { box-shadow: 0 0 0 9px rgba(16,185,129,0); } 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); } }
+        @media (max-width: 640px) { .live-sep { display: none; } }
+
+        .vf-ch { display: inline-block; text-align: center; will-change: font-variation-settings; }
+        .hero-content h1 .name-accent .vf-ch { background-repeat: no-repeat; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: none; }
+        .hero-logo-mark canvas.hero-gl { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 50%; }
+
+        .sl-w { opacity: .16; transition: none; }
+
+        .certs-viewport { overflow: hidden; position: relative; }
+        .certs-grid.is-hscroll { flex-wrap: nowrap; justify-content: flex-start; width: max-content; padding: 0 6vw; will-change: transform; }
+        .certs-grid.is-hscroll .cert-card { flex: 0 0 340px; max-width: none; }
+        @media (max-width: 900px) {
+            .certs-grid { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 14px; -webkit-overflow-scrolling: touch; }
+            .certs-grid .cert-card { flex: 0 0 82%; scroll-snap-align: center; }
+        }
+
+        .pidx { position: relative; z-index: 2; }
+        .pidx-list { list-style: none; max-width: 900px; margin: 0 auto; counter-reset: p; }
+        .pidx-list li { counter-increment: p; display: flex; align-items: baseline; gap: 18px; padding: 16px 6px; border-bottom: 1px solid var(--border); cursor: pointer; transition: padding .3s, color .3s; }
+        .pidx-list li::before { content: counter(p, decimal-leading-zero); font: 600 .8rem var(--font-display); color: var(--text-muted); letter-spacing: .1em; }
+        .pidx-list li:hover, .pidx-list li:focus-visible { padding-left: 22px; color: var(--accent); }
+        .pidx-t { flex: 1; font: 700 clamp(1.05rem, 2.4vw, 1.6rem)/1.2 var(--font-display); letter-spacing: -0.01em; }
+        .pidx-b { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-secondary); text-align: right; }
+        .pidx-list li.extra { display: none; }
+        .pidx-list.open li.extra { display: flex; }
+        .pidx-more { display: block; margin: 24px auto 0; }
+        .pidx-preview { position: fixed; top: 0; left: 0; width: 300px; padding: 16px 18px; border-radius: 16px; z-index: 9000; pointer-events: none; opacity: 0; transform: scale(.9); background: var(--bg2); border: 1px solid var(--border2); box-shadow: 0 24px 60px rgba(0,0,0,.45); transition: opacity .2s; }
+        .pidx-preview.show { opacity: 1; }
+        .pidx-preview .pv-icon { font-size: 1.6rem; color: var(--accent); margin-bottom: 8px; }
+        .pidx-preview .pv-title { font: 700 1rem var(--font-display); margin-bottom: 6px; }
+        .pidx-preview .pv-desc { font-size: .82rem; line-height: 1.5; color: var(--text-secondary); margin-bottom: 10px; }
+        .pidx-preview .tech-tag { margin: 0 4px 4px 0; display: inline-block; }
+        @media (hover: none) { .pidx-preview { display: none; } }
+        .project-card.flash { animation: cardFlash 1.6s ease; }
+        @keyframes cardFlash { 0%,100% { box-shadow: none; } 30% { box-shadow: 0 0 0 3px var(--accent), 0 0 40px rgba(6,182,212,.5); } }
+
+        .blog { position: relative; z-index: 2; }
+        .blog-list { max-width: 860px; margin: 0 auto; display: grid; gap: 12px; }
+        .blog-item { border-radius: 14px; overflow: hidden; }
+        .blog-item summary { list-style: none; display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center; padding: 16px 20px; cursor: pointer; }
+        .blog-item summary::-webkit-details-marker { display: none; }
+        .blog-item summary .bl-n { font: 600 .78rem var(--font-display); color: var(--accent); letter-spacing: .1em; }
+        .blog-item summary .bl-t { font-weight: 600; }
+        .blog-item summary .bl-e { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-light); }
+        .blog-item[open] summary { border-bottom: 1px solid var(--border); }
+        .blog-body { padding: 16px 20px 20px; color: var(--text-secondary); line-height: 1.65; }
+        .blog-body .tech-stack { margin: 14px 0; }
+        .blog-body a { color: var(--accent); font-weight: 600; text-decoration: none; margin-right: 16px; }
+        @media (max-width: 600px) { .blog-item summary { grid-template-columns: auto 1fr; } .blog-item summary .bl-e { grid-column: 2; } }
+
+        .overlay { position: fixed; inset: 0; z-index: 10003; display: none; align-items: center; justify-content: center; padding: 3vh 3vw; background: rgba(2,4,10,.7); backdrop-filter: blur(6px); }
+        .overlay.open { display: flex; }
+        .overlay-box { width: min(1000px, 100%); max-height: 94vh; display: flex; flex-direction: column; border-radius: 18px; background: var(--bg2); border: 1px solid var(--border2); box-shadow: 0 30px 90px rgba(0,0,0,.55); overflow: hidden; }
+        .overlay-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 18px; border-bottom: 1px solid var(--border); }
+        .overlay-bar span { display: inline-flex; gap: 10px; align-items: center; }
+        .icon-close { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border2); background: transparent; color: var(--text); cursor: pointer; }
+        .cv-box iframe { flex: 1; min-height: 78vh; width: 100%; border: 0; background: #fff; }
+        .rec-body { padding: 26px 30px 30px; overflow-y: auto; line-height: 1.6; }
+        .rec-body h2 { font: 800 2rem var(--font-display); }
+        .rec-role { color: var(--accent); font-weight: 600; margin-bottom: 6px; }
+        .rec-body a { color: var(--accent); }
+        .rec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; margin: 22px 0; }
+        .rec-grid h3 { font: 700 .8rem var(--font-display); letter-spacing: .18em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 8px; }
+        .rec-grid ul { list-style: none; display: grid; gap: 6px; }
+        .rec-grid li::before { content: '▸ '; color: var(--accent); }
+
+        .term { position: fixed; left: 50%; bottom: 0; transform: translate(-50%, 105%); width: min(860px, 100vw); height: min(60vh, 520px); z-index: 10004; display: flex; flex-direction: column; background: rgba(5,8,16,.97); color: #d1fae5; border: 1px solid rgba(16,185,129,.35); border-bottom: 0; border-radius: 16px 16px 0 0; font: 500 .9rem/1.55 ui-monospace, 'SF Mono', Menlo, Consolas, monospace; transition: transform .45s cubic-bezier(.2,.8,.2,1); box-shadow: 0 -20px 80px rgba(0,0,0,.6); }
+        .term.open { transform: translate(-50%, 0); }
+        .term-bar { display: flex; justify-content: space-between; align-items: center; padding: 8px 14px; border-bottom: 1px solid rgba(16,185,129,.25); color: #6ee7b7; }
+        .term-bar .icon-close { color: #d1fae5; border-color: rgba(16,185,129,.35); width: 30px; height: 30px; }
+        .term-out { flex: 1; overflow-y: auto; padding: 12px 16px; white-space: pre-wrap; word-break: break-word; }
+        .term-out .cmd { color: #fff; } .term-out .dim { color: #6b8f82; } .term-out a { color: #67e8f9; }
+        .term-line { display: flex; gap: 10px; padding: 10px 16px 14px; border-top: 1px solid rgba(16,185,129,.2); }
+        .term-line input { flex: 1; background: transparent; border: 0; outline: none; color: #fff; font: inherit; caret-color: #34d399; }
+
+        body.sound-on #soundBtn { border-color: var(--accent); color: var(--accent); }
+        @media (max-width: 640px) { .dock { gap: 6px; } .dock button { min-width: 40px; height: 40px; padding: 0 10px; } }
+        :root[data-theme="light"] .overlay, :root[data-theme="light"] .palette { background: rgba(244,246,251,.75); }
+        :root[data-theme="light"] .live-status { background: rgba(255,255,255,.7); }
     </style>
 </head>
 
@@ -2173,6 +2262,9 @@
     <div class="grain" aria-hidden="true"></div>
     <div class="dock">
         <button id="themeToggle" type="button" aria-label="Toggle light and dark theme"><i class="fas fa-circle-half-stroke"></i></button>
+        <button id="termBtn" type="button" aria-label="Open terminal"><i class="fas fa-laptop-code"></i></button>
+        <button id="recruiterBtn" type="button" aria-label="Recruiter quick view"><i class="fas fa-briefcase"></i></button>
+        <button id="soundBtn" type="button" aria-label="Toggle interface sounds" aria-pressed="false"><i class="fas fa-volume-xmark"></i></button>
         <button id="paletteBtn" type="button" aria-label="Open command palette"><i class="fas fa-terminal"></i><span class="kbd-hint"><kbd>Ctrl</kbd> + <kbd>K</kbd></span></button>
     </div>
     <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Command palette">
@@ -2180,6 +2272,53 @@
             <input id="paletteInput" type="text" placeholder="Jump to a section or run a command…" autocomplete="off" spellcheck="false" aria-label="Search commands">
             <ul class="palette-list" id="paletteList"></ul>
         </div>
+    </div>
+
+    <div class="overlay" id="cvModal" role="dialog" aria-modal="true" aria-label="CV viewer">
+        <div class="overlay-box cv-box">
+            <div class="overlay-bar"><b>Kavya Joshi — CV</b>
+                <span><a class="btn btn-primary btn-sm" href="KavyaJoshi_Designed_CV.pdf" download><i class="fas fa-download"></i> Download</a>
+                <button class="icon-close" data-close aria-label="Close CV viewer"><i class="fas fa-xmark"></i></button></span></div>
+            <iframe title="CV preview" id="cvFrame" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <div class="overlay" id="recruiterView" role="dialog" aria-modal="true" aria-label="Recruiter quick view">
+        <div class="overlay-box rec-box">
+            <div class="overlay-bar"><b>Recruiter quick view</b>
+                <span><a class="btn btn-primary btn-sm" href="KavyaJoshi_Designed_CV.pdf" download><i class="fas fa-download"></i> CV</a>
+                <button class="icon-close" data-close aria-label="Close quick view"><i class="fas fa-xmark"></i></button></span></div>
+            <div class="rec-body">
+                <h2>Kavya Joshi</h2>
+                <p class="rec-role">Embedded Engineer @ eInfochips · AI &amp; Software Developer</p>
+                <p><a href="mailto:kavyajoshi152005@gmail.com">kavyajoshi152005@gmail.com</a> · <a href="https://www.linkedin.com/in/kavya-joshi-3765742b0" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="https://github.com/KAVYAJOSHI1" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://leetcode.com/u/JoshiKavya/" target="_blank" rel="noopener noreferrer">LeetCode</a></p>
+                <div class="rec-grid">
+                    <div><h3>Snapshot</h3><ul>
+                        <li>Embedded Engineer, eInfochips (An Arrow Company) — campus placement</li>
+                        <li>B.Tech CSE, GLS University — 8.92 CGPA</li>
+                        <li>6 hackathons won out of 15 played</li>
+                        <li>610+ LeetCode problems, top 2.5% globally</li></ul></div>
+                    <div><h3>Experience &amp; leadership</h3><ul>
+                        <li>AI/ML &amp; Full Stack Intern, Cygnet.One (Jun–Jul 2026)</li>
+                        <li>Founder &amp; CEO, CarbonVerse</li>
+                        <li>ACM Membership Chair; IEEE Student Member</li>
+                        <li>Student Coordinator, CyberShadez 2026</li></ul></div>
+                    <div><h3>Hackathon wins (6)</h3><ul>
+                        <li>GLS Internal 2024 (1st), 2025 (2nd), 2026 (1st)</li>
+                        <li>Smart India Hackathon 2025 — National Winner (CoastScan)</li>
+                        <li>DRDO DIA-SVPCoE Sampada 2025</li>
+                        <li>Breach 2025 FinTech Hackathon, PDEU</li></ul></div>
+                    <div><h3>Flagship projects</h3><ul id="recProjects"></ul></div>
+                </div>
+                <p><button class="btn btn-secondary btn-sm" type="button" data-close>Back to full portfolio</button></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="term" id="term" role="dialog" aria-label="Interactive terminal">
+        <div class="term-bar"><span>kavya@portfolio:~</span><button class="icon-close" data-close aria-label="Close terminal"><i class="fas fa-xmark"></i></button></div>
+        <div class="term-out" id="termOut" aria-live="polite"></div>
+        <label class="term-line"><span>$</span><input id="termIn" type="text" autocomplete="off" spellcheck="false" aria-label="Terminal input"></label>
     </div>
 
     <div class="cur-ring" id="curRing"><span id="curLabel"></span></div>
@@ -2253,6 +2392,13 @@
                 <a href="KavyaJoshi_Designed_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                     <i class="fas fa-file-alt"></i> View CV
                 </a>
+            </div>
+
+            <div class="live-status" aria-label="Status">
+                <span class="live-dot"></span>
+                <span>Ahmedabad, India · <b id="localTime">--:--</b> IST</span>
+                <span class="live-sep">|</span>
+                <span>Now: Embedded Engineer @ eInfochips · Founder, CarbonVerse</span>
             </div>
 
             <div class="hero-stats">
@@ -2463,6 +2609,19 @@
             <div class="showcase-stage" id="showcaseStage"></div>
             <div class="showcase-meter" aria-hidden="true"><span id="scIdx">01</span><div class="showcase-bar"><i id="scBar"></i></div><span id="scTotal">04</span></div>
         </div>
+    </section>
+
+    <!-- ──────────────── PROJECT INDEX ──────────────── -->
+    <section id="project-index" class="section pidx">
+        <div class="section-header animate-on-scroll">
+            <span class="section-eyebrow">★</span>
+            <h2 class="section-title">Project Index</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle" style="margin-top:16px;">Hover a title for a preview · click to jump to the full card</p>
+        </div>
+        <ol class="pidx-list" id="pidxList"></ol>
+        <button class="btn btn-secondary pidx-more" id="pidxMore" type="button">Show all</button>
+        <div class="pidx-preview" id="pidxPreview" aria-hidden="true"></div>
     </section>
 
     <section id="projects" class="section">
@@ -3391,6 +3550,17 @@
             <div class="hlog-item glass"><span class="hlog-name">Nexus Hackathon</span><span class="hlog-res">Participant</span></div>
             <div class="hlog-item glass"><span class="hlog-name">Odoo Hackathon</span><span class="hlog-res">Participant</span></div>
         </div>
+    </section>
+
+    <!-- ──────────────── BUILD LOG ──────────────── -->
+    <section id="build-log" class="section blog">
+        <div class="section-header animate-on-scroll">
+            <span class="section-eyebrow">★</span>
+            <h2 class="section-title">Build Log</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle" style="margin-top:16px;">What I shipped at each hackathon · tap an entry to expand</p>
+        </div>
+        <div class="blog-list" id="blogList"></div>
     </section>
 
     <!-- ──────────────── CERTIFICATIONS ──────────────── -->
@@ -4374,7 +4544,7 @@
 
         // Attach copy-email button to contact section email link
         (function () {
-            const emailLink = document.querySelector('a[href^="mailto:"]');
+            const emailLink = document.querySelector('section a[href^="mailto:"]');
             if (!emailLink) return;
             const copyBtn = document.createElement('button');
             copyBtn.title = 'Copy email address';
@@ -4679,7 +4849,11 @@
             ['Hackathon Log', 'Section', () => goTo('hackathon-log')], ['Certifications', 'Section', () => goTo('certifications')],
             ['LeetCode', 'Section', () => goTo('leetcode')], ['Contact', 'Section', () => goTo('contact')],
             ['Copy email address', 'Action', () => { if (typeof copyToClipboard === 'function') copyToClipboard('kavyajoshi152005@gmail.com', 'Email address'); }],
-            ['Open CV', 'Link', ext('KavyaJoshi_Designed_CV.pdf')], ['GitHub', 'Link', ext('https://github.com/KAVYAJOSHI1')],
+            ['View CV (in page)', 'Action', () => window.__kjActions && window.__kjActions.openCV()],
+            ['Recruiter quick view', 'Action', () => window.__kjActions && window.__kjActions.openRec()],
+            ['Open terminal', 'Action', () => window.__kjActions && window.__kjActions.openTerm()],
+            ['Toggle interface sounds', 'Action', () => window.__kjActions && window.__kjActions.setSound()],
+            ['Project Index', 'Section', () => goTo('project-index')], ['Build Log', 'Section', () => goTo('build-log')], ['GitHub', 'Link', ext('https://github.com/KAVYAJOSHI1')],
             ['LinkedIn', 'Link', ext('https://www.linkedin.com/in/kavya-joshi-3765742b0')], ['LeetCode profile', 'Link', ext('https://leetcode.com/u/JoshiKavya/')],
             ['Toggle light / dark theme', 'Action', () => toggleTheme()]
         ];
@@ -4749,6 +4923,351 @@
                 strip.classList.add('ready');
             }).catch(() => {});
         }
+    })();
+    </script>
+
+    <script>
+    // ── Motion upgrade 4: hero shader + variable font + parallax, scroll-lit text, horizontal certs, project index,
+    //    Flip filter, build log, CV viewer, recruiter view, terminal, sound, clock, analytics
+    (function () {
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        const hasGsap = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+        const $ = (s, r) => (r || document).querySelector(s);
+        const $$ = (s, r) => [...(r || document).querySelectorAll(s)];
+        const root = document.documentElement;
+        const goTo = id => {
+            const el = document.getElementById(id); if (!el) return;
+            const nav = $('#navbar');
+            if (window.__lenis) window.__lenis.scrollTo(el, { offset: -((nav ? nav.offsetHeight : 0) + 24), duration: 1.4 });
+            else el.scrollIntoView({ behavior: 'smooth' });
+        };
+        const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+        // ───────── Sound (synthesised, off by default)
+        let audio = null, soundOn = false, lastTick = 0;
+        try { soundOn = localStorage.getItem('kj-sound') === '1'; } catch (e) {}
+        function blip(freq, dur, vol, type) {
+            if (!soundOn) return;
+            try {
+                audio = audio || new (window.AudioContext || window.webkitAudioContext)();
+                if (audio.state === 'suspended') audio.resume();
+                const o = audio.createOscillator(), g = audio.createGain();
+                o.type = type || 'sine'; o.frequency.value = freq;
+                g.gain.setValueAtTime(vol, audio.currentTime);
+                g.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime + dur);
+                o.connect(g); g.connect(audio.destination); o.start(); o.stop(audio.currentTime + dur);
+            } catch (e) {}
+        }
+        const soundBtn = $('#soundBtn');
+        function paintSound() {
+            document.body.classList.toggle('sound-on', soundOn);
+            soundBtn.setAttribute('aria-pressed', String(soundOn));
+            soundBtn.innerHTML = '<i class="fas ' + (soundOn ? 'fa-volume-high' : 'fa-volume-xmark') + '"></i>';
+        }
+        function setSound(v) { soundOn = v; try { localStorage.setItem('kj-sound', v ? '1' : '0'); } catch (e) {} paintSound(); if (v) blip(660, .12, .05); }
+        paintSound();
+        soundBtn.addEventListener('click', () => setSound(!soundOn));
+        document.addEventListener('mouseover', e => {
+            const t = e.target.closest('a, button, .project-card, .pidx-list li, .blog-item summary');
+            const now = performance.now();
+            if (t && now - lastTick > 70) { lastTick = now; blip(1400, .035, .018, 'triangle'); }
+        });
+        document.addEventListener('click', e => { if (e.target.closest('a, button, summary, li')) blip(520, .08, .04, 'sine'); });
+
+        // ───────── Local time
+        const clock = $('#localTime');
+        if (clock) {
+            const tick = () => { try { clock.textContent = new Date().toLocaleTimeString('en-GB', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' }); } catch (e) { clock.textContent = ''; } };
+            tick(); setInterval(tick, 15000);
+        }
+
+        // ───────── Analytics (only when a GoatCounter code is provided in the meta tag)
+        const gc = ($('meta[name="goatcounter-code"]') || {}).content;
+        if (gc && /^[a-z0-9-]+$/i.test(gc)) {
+            const sc = document.createElement('script');
+            sc.async = true; sc.src = 'https://gc.zgo.at/count.js';
+            sc.setAttribute('data-goatcounter', 'https://' + gc + '.goatcounter.com/count');
+            document.head.appendChild(sc);
+        }
+        const track = (path, title) => { try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'event/' + path, title: title || path, event: true }); } catch (e) {} };
+
+        // ───────── Hero portrait: WebGL ripple + RGB split on hover
+        (function heroShader() {
+            const mark = $('.hero-logo-mark'), img = mark && $('img', mark);
+            if (!img || reduce || !fine) return;
+            function boot() {
+                try {
+                    const cv = document.createElement('canvas'); cv.className = 'hero-gl';
+                    const size = 256; cv.width = size; cv.height = size;
+                    const gl = cv.getContext('webgl', { premultipliedAlpha: false, alpha: true });
+                    if (!gl) return;
+                    const vs = 'attribute vec2 p;varying vec2 uv;void main(){uv=p*.5+.5;uv.y=1.-uv.y;gl_Position=vec4(p,0.,1.);}';
+                    const fs = 'precision mediump float;varying vec2 uv;uniform sampler2D t;uniform vec2 m;uniform float h,time,asp;' +
+                        'vec2 cover(vec2 u){ if(asp>1.){u.x=(u.x-.5)/asp+.5;} else {u.y=(u.y-.5)*asp+.5;} u.y=u.y*.78; return u; }' +
+                        'void main(){vec2 d=uv-m;float r=length(d);float w=sin(r*38.-time*5.)*exp(-r*5.)*h;vec2 o=normalize(d+1e-4)*w*.035;' +
+                        'float s=h*.012;vec2 b=cover(uv+o);float R=texture2D(t,cover(uv+o+vec2(s,0.))).r;float G=texture2D(t,b).g;float B=texture2D(t,cover(uv+o-vec2(s,0.))).b;gl_FragColor=vec4(R,G,B,1.);}';
+                    const sh = (type, src) => { const x = gl.createShader(type); gl.shaderSource(x, src); gl.compileShader(x); if (!gl.getShaderParameter(x, gl.COMPILE_STATUS)) throw new Error('shader'); return x; };
+                    const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(pr); gl.useProgram(pr);
+                    const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+                    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+                    const loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+                    const tex = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, tex);
+                    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img); // throws SecurityError if the image is cross-origin tainted
+                    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+                    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+                    const U = n => gl.getUniformLocation(pr, n);
+                    gl.uniform1f(U('asp'), img.naturalWidth / img.naturalHeight);
+                    const st = { mx: .5, my: .5, h: 0, th: 0, run: false };
+                    mark.appendChild(cv); img.style.visibility = 'hidden';
+                    const draw = tm => {
+                        st.h += (st.th - st.h) * .08;
+                        gl.viewport(0, 0, size, size);
+                        gl.uniform2f(U('m'), st.mx, st.my); gl.uniform1f(U('h'), st.h); gl.uniform1f(U('time'), tm / 1000);
+                        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+                        if (st.th > 0 || st.h > .003) requestAnimationFrame(draw); else st.run = false;
+                    };
+                    const kick = () => { if (!st.run) { st.run = true; requestAnimationFrame(draw); } };
+                    draw(0);
+                    mark.addEventListener('mousemove', e => { const r = mark.getBoundingClientRect(); st.mx = (e.clientX - r.left) / r.width; st.my = (e.clientY - r.top) / r.height; st.th = 1; kick(); });
+                    mark.addEventListener('mouseleave', () => { st.th = 0; kick(); });
+                } catch (err) { const c = $('canvas.hero-gl', mark); if (c) c.remove(); img.style.visibility = ''; }
+            }
+            if (img.complete && img.naturalWidth) boot(); else img.addEventListener('load', boot, { once: true });
+        })();
+
+        // ───────── Variable-font name: weight follows the cursor
+        (function varName() {
+            const h1 = $('#home h1'); if (!h1 || reduce || !fine) return;
+            const spans = $$('.name-light, .name-accent', h1);
+            const letters = [];
+            function build() {
+                spans.forEach(sp => {
+                    const text = sp.textContent; sp.setAttribute('aria-label', text); sp.textContent = '';
+                    [...text].forEach(ch => { const l = document.createElement('span'); l.className = 'vf-ch'; l.setAttribute('aria-hidden', 'true'); l.textContent = ch; sp.appendChild(l); letters.push({ el: l, w: 800, tw: 800, sp }); });
+                });
+                letters.forEach(l => { l.el.style.fontVariationSettings = "'wght' 800"; });
+                requestAnimationFrame(() => {
+                    letters.forEach(l => { l.el.style.width = l.el.getBoundingClientRect().width + 'px'; });
+                    $$('.name-accent', h1).forEach(sp => {
+                        const box = sp.getBoundingClientRect();
+                        $$('.vf-ch', sp).forEach(c => { const r = c.getBoundingClientRect(); c.style.backgroundImage = getComputedStyle(sp).backgroundImage; c.style.backgroundSize = box.width + 'px ' + box.height + 'px'; c.style.backgroundPosition = (-(r.left - box.left)) + 'px 0'; });
+                    });
+                });
+            }
+            (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(build);
+            let mx = -999, my = -999, active = false, running = false;
+            const loop = () => {
+                let moving = false;
+                letters.forEach(l => {
+                    const r = l.el.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+                    const d = Math.hypot(cx - mx, cy - my);
+                    l.tw = active ? 300 + 500 * Math.exp(-(d * d) / (2 * 130 * 130)) : 800;
+                    l.w += (l.tw - l.w) * .12;
+                    if (Math.abs(l.tw - l.w) > .5) moving = true;
+                    l.el.style.fontVariationSettings = "'wght' " + l.w.toFixed(0);
+                });
+                if (moving || active) requestAnimationFrame(loop); else running = false;
+            };
+            const kick = () => { if (!running && letters.length) { running = true; requestAnimationFrame(loop); } };
+            $('#home').addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; active = true; kick(); });
+            $('#home').addEventListener('mouseleave', () => { active = false; kick(); });
+        })();
+
+        // ───────── Hero depth parallax (independent `translate` property)
+        (function parallax() {
+            if (reduce || !fine) return;
+            const layers = [['.hero-logo', 20], ['#home h1', 12], ['.hero-role', 7], ['.live-status', 4], ['.hero-stats', 3]]
+                .map(([s, d]) => ({ el: $(s), d })).filter(l => l.el);
+            let tx = 0, ty = 0, cx = 0, cy = 0, run = false;
+            const loop = () => {
+                cx += (tx - cx) * .08; cy += (ty - cy) * .08;
+                layers.forEach(l => { l.el.style.translate = (cx * l.d).toFixed(2) + 'px ' + (cy * l.d).toFixed(2) + 'px'; });
+                if (Math.abs(tx - cx) > .001 || Math.abs(ty - cy) > .001) requestAnimationFrame(loop); else run = false;
+            };
+            window.addEventListener('mousemove', e => { tx = e.clientX / innerWidth - .5; ty = e.clientY / innerHeight - .5; if (!run) { run = true; requestAnimationFrame(loop); } });
+        })();
+
+        // ───────── Scroll-lit About paragraph
+        (function scrollText() {
+            const lead = $('.about-lead'); if (!lead || !hasGsap || reduce) return;
+            const words = [];
+            (function walk(node) {
+                [...node.childNodes].forEach(n => {
+                    if (n.nodeType === 3) {
+                        const frag = document.createDocumentFragment();
+                        n.textContent.split(/(\s+)/).forEach(part => {
+                            if (!part) return;
+                            if (/^\s+$/.test(part)) frag.appendChild(document.createTextNode(part));
+                            else { const w = document.createElement('span'); w.className = 'sl-w'; w.textContent = part; frag.appendChild(w); words.push(w); }
+                        });
+                        n.replaceWith(frag);
+                    } else if (n.nodeType === 1) walk(n);
+                });
+            })(lead);
+            gsap.to(words, { opacity: 1, ease: 'none', stagger: 0.12, scrollTrigger: { trigger: lead, start: 'top 82%', end: 'bottom 52%', scrub: true } });
+        })();
+
+        // ───────── Certificates: pinned horizontal scroll (desktop)
+        (function hcerts() {
+            const sec = $('#certifications'), grid = $('.certs-grid', sec || document);
+            if (!sec || !grid || !hasGsap || reduce) return;
+            gsap.matchMedia().add('(min-width: 901px)', () => {
+                const parent = grid.parentNode, vp = document.createElement('div');
+                vp.className = 'certs-viewport'; parent.insertBefore(vp, grid); vp.appendChild(grid);
+                const fit = () => { vp.style.width = document.documentElement.clientWidth + 'px'; vp.style.marginLeft = '0px'; vp.style.marginLeft = (-vp.getBoundingClientRect().left) + 'px'; };
+                grid.classList.add('is-hscroll'); sec.classList.add('is-hpin'); fit();
+                const dist = () => Math.max(0, grid.scrollWidth - document.documentElement.clientWidth + 80);
+                gsap.to(grid, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: sec, start: 'top top+=60', end: () => '+=' + dist(), pin: true, scrub: .6, invalidateOnRefresh: true, anticipatePin: 1, onRefreshInit: fit } });
+                return () => { grid.classList.remove('is-hscroll'); sec.classList.remove('is-hpin'); gsap.set(grid, { clearProps: 'all' }); parent.insertBefore(grid, vp); vp.remove(); };
+            });
+        })();
+
+        // ───────── Project index with cursor-following preview
+        const cards = $$('.project-card');
+        (function projectIndex() {
+            const list = $('#pidxList'), pv = $('#pidxPreview'); if (!list || !cards.length) return;
+            cards.forEach((c, i) => {
+                const li = document.createElement('li'); li.tabIndex = 0; if (i >= 8) li.className = 'extra';
+                li.innerHTML = '<span class="pidx-t">' + c.querySelector('.project-title').innerHTML + '</span><span class="pidx-b">' + esc(c.querySelector('.project-badge') ? c.querySelector('.project-badge').textContent : '') + '</span>';
+                const open = () => {
+                    if (typeof filterProjects === 'function') filterProjects('all', $('.filter-btn'));
+                    goTo('projects');
+                    setTimeout(() => { const nav = $('#navbar'); const y = c.getBoundingClientRect().top + scrollY - (nav ? nav.offsetHeight : 0) - 30; if (window.__lenis) window.__lenis.scrollTo(y, { duration: 1.2 }); else scrollTo({ top: y, behavior: 'smooth' }); c.classList.remove('flash'); void c.offsetWidth; c.classList.add('flash'); }, 900);
+                    track('project-index/' + c.querySelector('.project-title').textContent.slice(0, 40));
+                };
+                li.addEventListener('click', open); li.addEventListener('keydown', e => { if (e.key === 'Enter') open(); });
+                li.addEventListener('mouseenter', () => {
+                    const tags = $$('.tech-tag', c).slice(0, 4).map(t => t.outerHTML).join('');
+                    const desc = c.querySelector('.project-description').textContent.trim().replace(/\s+/g, ' ');
+                    pv.innerHTML = '<div class="pv-icon">' + (c.querySelector('.project-icon') ? c.querySelector('.project-icon').innerHTML : '') + '</div><div class="pv-title">' + c.querySelector('.project-title').innerHTML + '</div><div class="pv-desc">' + esc(desc.length > 130 ? desc.slice(0, 127) + '…' : desc) + '</div>' + tags;
+                    pv.classList.add('show');
+                });
+                li.addEventListener('mouseleave', () => pv.classList.remove('show'));
+                list.appendChild(li);
+            });
+            window.addEventListener('scroll', () => pv.classList.remove('show'), { passive: true });
+            const more = $('#pidxMore');
+            more.textContent = 'Show all ' + cards.length;
+            more.addEventListener('click', () => { const o = list.classList.toggle('open'); more.textContent = o ? 'Show less' : 'Show all ' + cards.length; if (hasGsap) ScrollTrigger.refresh(); });
+            if (hasGsap && fine) {
+                const px = gsap.quickTo(pv, 'x', { duration: .5, ease: 'power3.out' }), py = gsap.quickTo(pv, 'y', { duration: .5, ease: 'power3.out' });
+                list.addEventListener('mousemove', e => { px(Math.min(e.clientX + 24, innerWidth - 320)); py(Math.min(e.clientY + 18, innerHeight - 220)); });
+            }
+        })();
+
+        // ───────── Project filter with animated (Flip) layout
+        (function flipFilter() {
+            const original = window.filterProjects;
+            window.filterProjects = function (category, btn) {
+                if (typeof Flip === 'undefined' || !hasGsap || reduce) { return original && original(category, btn); }
+                gsap.registerPlugin(Flip);
+                $$('.filter-btn').forEach(b => b.classList.remove('active')); if (btn) btn.classList.add('active');
+                const match = c => category === 'all' || c.getAttribute('data-category') === category;
+                const leaving = cards.filter(c => !match(c) && !c.classList.contains('hidden'));
+                const entering = cards.filter(c => match(c) && c.classList.contains('hidden'));
+                leaving.forEach(c => c.classList.add('fade-out'));
+                setTimeout(() => {
+                    const stay = cards.filter(c => match(c) && !c.classList.contains('hidden'));
+                    const state = Flip.getState(stay);
+                    leaving.forEach(c => { c.classList.add('hidden'); });
+                    entering.forEach(c => { c.classList.remove('hidden', 'fade-out'); c.classList.add('visible'); });
+                    cards.filter(match).forEach(c => c.classList.remove('fade-out'));
+                    Flip.from(state, { duration: .75, ease: 'power3.inOut', onEnter: els => gsap.fromTo(els, { opacity: 0, scale: .85, y: 24 }, { opacity: 1, scale: 1, y: 0, duration: .6, delay: .15, ease: 'power2.out', clearProps: 'transform,opacity' }), onComplete: () => ScrollTrigger.refresh() });
+                    if (!entering.length) gsap.set(stay, { clearProps: 'opacity' });
+                }, 280);
+                track('filter/' + category);
+            };
+        })();
+
+        // ───────── Build log (generated from the project cards)
+        (function buildLog() {
+            const list = $('#blogList'); if (!list) return;
+            const re = /hackathon|winner|finalist|ingenium|ideathon/i;
+            const picked = cards.filter(c => c.querySelector('.project-badge') && re.test(c.querySelector('.project-badge').textContent));
+            picked.forEach((c, i) => {
+                const d = document.createElement('details'); d.className = 'blog-item glass';
+                const badge = c.querySelector('.project-badge').textContent.replace(/^[^\w']+/, '').trim();
+                const links = $$('.project-links a', c).map(a => a.outerHTML).join('');
+                d.innerHTML = '<summary><span class="bl-n">#' + String(picked.length - i).padStart(2, '0') + '</span><span class="bl-t">' + c.querySelector('.project-title').innerHTML + '</span><span class="bl-e">' + esc(badge) + '</span></summary>' +
+                    '<div class="blog-body"><p>' + c.querySelector('.project-description').innerHTML + '</p><div class="tech-stack">' + $$('.tech-tag', c).map(t => t.outerHTML).join('') + '</div>' + links + '</div>';
+                d.addEventListener('toggle', () => { if (d.open) track('build-log/' + c.querySelector('.project-title').textContent.slice(0, 40)); });
+                list.appendChild(d);
+            });
+            if (!picked.length) $('#build-log').remove();
+        })();
+
+        // ───────── Overlays: CV viewer, recruiter view, terminal
+        let openOverlay = null;
+        function lock(v) { if (window.__lenis) (v ? window.__lenis.stop() : window.__lenis.start()); }
+        function openBox(el, focusSel) { if (openOverlay) closeBox(); openOverlay = el; el.classList.add('open'); lock(true); const f = focusSel && $(focusSel, el); if (f) setTimeout(() => f.focus(), 60); }
+        function closeBox() { if (!openOverlay) return; openOverlay.classList.remove('open'); openOverlay = null; lock(false); }
+        document.addEventListener('click', e => { if (e.target.closest('[data-close]') || e.target.classList.contains('overlay')) closeBox(); });
+        window.addEventListener('keydown', e => { if (e.key === 'Escape' && openOverlay) closeBox(); });
+
+        const cvModal = $('#cvModal');
+        function openCV() {
+            if (window.matchMedia('(max-width: 800px)').matches || /Mobi|Android/i.test(navigator.userAgent)) { window.open('KavyaJoshi_Designed_CV.pdf', '_blank', 'noopener'); return; }
+            const f = $('#cvFrame'); if (!f.getAttribute('src')) f.setAttribute('src', 'KavyaJoshi_Designed_CV.pdf#view=FitH');
+            openBox(cvModal); track('cv-viewer');
+        }
+        document.addEventListener('click', e => { const a = e.target.closest('a[href="KavyaJoshi_Designed_CV.pdf"]'); if (a && !a.hasAttribute('download') && !a.closest('.overlay')) { e.preventDefault(); openCV(); } });
+
+        const rec = $('#recruiterView');
+        const recList = $('#recProjects');
+        ["SIH '25 Winner", 'Breach 2025 Winner', 'DRDO Winner', 'Gujarat Police Hackathon 2026'].forEach(t => {
+            const c = cards.find(x => x.querySelector('.project-badge') && x.querySelector('.project-badge').textContent.includes(t)); if (!c) return;
+            const li = document.createElement('li'); li.innerHTML = c.querySelector('.project-title').innerHTML; recList.appendChild(li);
+        });
+        const openRec = () => { openBox(rec); track('recruiter-view'); };
+        $('#recruiterBtn').addEventListener('click', openRec);
+
+        // Terminal
+        const term = $('#term'), out = $('#termOut'), inp = $('#termIn');
+        const hist = []; let hi = 0;
+        const say = (t, cls) => { const d = document.createElement('div'); if (cls) d.className = cls; d.innerHTML = t; out.appendChild(d); out.scrollTop = out.scrollHeight; };
+        const hl = () => $$('.hlog-item').map(i => ({ n: $('.hlog-name', i).textContent, r: $('.hlog-res', i).textContent, win: i.classList.contains('win') }));
+        const sections = { home: 'home', about: 'about', academics: 'academics', projects: 'projects', showcase: 'showcase', achievements: 'achievements', hackathons: 'hackathon-log', log: 'build-log', certifications: 'certifications', leetcode: 'leetcode', contact: 'contact' };
+        const cmds = {
+            help: () => say('Commands: <b>whoami</b>, <b>ls projects</b>, <b>hackathons</b> [--won], <b>skills</b>, <b>experience</b>, <b>education</b>, <b>contact</b>, <b>open &lt;section&gt;</b>, <b>cv</b>, <b>theme</b>, <b>sound</b>, <b>recruiter</b>, <b>clear</b>, <b>exit</b>'),
+            whoami: () => say('Kavya Joshi — Embedded Engineer @ eInfochips · AI &amp; Software Developer. 6 hackathons won out of 15 played.'),
+            ls: a => { if (a[0] === 'projects') cards.forEach((c, i) => say(String(i + 1).padStart(2, '0') + '  ' + c.querySelector('.project-title').innerHTML)); else say('usage: ls projects', 'dim'); },
+            hackathons: a => { const w = a.includes('--won'); hl().filter(h => !w || h.win).forEach(h => say((h.win ? '★ ' : '· ') + esc(h.n) + '  <span class="dim">[' + esc(h.r) + ']</span>')); },
+            skills: () => { const f = {}; $$('.tech-tag').forEach(t => { const k = t.textContent.trim(); f[k] = (f[k] || 0) + 1; }); say(Object.entries(f).sort((a, b) => b[1] - a[1]).slice(0, 18).map(([k, v]) => esc(k) + ' <span class="dim">×' + v + '</span>').join('  ·  ')); },
+            experience: () => { say('Embedded Engineer — eInfochips (An Arrow Company), campus placement'); say('AI/ML &amp; Full Stack Intern — Cygnet.One (Jun–Jul 2026)'); say('Founder &amp; CEO — CarbonVerse'); say('ACM Membership Chair · IEEE Student Member · Student Coordinator, CyberShadez 2026'); },
+            education: () => say('B.Tech Computer Science — GLS University, Ahmedabad · CGPA 8.92'),
+            contact: () => say('Email: <a href="mailto:kavyajoshi152005@gmail.com">kavyajoshi152005@gmail.com</a><br>GitHub: <a href="https://github.com/KAVYAJOSHI1" target="_blank" rel="noopener noreferrer">KAVYAJOSHI1</a> · LinkedIn: <a href="https://www.linkedin.com/in/kavya-joshi-3765742b0" target="_blank" rel="noopener noreferrer">kavya-joshi</a>'),
+            open: a => { const id = sections[(a[0] || '').toLowerCase()]; if (!id) return say('usage: open &lt;' + Object.keys(sections).join('|') + '&gt;', 'dim'); closeTerm(); goTo(id); },
+            cv: () => { closeTerm(); openCV(); }, recruiter: () => { closeTerm(); openRec(); },
+            theme: () => { const b = $('#themeToggle'); if (b) b.click(); say('theme toggled', 'dim'); },
+            sound: () => { setSound(!soundOn); say('sound ' + (soundOn ? 'on' : 'off'), 'dim'); },
+            clear: () => { out.innerHTML = ''; }, exit: () => closeTerm(),
+            sudo: () => say('nice try — this portfolio is read-only. 😄'),
+            ls_: () => {}
+        };
+        function runLine(line) {
+            say('<span class="cmd">$ ' + esc(line) + '</span>');
+            const [c, ...a] = line.trim().split(/\s+/); if (!c) return;
+            track('terminal/' + c.toLowerCase());
+            (cmds[c.toLowerCase()] || (() => say('command not found: ' + esc(c) + ' — try <b>help</b>', 'dim')))(a);
+        }
+        function openTerm() { if (openOverlay) closeBox(); term.classList.add('open'); if (!out.children.length) { say('Welcome. Type <b>help</b> to see what I can do.', 'dim'); } setTimeout(() => inp.focus(), 80); }
+        function closeTerm() { term.classList.remove('open'); inp.blur(); }
+        inp.addEventListener('keydown', e => {
+            if (e.key === 'Enter') { const v = inp.value; if (v.trim()) { hist.push(v); hi = hist.length; } inp.value = ''; runLine(v); }
+            else if (e.key === 'ArrowUp') { e.preventDefault(); if (hi > 0) inp.value = hist[--hi]; }
+            else if (e.key === 'ArrowDown') { e.preventDefault(); inp.value = hi < hist.length - 1 ? hist[++hi] : (hi = hist.length, ''); }
+            else if (e.key === 'Tab') { e.preventDefault(); const m = Object.keys(cmds).filter(k => k.startsWith(inp.value) && k !== 'ls_'); if (m.length === 1) inp.value = m[0]; }
+            else if (e.key === 'Escape') closeTerm();
+        });
+        $('#termBtn').addEventListener('click', () => term.classList.contains('open') ? closeTerm() : openTerm());
+        term.querySelector('[data-close]').addEventListener('click', closeTerm);
+        window.addEventListener('keydown', e => {
+            if (e.key === '`' && !/INPUT|TEXTAREA/.test((document.activeElement || {}).tagName || '')) { e.preventDefault(); term.classList.contains('open') ? closeTerm() : openTerm(); }
+        });
+
+        // Extend the command palette (re-use its list if it exposed one; otherwise add dock shortcuts only)
+        window.__kjActions = { openCV, openRec, openTerm, setSound: () => setSound(!soundOn) };
     })();
     </script>
 </body>
