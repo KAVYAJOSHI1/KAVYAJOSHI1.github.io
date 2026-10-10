@@ -29,22 +29,22 @@ Final-year **Computer Science & Engineering** student at **GLS University** (CGP
 ## Professional Experience
 
 ### Embedded Engineer — eInfochips (An Arrow Company)
-**Role**: Embedded Engineer *(Campus Placement)* | [View Joining Letter](https://kavyajoshi1.github.io/Certificates/Einfochips%20Joining%20Letter%20Kavya%20Joshi.pdf)  
+**Role**: Embedded Engineer *(Campus Placement)*  
 * **Specialization**: Embedded Systems Engineering, IoT Firmware Development, Hardware-Software Integration, and Real-Time Systems.
 * **Core Focus**: Low-level firmware engineering, hardware peripheral optimization, board bring-up, and real-time sensor telemetry for enterprise IoT deployments.
 
 ### AI/ML & Full Stack Intern — Cygnet.One
-**Role**: AI/ML & Full Stack Intern *(June 2026 – July 2026)* | [View Certificate](https://kavyajoshi1.github.io/Certificates/Cygnet_Internship_Completion.pdf)  
+**Role**: AI/ML & Full Stack Intern *(June 2026 – July 2026)*  
 * **Enterprise AI & SDLC Automation**: Engineered enterprise AI automation agents for Jira and HR workflow integration.
 * **Backend Architecture**: Developed FastAPI backend microservices supporting REST APIs, OAuth authentication, HTTPS/TLS, AES-RSA encryption, dynamic JSON rendering, and Angular frontend integration.
 
 ### Founder & Lead Architect — CarbonVerse (ClimateTech Startup)
-**Role**: Founder *(2025 – Present)* | **Incubation**: PIERC Cohort 9, Parul University | [View Founder Certificate](https://kavyajoshi1.github.io/Certificates/CarbonVerse_Founder_Certificate.pdf)  
+**Role**: Founder *(2025 – Present)* | **Incubation**: PIERC Cohort 9, Parul University  
 * **Platform Architecture**: Designed an AI-verified carbon credit marketplace combining satellite computer vision with on-chain credit minting on Ethereum Sepolia.
 * **Incubation & Grant**: Selected for the **PIERC Cohort 9 Incubation Program** and secured non-dilutive seed startup funding.
 
 ### Membership Chair — ACM Student Chapter & IEEE Member
-**Role**: ACM Membership Chair *(GLS University)* | [View IEEE Credentials](https://kavyajoshi1.github.io/Certificates/IEEE_Membership.pdf)  
+**Role**: ACM Membership Chair *(GLS University)*  
 * Technical community leadership fostering hands-on software development for **200+ members**. Organized technical workshops, hackathons, and Track 3 at CyberShadez 2026 ("Rise of Agent").
 
 ---
